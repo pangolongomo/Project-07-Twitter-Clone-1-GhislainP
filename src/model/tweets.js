@@ -61,4 +61,19 @@ export const tweets = [
     ],
     date: "null",
   },
+  {
+    tweetAvatar: "RudByLnY_400x400.jpg",
+    tweetAuthor: "MKADIMART",
+    tweetAuthorUsername: "mkadimart",
+    isCertified: true,
+    tweetText: null,
+    tweetImage: "F_eVAZjW4AAPpBc.jpg",
+    tweetAction: [
+      { name: "message", count: 108700 },
+      { name: "repost", count: 785400 },
+      { name: "like", count: 3300000 },
+      { name: "share" },
+    ],
+    date: "null",
+  },
 ];

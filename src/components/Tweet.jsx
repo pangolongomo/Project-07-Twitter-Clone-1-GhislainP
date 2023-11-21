@@ -63,7 +63,7 @@ function Tweet({ tweet }) {
             <span className="tweet-title-details">.</span>
             <span className="tweet-title-details">Date</span>
           </h2>
-          <p className="tweet-text">{tweet.tweetText}</p>
+          {tweet.tweetText && <p className="tweet-text">{tweet.tweetText}</p>}
           {tweetImage && (
             <img
               src={tweetImage}
