@@ -12,16 +12,16 @@ function TweetEditorAction({ elementClass }) {
         <img src={iconImage} alt="insert image" />
       </button>
       <button>
-        <img src={iconGif} alt="insert image" />
+        <img src={iconGif} alt="insert GIF" />
       </button>
       <button>
-        <img src={iconGraph} alt="insert image" />
+        <img src={iconGraph} alt="insert graph" />
       </button>
       <button>
-        <img src={iconSmiley} alt="insert image" />
+        <img src={iconSmiley} alt="insert emojis" />
       </button>
       <button>
-        <img src={iconClock} alt="insert image" />
+        <img src={iconClock} alt="calendar logo" />
       </button>
     </div>
   );
