@@ -69,9 +69,9 @@ export const tweets = [
     tweetText: null,
     tweetImage: "F_eVAZjW4AAPpBc.jpg",
     tweetAction: [
-      { name: "message", count: 108700 },
-      { name: "repost", count: 785400 },
-      { name: "like", count: 3300000 },
+      { name: "message", count: 81 },
+      { name: "repost", count: 89 },
+      { name: "like", count: 383 },
       { name: "share" },
     ],
     date: "null",
