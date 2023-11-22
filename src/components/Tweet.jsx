@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { splitExtension, imageFetcher, fetchActionIcon } from "../utils/helper";
+import {
+  splitExtension,
+  imageFetcher,
+  fetchActionIcon,
+  actionCountformatter,
+} from "../utils/helper";
 import iconCertified from "../images/icons/iconCertified.svg";
 
 function Tweet({ tweet }) {
@@ -36,7 +41,7 @@ function Tweet({ tweet }) {
         {actionIcons[index] && (
           <img src={actionIcons[index]} alt={action.name} />
         )}
-        {action.count && <span>{action.count}</span>}
+        {action.count && <span>{actionCountformatter(action.count)}</span>}
       </div>
     );
   });

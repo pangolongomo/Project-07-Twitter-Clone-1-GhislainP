@@ -20,3 +20,17 @@ export async function fetchActionIcon(fileName) {
   const { default: svgImage } = await import(`../images/icons/${fileName}.svg`);
   return svgImage;
 }
+
+export function actionCountformatter(total) {
+  let formatedValue = total;
+  if (total >= 1e3) {
+    formatedValue = (total / 1e3).toFixed(1).replace("/.0$/", "") + "K";
+  }
+  if (total >= 1e6) {
+    formatedValue = (total / 1e6).toFixed(1).replace("/.0$/", "") + "M";
+  }
+  if (total >= 1e9) {
+    formatedValue = (total / 1e9).toFixed(1).replace("/.0$/", "") + "B";
+  }
+  return formatedValue;
+}
