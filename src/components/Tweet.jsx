@@ -49,11 +49,7 @@ function Tweet({ tweet }) {
   return (
     <div className="tweet">
       <div className="tweet-avatar">
-        <img
-          className="tweet-avatar"
-          src={avatarImage}
-          alt={`logo ${tweet.tweetOwnerName}`}
-        />
+        <img src={avatarImage} alt={`logo ${tweet.tweetOwnerName}`} />
       </div>
       <div className="tweet-content">
         <div className="tweet-body">
@@ -70,11 +66,9 @@ function Tweet({ tweet }) {
           </h2>
           {tweet.tweetText && <p className="tweet-text">{tweet.tweetText}</p>}
           {tweetImage && (
-            <img
-              src={tweetImage}
-              alt={tweet.tweetImage}
-              className="tweet-image"
-            />
+            <div className="tweet-image">
+              <img src={tweetImage} alt={tweet.tweetImage} />
+            </div>
           )}
         </div>
         <div className="tweet-actions">{actionList}</div>
