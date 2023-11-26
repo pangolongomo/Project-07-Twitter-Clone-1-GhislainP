@@ -4,6 +4,7 @@ import {
   imageFetcher,
   fetchActionIcon,
   actionCountformatter,
+  dateFormatter,
 } from "../utils/helper";
 import iconCertified from "../images/icons/iconCertified.svg";
 
@@ -62,7 +63,9 @@ function Tweet({ tweet }) {
               @{tweet.tweetAuthorUsername}
             </span>
             <span className="tweet-title-details">.</span>
-            <span className="tweet-title-details">Date</span>
+            <span className="tweet-title-details">
+              {dateFormatter(tweet.date)}
+            </span>
           </h2>
           {tweet.tweetText && <p className="tweet-text">{tweet.tweetText}</p>}
           {tweetImage && (

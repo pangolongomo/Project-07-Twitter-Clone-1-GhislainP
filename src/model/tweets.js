@@ -13,7 +13,7 @@ export const tweets = [
       { name: "like", count: 184 },
       { name: "share" },
     ],
-    date: "null",
+    date: "2023-11-26T05:00:00.723Z",
   },
   {
     tweetAvatar: "new_york_times.png",
@@ -29,7 +29,7 @@ export const tweets = [
       { name: "like", count: 482 },
       { name: "share" },
     ],
-    date: "null",
+    date: "2023-11-26T04:54:22.723Z",
   },
   {
     tweetAvatar: "twitter_logo.png",
@@ -44,7 +44,7 @@ export const tweets = [
       { name: "like", count: 267100 },
       { name: "share" },
     ],
-    date: "null",
+    date: "2023-10-23T16:20:21.723Z",
   },
   {
     tweetAvatar: "twitter_logo.png",
@@ -59,7 +59,7 @@ export const tweets = [
       { name: "like", count: 3300000 },
       { name: "share" },
     ],
-    date: "null",
+    date: "2023-10-04T20:18:51.723Z",
   },
   {
     tweetAvatar: "RudByLnY_400x400.jpg",
@@ -74,6 +74,20 @@ export const tweets = [
       { name: "like", count: 383 },
       { name: "share" },
     ],
-    date: "null",
+    date: "2023-11-23T18:15:22.723Z",
+  },{
+    tweetAvatar: "RudByLnY_400x400.jpg",
+    tweetAuthor: "av",
+    tweetAuthorUsername: "ffllf",
+    isCertified: true,
+    tweetText: 'sdjkvnsfm dklfvofnkmvs dkl',
+    tweetImage: null,
+    tweetAction: [
+      { name: "message", count: 81 },
+      { name: "repost", count: 89 },
+      { name: "like", count: 383 },
+      { name: "share" },
+    ],
+    date: "2021-03-26T04:54:22.723Z",
   },
 ];
