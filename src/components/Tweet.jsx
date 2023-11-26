@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import {
   splitExtension,
   imageFetcher,
-  fetchActionIcon,
   actionCountformatter,
   dateFormatter,
+  fetchIcons,
 } from "../utils/helper";
-import iconCertified from "../images/icons/iconCertified.svg";
+import iconCertified from "../icons/iconCertified.svg";
 
 function Tweet({ tweet }) {
   const [avatarImage, setAvatarImage] = useState(null);
@@ -28,12 +28,13 @@ function Tweet({ tweet }) {
     async function getActionIcon() {
       const icons = await Promise.all(
         tweet.tweetAction.map(async (action) => {
-          return await fetchActionIcon(action.name);
+          return await fetchIcons(action.name);
         })
       );
       return icons;
     }
     getActionIcon().then((icons) => setActionIcons(icons));
+    console.log('a');
   }, [tweet.tweetAction]);
 
   const actionList = tweet.tweetAction.map((action, index) => {

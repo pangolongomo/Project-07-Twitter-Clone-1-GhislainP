@@ -16,8 +16,8 @@ export async function imageFetcher([fileName, fileExtension]) {
   return image;
 }
 
-export async function fetchActionIcon(fileName) {
-  const { default: svgImage } = await import(`../images/icons/${fileName}.svg`);
+export async function fetchIcons(fileName) {
+  const { default: svgImage } = await import(`../icons/${fileName}.svg`);
   return svgImage;
 }
 

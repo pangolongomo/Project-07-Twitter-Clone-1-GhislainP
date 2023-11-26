@@ -1,4 +1,4 @@
-import stars from "../images/icons/stars.svg";
+import stars from "../icons/stars.svg";
 
 function Header() {
   return (
