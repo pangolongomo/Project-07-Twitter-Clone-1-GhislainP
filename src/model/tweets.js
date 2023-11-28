@@ -1,5 +1,6 @@
 export const tweets = [
   {
+    tweetId: 0,
     tweetAvatar: "tweet-profile-photo.png",
     tweetAuthor: "CNN",
     tweetAuthorUsername: "CNN",
@@ -16,6 +17,7 @@ export const tweets = [
     date: "2023-11-26T05:00:00.723Z",
   },
   {
+    tweetId: 1,
     tweetAvatar: "new_york_times.png",
     tweetAuthor: "The New York Times",
     tweetAuthorUsername: "nytimes",
@@ -32,6 +34,7 @@ export const tweets = [
     date: "2023-11-26T04:54:22.723Z",
   },
   {
+    tweetId: 2,
     tweetAvatar: "twitter_logo.png",
     tweetAuthor: "Twitter",
     tweetAuthorUsername: "Twitter",
@@ -47,6 +50,7 @@ export const tweets = [
     date: "2023-10-23T16:20:21.723Z",
   },
   {
+    tweetId: 3,
     tweetAvatar: "twitter_logo.png",
     tweetAuthor: "Twitter",
     tweetAuthorUsername: "Twitter",
@@ -62,6 +66,7 @@ export const tweets = [
     date: "2023-10-04T20:18:51.723Z",
   },
   {
+    tweetId: 4,
     tweetAvatar: "RudByLnY_400x400.jpg",
     tweetAuthor: "MKADIMART",
     tweetAuthorUsername: "mkadimart",
@@ -75,12 +80,14 @@ export const tweets = [
       { name: "share" },
     ],
     date: "2023-11-23T18:15:22.723Z",
-  },{
+  },
+  {
+    tweetId: 5,
     tweetAvatar: "RudByLnY_400x400.jpg",
     tweetAuthor: "av",
     tweetAuthorUsername: "ffllf",
     isCertified: true,
-    tweetText: 'sdjkvnsfm dklfvofnkmvs dkl',
+    tweetText: "sdjkvnsfm dklfvofnkmvs dkl",
     tweetImage: null,
     tweetAction: [
       { name: "message", count: 81 },

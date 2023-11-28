@@ -34,7 +34,6 @@ function Tweet({ tweet }) {
       return icons;
     }
     getActionIcon().then((icons) => setActionIcons(icons));
-    console.log('a');
   }, [tweet.tweetAction]);
 
   const actionList = tweet.tweetAction.map((action, index) => {
