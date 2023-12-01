@@ -1,47 +1,10 @@
-import React, { useEffect, useState } from "react";
-import {
-  splitExtension,
-  imageFetcher,
-  actionCountformatter,
-  dateFormatter,
-  fetchIcons,
-} from "../utils/helper";
-import iconCertified from "../icons/iconCertified.svg";
+import { actionCountformatter, dateFormatter } from "../utils/helper";
 
 function Tweet({ tweet }) {
-  const [avatarImage, setAvatarImage] = useState(null);
-  const [tweetImage, setTweetImage] = useState(null);
-  const [actionIcons, setActionIcons] = useState([]);
-
-  useEffect(() => {
-    const imageFilename = splitExtension(tweet.tweetAvatar);
-    imageFetcher(imageFilename).then((image) => setAvatarImage(image));
-  }, [tweet.tweetAvatar]);
-
-  useEffect(() => {
-    if (!tweet.tweetImage) return;
-    const imageFilename = splitExtension(tweet.tweetImage);
-    imageFetcher(imageFilename).then((image) => setTweetImage(image));
-  }, [tweet.tweetImage]);
-
-  useEffect(() => {
-    async function getActionIcon() {
-      const icons = await Promise.all(
-        tweet.tweetAction.map(async (action) => {
-          return await fetchIcons(action.name);
-        })
-      );
-      return icons;
-    }
-    getActionIcon().then((icons) => setActionIcons(icons));
-  }, [tweet.tweetAction]);
-
   const actionList = tweet.tweetAction.map((action, index) => {
     return (
       <div className="tweet-action" key={index}>
-        {actionIcons[index] && (
-          <img src={actionIcons[index]} alt={action.name} />
-        )}
+        {action.iconLink && <img src={action.iconLink} alt={action.name} />}
         {action.count && <span>{actionCountformatter(action.count)}</span>}
       </div>
     );
@@ -50,14 +13,19 @@ function Tweet({ tweet }) {
   return (
     <div className="tweet">
       <div className="tweet-avatar">
-        <img src={avatarImage} alt={`logo ${tweet.tweetOwnerName}`} />
+        <img src={tweet.tweetAvatar} alt={`logo ${tweet.tweetOwnerName}`} />
       </div>
       <div className="tweet-content">
         <div className="tweet-body">
           <h2 className="tweet-title">
             <span className="tweet-title-author">{tweet.tweetAuthor}</span>
             <span className="tweet-title-author">
-              {tweet.isCertified && <img src={iconCertified} alt="certified" />}
+              {tweet.isCertified && (
+                <img
+                  src="https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449372/Project-07-Twitter-Clone-1-GhislainP/icons/iconCertified_cei6tf.svg"
+                  alt="certified"
+                />
+              )}
             </span>
             <span className="tweet-title-details">
               @{tweet.tweetAuthorUsername}
@@ -68,9 +36,9 @@ function Tweet({ tweet }) {
             </span>
           </h2>
           {tweet.tweetText && <p className="tweet-text">{tweet.tweetText}</p>}
-          {tweetImage && (
+          {tweet.tweetImage && (
             <div className="tweet-image">
-              <img src={tweetImage} alt={tweet.tweetImage} />
+              <img src={tweet.tweetImage} alt="{tweet.tweetImage}" />
             </div>
           )}
         </div>

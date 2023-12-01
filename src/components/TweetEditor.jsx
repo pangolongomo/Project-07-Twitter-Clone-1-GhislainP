@@ -1,35 +1,23 @@
-import avatarImage from "../images/profile-photo.png";
 import Avatar from "./Avatar";
-import { useEffect, useState } from "react";
-import { fetchIcons } from "../utils/helper";
 
 function TweetEditor() {
-  const [editorIcons, setEditorIcons] = useState([]);
-  const iconNames = [
-    "iconImage",
-    "iconGif",
-    "iconGraph",
-    "iconSmiley",
-    "iconClock",
+  const icons = [
+    "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449366/Project-07-Twitter-Clone-1-GhislainP/icons/iconImage_bxfs5b.svg",
+    "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449366/Project-07-Twitter-Clone-1-GhislainP/icons/iconGif_rkyuwp.svg",
+    "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449366/Project-07-Twitter-Clone-1-GhislainP/icons/iconGraph_s1hdcx.svg",
+    "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449367/Project-07-Twitter-Clone-1-GhislainP/icons/iconSmiley_tstjwj.svg",
+    "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449370/Project-07-Twitter-Clone-1-GhislainP/icons/iconClock_mc1hoe.svg",
   ];
-  useEffect(() => {
-    async function getIcons() {
-      const icons = await Promise.all(
-        iconNames.map(async (icon) => {
-          return await fetchIcons(icon);
-        })
-      );
-      setEditorIcons(icons);
-    }
-    getIcons();
-  }, []);
-  const buttonList = editorIcons.map((editorButton, index) => {
+
+  const buttonList = icons.map((editorButton, index) => {
     return (
       <button key={index}>
         <img src={editorButton} alt="insert image" />
       </button>
     );
   });
+  const avatarImage =
+    "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/profile-photo_opdacz.png";
   return (
     <div className="tweet-editor">
       <Avatar avatarClass="avatar" image={avatarImage} description="avatar" />

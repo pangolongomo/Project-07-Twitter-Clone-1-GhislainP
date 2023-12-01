@@ -1,7 +1,8 @@
 export const tweets = [
   {
     tweetId: 0,
-    tweetAvatar: "tweet-profile-photo.png",
+    tweetAvatar:
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/tweet-profile-photo_eqebam.png",
     tweetAuthor: "CNN",
     tweetAuthorUsername: "CNN",
     isCertified: true,
@@ -18,13 +19,15 @@ export const tweets = [
   },
   {
     tweetId: 1,
-    tweetAvatar: "new_york_times.png",
+    tweetAvatar:
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448975/Project-07-Twitter-Clone-1-GhislainP/images/new_york_times_q9kpm1.png",
     tweetAuthor: "The New York Times",
     tweetAuthorUsername: "nytimes",
     isCertified: true,
     tweetText:
       "Gardening boomed during the pandemic. Six Black writers share how has helped them re-establish, and reimaginem a connection to cultivation and the land",
-    tweetImage: "tweet-image.png",
+    tweetImage:
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448977/Project-07-Twitter-Clone-1-GhislainP/images/tweet-image_du5bjz.png",
     tweetAction: [
       { name: "message", count: 19 },
       { name: "repost", count: 48 },
@@ -35,7 +38,8 @@ export const tweets = [
   },
   {
     tweetId: 2,
-    tweetAvatar: "twitter_logo.png",
+    tweetAvatar:
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/twitter_logo_s3lzjo.png",
     tweetAuthor: "Twitter",
     tweetAuthorUsername: "Twitter",
     isCertified: true,
@@ -51,28 +55,31 @@ export const tweets = [
   },
   {
     tweetId: 3,
-    tweetAvatar: "twitter_logo.png",
+    tweetAvatar:
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/twitter_logo_s3lzjo.png",
     tweetAuthor: "Twitter",
     tweetAuthorUsername: "Twitter",
     isCertified: true,
     tweetText: "hello literally everyone",
     tweetImage: null,
     tweetAction: [
-      { name: "message", count: 108700 },
-      { name: "repost", count: 785400 },
-      { name: "like", count: 3300000 },
-      { name: "share" },
+      { name: "message", iconLink:'https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449368/Project-07-Twitter-Clone-1-GhislainP/icons/message_rp01g9.svg', count: 108700 },
+      { name: "repost",iconLink:'https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449368/Project-07-Twitter-Clone-1-GhislainP/icons/repost_ihwekx.svg', count: 785400 },
+      { name: "like",iconLink:'https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449367/Project-07-Twitter-Clone-1-GhislainP/icons/like_wjthmr.svg', count: 3300000 },
+      { name: "share",iconLink:'https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449369/Project-07-Twitter-Clone-1-GhislainP/icons/share_hgkr72.svg' },
     ],
     date: "2023-10-04T20:18:51.723Z",
   },
   {
     tweetId: 4,
-    tweetAvatar: "RudByLnY_400x400.jpg",
+    tweetAvatar:
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/RudByLnY_400x400_kkpfpk.jpg",
     tweetAuthor: "MKADIMART",
     tweetAuthorUsername: "mkadimart",
     isCertified: true,
     tweetText: null,
-    tweetImage: "F_eVAZjW4AAPpBc.jpg",
+    tweetImage:
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/F_eVAZjW4AAPpBc_nonkfd.jpg",
     tweetAction: [
       { name: "message", count: 81 },
       { name: "repost", count: 89 },
@@ -83,7 +90,8 @@ export const tweets = [
   },
   {
     tweetId: 5,
-    tweetAvatar: "RudByLnY_400x400.jpg",
+    tweetAvatar:
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/RudByLnY_400x400_kkpfpk.jpg",
     tweetAuthor: "av",
     tweetAuthorUsername: "ffllf",
     isCertified: true,
