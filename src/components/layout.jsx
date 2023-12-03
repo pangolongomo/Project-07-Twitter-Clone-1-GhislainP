@@ -1,13 +1,14 @@
-import React from 'react';
+import { Outlet } from "react-router-dom";
+import("../style/Home.css");
 
-function Layout({children}) {
-    return (
-        <>
-            <div className="left-sidebar"/>
-            {children}
-            <div className="right-sidebar" />
-        </>
-    );
+function Layout() {
+  return (
+    <>
+      <div className="left-sidebar" />
+      <Outlet />
+      <div className="right-sidebar" />
+    </>
+  );
 }
 
 export default Layout;
