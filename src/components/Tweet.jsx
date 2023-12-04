@@ -1,10 +1,15 @@
-import { actionCountformatter, dateFormatter } from "../utils/helper";
+import {
+  actionCountformatter,
+  dateFormatter,
+  getActionIcon,
+} from "../utils/helper";
 
 function Tweet({ tweet }) {
   const actionList = tweet.tweetAction.map((action, index) => {
     return (
       <div className="tweet-action" key={index}>
-        {action.iconLink && <img src={action.iconLink} alt={action.name} />}
+        <img src={getActionIcon(action.name)} alt={action.name} />
+
         {action.count && <span>{actionCountformatter(action.count)}</span>}
       </div>
     );

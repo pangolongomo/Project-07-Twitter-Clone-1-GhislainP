@@ -1,38 +1,14 @@
-export function splitExtension(filename) {
-  const i = filename.lastIndexOf(".");
-  return [filename.slice(0, i), filename.slice(i)];
-}
-
-export async function imageFetcher([fileName, fileExtension]) {
-  let image = null;
-  if (fileExtension === ".jpg") {
-    const { default: jpgImage } = await import(`../images/${fileName}.jpg`);
-    image = jpgImage;
-  } else if (fileExtension === ".png") {
-    const { default: pngImage } = await import(`../images/${fileName}.png`);
-    image = pngImage;
-  }
-
-  return image;
-}
-
-export async function fetchIcons(fileName) {
-  const { default: svgImage } = await import(`../icons/${fileName}.svg`);
-  return svgImage;
-}
-
 export function actionCountformatter(total) {
-  let formatedValue = total;
-  if (total >= 1e3) {
-    return (formatedValue = (total / 1e3).toFixed(1).replace(".0", "") + "K");
+  function formatValue(divider, rank) {
+    return (total / divider).toFixed(1).replace(".0", "") + rank;
   }
-  if (total >= 1e6) {
-    return (formatedValue = (total / 1e6).toFixed(1).replace(".0", "") + "M");
-  }
-  if (total >= 1e9) {
-    return (formatedValue = (total / 1e9).toFixed(1).replace(".0", "") + "B");
-  }
-  return formatedValue;
+  if (total < 1e3) {
+    return total;
+  } else if (total < 1e6) {
+    return formatValue(1e3, "K");
+  } else if (total < 1e9) {
+    return formatValue(1e6, "M");
+  } else return formatValue(1e9, "B");
 }
 
 export function dateFormatter(date) {
@@ -79,4 +55,22 @@ function monthFormater(month) {
   else if (month === 9) return "Oct";
   else if (month === 10) return "Nov";
   else if (month === 11) return "Dec";
+}
+
+export function getActionIcon(name) {
+  let link = null;
+  if (name === "message") {
+    link =
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449368/Project-07-Twitter-Clone-1-GhislainP/icons/message_rp01g9.svg";
+  } else if (name === "repost") {
+    link =
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449368/Project-07-Twitter-Clone-1-GhislainP/icons/repost_ihwekx.svg";
+  } else if (name === "like") {
+    link =
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449367/Project-07-Twitter-Clone-1-GhislainP/icons/like_wjthmr.svg";
+  } else if (name === "share") {
+    link =
+      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449369/Project-07-Twitter-Clone-1-GhislainP/icons/share_hgkr72.svg";
+  }
+  return link;
 }
