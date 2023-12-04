@@ -1,4 +1,4 @@
-import Tweet from "./tweet";
+import Tweet from "./Tweet";
 import { tweets } from "../model/tweets";
 
 function Tweets() {
