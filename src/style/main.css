@@ -11,6 +11,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-family: "Inter", sans-serif;
+  position: relative;
 }
 
 .top-tweets {
@@ -30,17 +32,6 @@ body {
   gap: 20px;
   padding: 0.3rem 1rem;
   border-bottom: 1px solid #2f3336;
-}
-
-.avatar {
-  flex: 0 0 70px;
-  /*padding: 0 rem;*/
-}
-
-.avatar img {
-  max-width: 100%;
-  max-height: 100px;
-  border-radius: 100%;
 }
 
 .tweet-editor-form {
@@ -95,17 +86,6 @@ body {
   border-bottom: 1px solid #2f3336;
 }
 
-.tweet-avatar {
-  /* height: 70px;
-    width: 70px; */
-  flex: 0 0 70px;
-}
-
-.tweet-avatar img {
-  max-width: 100%;
-  max-height: 100px;
-  border-radius: 100%;
-}
 .tweet-content {
   display: flex;
   flex-direction: column;

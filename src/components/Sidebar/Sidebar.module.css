@@ -1,0 +1,7 @@
+.sidebar .container {
+  height: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

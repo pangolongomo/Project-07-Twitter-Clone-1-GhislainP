@@ -6,10 +6,9 @@ import { VscSmiley } from "react-icons/vsc";
 import { TbCalendarStats } from "react-icons/tb";
 import styles from "./TweetEditor.module.css";
 import Button from "../Button";
+import { avatarImage } from "../../model/images";
 
 function TweetEditor() {
-  const avatarImage =
-    "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/profile-photo_opdacz.png";
   return (
     <div className={[styles.tweetEditor, "tweet-editor"].join(" ")}>
       <Avatar avatarClass="avatar" image={avatarImage} description="avatar" />

@@ -2,12 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./SideNavigationButton.module.css";
 
-function SideNavigationButton({ icon, text, link }) {
-    console.log(icon);
+function SideNavigationButton({ navigationButton }) {
+  const { link, text, icon: Icon } = navigationButton;
   return (
     <li className={styles.sideNavigationButton}>
       <NavLink to={link}>
-        {icon}
+        <Icon />
         {text && <span>{text}</span>}
       </NavLink>
     </li>

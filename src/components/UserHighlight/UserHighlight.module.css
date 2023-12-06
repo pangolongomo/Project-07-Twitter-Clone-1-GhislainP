@@ -1,0 +1,8 @@
+.userHighlight {
+  display: flex;
+  align-items: center;
+}
+
+.userHighlight .aboutAuthor {
+  margin-right: 2rem;
+}

@@ -5,18 +5,20 @@ import { navigationButtons } from "../../model/navigationButtons";
 import Button from "../Button";
 
 function SideNavigation() {
+  function clickOnTweet() {
+
+  }
   return (
     <ul className={styles.sideNavigation}>
-      {navigationButtons.map((navigationButton) => {
+      {navigationButtons.map((navigationButton, id) => {
         return (
           <SideNavigationButton
-            icon={navigationButton.icon}
-            text={navigationButton.text}
-            link={navigationButton.link}
+            key={id}
+            navigationButton={navigationButton}
           />
         );
       })}
-      <Button type={2} text="Tweet" />
+      <Button type={2} text="Tweet" action={clickOnTweet} />
     </ul>
   );
 }

@@ -1,5 +1,13 @@
+.sideNavigationButton {
+  list-style: none;
+  margin-left: 1rem;
+}
 .sideNavigationButton a {
   display: flex;
   gap: 10px;
   flex-wrap: nowrap;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.2em;
 }
