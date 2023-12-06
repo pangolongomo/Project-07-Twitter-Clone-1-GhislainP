@@ -1,9 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./components/layout";
-import Home from "./pages/Home";
+import Layout from "./components/Layout";
+
 import("./style/reset.css");
+import("./style/main.css");
+
+import Home from "./pages/Home";
+import Profile from './pages/Profile'
 
 const router = createBrowserRouter([
   {
@@ -11,7 +15,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/profile", element: <div>Profile</div> },
+      { path: "/profile", element: <Profile/> },
     ],
   },
 ]);

@@ -1,0 +1,11 @@
+.header {
+    padding: 1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #2f3336;
+  }
+.header svg {
+  width: 1.5em;
+  height: 1.5em;
+}

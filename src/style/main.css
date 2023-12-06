@@ -13,21 +13,6 @@ body {
   justify-content: space-between;
 }
 
-.timeline {
-  flex: 0 0 800px;
-  font-family: "Inter", sans-serif;
-  border-left: 1px solid #2f3336;
-  border-right: 1px solid #2f3336;
-}
-
-.header {
-  padding: 1.5rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #2f3336;
-}
-
 .top-tweets {
   width: 1.5rem;
   height: auto;

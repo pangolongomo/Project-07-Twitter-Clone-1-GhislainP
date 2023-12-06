@@ -1,0 +1,14 @@
+.button {
+  text-transform: capitalize;
+  border: none;
+  border-radius: 50px;
+  background-color: #1d9bf0;
+  color: white;
+  font-size: 1rem;
+}
+.button.type1 {
+  padding: 0.7rem 1.5rem;
+}
+.button.type2 {
+  padding: 1rem 5rem;
+}

@@ -57,20 +57,4 @@ function monthFormater(month) {
   else if (month === 11) return "Dec";
 }
 
-export function getActionIcon(name) {
-  let link = null;
-  if (name === "message") {
-    link =
-      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449368/Project-07-Twitter-Clone-1-GhislainP/icons/message_rp01g9.svg";
-  } else if (name === "repost") {
-    link =
-      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449368/Project-07-Twitter-Clone-1-GhislainP/icons/repost_ihwekx.svg";
-  } else if (name === "like") {
-    link =
-      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449367/Project-07-Twitter-Clone-1-GhislainP/icons/like_wjthmr.svg";
-  } else if (name === "share") {
-    link =
-      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701449369/Project-07-Twitter-Clone-1-GhislainP/icons/share_hgkr72.svg";
-  }
-  return link;
-}
+export const iconSizes = { width: "1.5em", height: "1.5em" };

@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
-import("../style/Home.css");
+import Sidebar from "./Sidebar";
+import Trends from "./Trends";
 
 function Layout() {
   return (
     <>
-      <div className="left-sidebar" />
+      <Sidebar />
       <Outlet />
-      <div className="right-sidebar" />
+      <Trends />
     </>
   );
 }

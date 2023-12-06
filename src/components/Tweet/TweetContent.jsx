@@ -1,12 +1,29 @@
-import { dateFormatter } from "../../utils/helper";
-import { Verified } from "@mui/icons-material";
-import { actionCountformatter, getActionIcon } from "../../utils/helper";
+import { dateFormatter, iconSizes } from "../../utils/helper";
+import { RiVerifiedBadgeFill } from "react-icons/ri";
+import { actionCountformatter } from "../../utils/helper";
+import { BiMessageRounded, BiRepost } from "react-icons/bi";
+import { IoMdHeartEmpty } from "react-icons/io";
+import { FiShare } from "react-icons/fi";
+
+function getActionIcon(name) {
+  let icon = null;
+  if (name === "message") {
+    icon = <BiMessageRounded style={iconSizes} />;
+  } else if (name === "repost") {
+    icon = <BiRepost style={iconSizes} />;
+  } else if (name === "like") {
+    icon = <IoMdHeartEmpty style={iconSizes} />;
+  } else if (name === "share") {
+    icon = <FiShare style={iconSizes} />;
+  }
+  return icon;
+}
 
 function TweetContent({ tweet }) {
   const actionList = tweet.tweetAction.map((action, index) => {
     return (
       <div className="tweet-action" key={index}>
-        <img src={getActionIcon(action.name)} alt={action.name} />
+        <span>{getActionIcon(action.name)}</span>
 
         {action.count && <span>{actionCountformatter(action.count)}</span>}
       </div>
@@ -18,7 +35,7 @@ function TweetContent({ tweet }) {
         <h2 className="tweet-title">
           <span className="tweet-title-author">{tweet.tweetAuthor}</span>
           <span className="tweet-title-author">
-            {tweet.isCertified && <Verified />}
+            {tweet.isCertified && <RiVerifiedBadgeFill />}
           </span>
           <span className="tweet-title-details">
             @{tweet.tweetAuthorUsername}
