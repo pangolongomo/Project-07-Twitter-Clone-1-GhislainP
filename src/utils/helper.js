@@ -1,12 +1,13 @@
-export function actionCountformatter(total) {
+export function actionCountformatter(total, isAction) {
   function formatValue(divider, rank) {
-    return (total / divider).toFixed(1).replace(".0", "") + rank;
+    const newTotal = isAction ? total + 1 : total;
+    return (newTotal / divider).toFixed(1).replace(".0", "") + rank;
   }
-  if (total < 1e3) {
-    return total;
-  } else if (total < 1e6) {
+  if (newTotal < 1e3) {
+    return newTotal;
+  } else if (newTotal < 1e6) {
     return formatValue(1e3, "K");
-  } else if (total < 1e9) {
+  } else if (newTotal < 1e9) {
     return formatValue(1e6, "M");
   } else return formatValue(1e9, "B");
 }

@@ -25,7 +25,9 @@ function TweetContent({ tweet }) {
       <div className="tweet-action" key={index}>
         <span>{getActionIcon(action.name)}</span>
 
-        {action.count && <span>{actionCountformatter(action.count)}</span>}
+        {action.count && (
+          <span>{actionCountformatter(action.count, action.isAction)}</span>
+        )}
       </div>
     );
   });
