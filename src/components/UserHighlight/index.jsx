@@ -9,7 +9,7 @@ function index(props) {
     authorName,
     authorUsername,
     authorDescritionIcon: IconDesc,
-    actionButton: ActionButton,
+    children,
   } = props;
   return (
     <div className={styles.userHighlight}>
@@ -19,12 +19,12 @@ function index(props) {
         description={avatarClass}
       />
       <div className={styles.aboutAuthor}>
-        <div className={styles.authorName}>
-          {authorName} <IconDesc />
+        <div className="tweet-title-author">
+          {authorName} {IconDesc && <IconDesc />}
         </div>
-        <div className={styles.authorUsername}>@{authorUsername}</div>
+        <div className="tweet-title-details">@{authorUsername}</div>
       </div>
-      <ActionButton />
+      {children}
     </div>
   );
 }

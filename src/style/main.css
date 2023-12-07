@@ -10,9 +10,8 @@ body {
 #root {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content:center;
   font-family: "Inter", sans-serif;
-  position: relative;
 }
 
 .top-tweets {

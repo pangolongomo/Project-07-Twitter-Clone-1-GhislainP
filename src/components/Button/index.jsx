@@ -6,6 +6,9 @@ function Button({ text, type, action }) {
   if (type === 2) {
     buttonSytle = styles.type2;
   }
+  if (type === 3) {
+    buttonSytle = styles.type3;
+  }
   return (
     <div className={[styles.button, buttonSytle].join(" ")} onClick={action}>
       {text}

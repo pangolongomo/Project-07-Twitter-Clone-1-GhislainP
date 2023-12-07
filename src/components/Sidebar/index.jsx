@@ -10,15 +10,16 @@ function Sidebar() {
   return (
     <div className={styles.sidebar}>
       <div className={styles.container}>
-      <SideNavigation />
-      <UserHighlight
-        avatarClass="avatar"
-        avatarImage={avatarImage}
-        authorName="Bradley Ortiz"
-        authorUsername="bradley_"
-        authorDescritionIcon={RiLock2Fill}
-        actionButton={BsThreeDots}
-      />
+        <SideNavigation />
+        <UserHighlight
+          avatarClass="avatar"
+          avatarImage={avatarImage}
+          authorName="Bradley Ortiz"
+          authorUsername="bradley_"
+          authorDescritionIcon={RiLock2Fill}
+        >
+          <BsThreeDots />
+        </UserHighlight>
       </div>
     </div>
   );

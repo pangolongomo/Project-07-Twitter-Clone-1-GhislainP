@@ -1,6 +1,11 @@
+.sidebar {
+  position: relative;
+  display: inline-block;
+}
 .sidebar .container {
   height: 100%;
   position: fixed;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

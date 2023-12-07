@@ -1,0 +1,12 @@
+.suggestionMenu {
+  padding: 1rem;
+  background-color: #202327;
+  border-radius: 20px;
+  display: flex;flex-direction: column;
+  gap: 1.5rem;
+}
+.suggestionMenu a {
+  color: #1d9bf0;
+  font-weight: 700;
+  text-decoration: none;
+}
