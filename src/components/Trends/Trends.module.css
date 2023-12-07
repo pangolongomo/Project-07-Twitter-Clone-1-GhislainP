@@ -3,8 +3,6 @@
 }
 .trends .container {
   display: flex;
-  height: 100%;
-  position: fixed;
   flex-direction: column;
   padding: 0.5rem 2rem;
   gap: 1rem;

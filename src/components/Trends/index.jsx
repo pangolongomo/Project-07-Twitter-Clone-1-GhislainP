@@ -30,6 +30,24 @@ function Trends() {
             );
           })}
         </SuggestionMenu>
+        <SuggestionMenu title="Who to follow">
+          {tweets.slice(0, 3).map((element) => {
+            return (
+              <UserHighlight
+                key={element.tweetId}
+                avatarClass="tweet-avatar"
+                avatarImage={element.tweetAvatar}
+                authorName={element.tweetAuthor}
+                authorUsername={element.tweetAuthorUsername}
+                authorDescritionIcon={
+                  element.isCertified && RiVerifiedBadgeFill
+                }
+              >
+                <Button text="Follow" type={3} />
+              </UserHighlight>
+            );
+          })}
+        </SuggestionMenu>
       </div>
     </div>
   );

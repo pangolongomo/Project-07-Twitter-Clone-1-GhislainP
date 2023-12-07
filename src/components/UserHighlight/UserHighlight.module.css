@@ -1,8 +1,15 @@
 .userHighlight {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .userHighlight .aboutAuthor {
   margin-right: 2rem;
+}
+.userHighlight .userDesc {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: nowrap;
 }
