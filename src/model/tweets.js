@@ -12,7 +12,7 @@ export const tweets = [
     tweetAction: [
       { name: "message", count: 57 },
       { name: "repost", count: 144 },
-      { name: "like", count: 184 },
+      { name: "like", isLiked: false, count: 184 },
       { name: "share" },
     ],
     date: "2023-11-26T05:00:00.723Z",
@@ -31,7 +31,7 @@ export const tweets = [
     tweetAction: [
       { name: "message", count: 19 },
       { name: "repost", count: 48 },
-      { name: "like", count: 482 },
+      { name: "like",isLiked: false, count: 482 },
       { name: "share" },
     ],
     date: "2023-11-26T04:54:22.723Z",
@@ -48,7 +48,7 @@ export const tweets = [
     tweetAction: [
       { name: "message", count: 6800 },
       { name: "repost", count: 36600 },
-      { name: "like", count: 267100 },
+      { name: "like",isLiked: false, count: 267100 },
       { name: "share" },
     ],
     date: "2023-10-23T16:20:21.723Z",
@@ -65,7 +65,7 @@ export const tweets = [
     tweetAction: [
       { name: "message", count: 108700 },
       { name: "repost", count: 785400 },
-      { name: "like", count: 3300000 },
+      { name: "like",isLiked: false, count: 3300000 },
       { name: "share" },
     ],
     date: "2023-10-04T20:18:51.723Z",
@@ -83,7 +83,7 @@ export const tweets = [
     tweetAction: [
       { name: "message", count: 81 },
       { name: "repost", count: 89 },
-      { name: "like", count: 383 },
+      { name: "like",isLiked: false, count: 383 },
       { name: "share" },
     ],
     date: "2023-11-23T18:15:22.723Z",
@@ -100,7 +100,7 @@ export const tweets = [
     tweetAction: [
       { name: "message", count: 81 },
       { name: "repost", count: 89 },
-      { name: "like", count: 383 },
+      { name: "like",isLiked: false, count: 383 },
       { name: "share" },
     ],
     date: "2021-03-26T04:54:22.723Z",
