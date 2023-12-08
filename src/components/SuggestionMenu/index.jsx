@@ -16,5 +16,3 @@ function SuggestionMenu({ title, optionIcon: Icon, children }) {
 }
 
 export default SuggestionMenu;
-
-// "tweet-avatar"

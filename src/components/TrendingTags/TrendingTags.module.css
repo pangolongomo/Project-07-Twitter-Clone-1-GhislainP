@@ -1,0 +1,13 @@
+.trendingTags {
+  color: #6e767d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.trendingTags h4 {
+  color: #ffffff;
+}
+.trendingTags p {
+  font-weight: 500;
+  font-size: 0.8rem;
+}

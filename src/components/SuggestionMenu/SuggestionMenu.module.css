@@ -2,19 +2,22 @@
   padding: 1rem;
   background-color: #202327;
   border-radius: 20px;
-  display: flex;flex-direction: column;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 .suggestionMenu a {
   color: #1d9bf0;
   font-weight: 700;
   text-decoration: none;
+  outline: none;
 }
 
-.suggestionMenu .topMenu{
+.suggestionMenu .topMenu {
   display: flex;
   justify-content: space-between;
-} .topMenu svg {
+}
+.topMenu svg {
   width: 1.5rem;
   height: 1.5rem;
 }
