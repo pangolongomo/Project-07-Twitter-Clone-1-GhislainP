@@ -1,6 +1,6 @@
 export function actionCountformatter(total, isAction) {
+  const newTotal = isAction ? total + 1 : total;
   function formatValue(divider, rank) {
-    const newTotal = isAction ? total + 1 : total;
     return (newTotal / divider).toFixed(1).replace(".0", "") + rank;
   }
   if (newTotal < 1e3) {
