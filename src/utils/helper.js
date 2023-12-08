@@ -1,3 +1,7 @@
+import { BiMessageRounded, BiRepost } from "react-icons/bi";
+import { IoMdHeartEmpty } from "react-icons/io";
+import { FiShare } from "react-icons/fi";
+
 export function actionCountformatter(total, isAction) {
   const newTotal = isAction ? total + 1 : total;
   function formatValue(divider, rank) {
@@ -59,3 +63,17 @@ function monthFormater(month) {
 }
 
 export const iconSizes = { width: "1.5em", height: "1.5em" };
+
+export function getActionIcon(name) {
+  let icon = null;
+  if (name === "message") {
+    icon = BiMessageRounded;
+  } else if (name === "repost") {
+    icon = BiRepost;
+  } else if (name === "like") {
+    icon = IoMdHeartEmpty;
+  } else if (name === "share") {
+    icon = FiShare;
+  }
+  return icon;
+}
