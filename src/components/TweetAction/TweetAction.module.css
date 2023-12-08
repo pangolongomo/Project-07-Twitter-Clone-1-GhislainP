@@ -5,3 +5,16 @@
   gap: 20px;
 }
 
+.message:hover {
+  background-color: red;
+}
+
+.repost:hover {
+  background-color: blue;
+}
+.like:hover {
+  background-color: orange;
+}
+.share:hover {
+  background-color: pink;
+}

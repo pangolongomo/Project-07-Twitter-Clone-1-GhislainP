@@ -5,9 +5,9 @@ import TweetAction from "../TweetAction";
 function TweetActions({ tweetAction }) {
   return (
     <div className={styles.tweetActions}>
-      {tweetAction.map((action, i) => {
-        <TweetAction key={i} action={action} />;
-      })}
+      {tweetAction.map((action, i) => (
+        <TweetAction key={i} action={action} />
+      ))}
     </div>
   );
 }
