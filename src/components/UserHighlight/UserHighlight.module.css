@@ -11,5 +11,12 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-  flex-wrap: nowrap;
+}
+
+.userHighlight .tweetTitleAuthor {
+  font-size: 1rem;
+}
+
+.userHighlight .tweetTitleDetails {
+  color: #6e767d;
 }

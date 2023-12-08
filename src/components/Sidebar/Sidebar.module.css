@@ -1,13 +1,14 @@
 .sidebar {
   position: relative;
+  flex: 0 0 310px;
+  display: flex;
+  justify-content: center;
 }
 .sidebar .container {
   display: flex;
-  position: sticky;
-  height: 100vh;
-  left: 0;
-  top: 0;
+  position: fixed;
+  height: 100%;
   flex-direction: column;
   justify-content: space-between;
-  padding: 4rem 2rem 0.5rem;
+  padding: 2rem 0 0 ;
 }

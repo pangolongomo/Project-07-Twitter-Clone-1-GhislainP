@@ -7,13 +7,14 @@ import UserHighlight from "../UserHighlight";
 import { tweets } from "../../model/tweets";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import Footer from "../Footer";
+import { PiGear } from "react-icons/pi";
 
 function Trends() {
   return (
     <div className={styles.trends}>
       <div className={styles.container}>
         <SearchBar placeholder="Search Twitter" />
-        <SuggestionMenu title="Who to follow">
+        <SuggestionMenu title="Trends for you" optionIcon={PiGear}>
           {tweets.slice(0, 3).map((element) => {
             return (
               <UserHighlight

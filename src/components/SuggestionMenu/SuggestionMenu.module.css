@@ -10,3 +10,11 @@
   font-weight: 700;
   text-decoration: none;
 }
+
+.suggestionMenu .topMenu{
+  display: flex;
+  justify-content: space-between;
+} .topMenu svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}

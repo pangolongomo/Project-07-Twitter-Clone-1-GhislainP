@@ -20,10 +20,10 @@ function index(props) {
           description={avatarClass}
         />
         <div className={styles.aboutAuthor}>
-          <div className="tweet-title-author">
+          <div className={styles.tweetTitleAuthor}>
             <span>{authorName}</span> {IconDesc && <IconDesc />}
           </div>
-          <div className="tweet-title-details">@{authorUsername}</div>
+          <div className={styles.tweetTitleDetails}>@{authorUsername}</div>
         </div>
       </div>
       {children}

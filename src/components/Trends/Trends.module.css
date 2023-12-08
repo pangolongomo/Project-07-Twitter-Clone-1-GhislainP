@@ -1,5 +1,6 @@
 .trends {
   position: relative;
+  flex: 0 0 400px;
 }
 .trends .container {
   display: flex;
