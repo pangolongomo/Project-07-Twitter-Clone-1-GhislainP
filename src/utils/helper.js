@@ -62,8 +62,6 @@ function monthFormater(month) {
   else if (month === 11) return "Dec";
 }
 
-export const iconSizes = { width: "1.5em", height: "1.5em" };
-
 export function getActionIcon(name) {
   let icon = null;
   if (name === "message") {

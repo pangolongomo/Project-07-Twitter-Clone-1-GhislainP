@@ -8,14 +8,7 @@
 }
 
 .tweetActions svg {
-  width: 1rem;
+  width: 1.5rem;
   height: auto;
   color: #2f3336;
-}
-
-.tweetAction {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
 }
