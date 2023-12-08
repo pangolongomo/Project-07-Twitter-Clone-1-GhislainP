@@ -6,6 +6,7 @@ import Button from "../Button";
 import UserHighlight from "../UserHighlight";
 import { tweets } from "../../model/tweets";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
+import Footer from "../Footer";
 
 function Trends() {
   return (
@@ -48,6 +49,7 @@ function Trends() {
             );
           })}
         </SuggestionMenu>
+        <Footer />
       </div>
     </div>
   );
