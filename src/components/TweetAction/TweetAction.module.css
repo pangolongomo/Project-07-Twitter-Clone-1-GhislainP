@@ -12,8 +12,12 @@
   gap: 0.5rem;
 }
 
+.tweetAction:hover {
+  cursor: pointer;
+}
+
 .tweetAction .icon {
-  padding: 0.3rem;
+  padding: 0.4rem;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -39,7 +43,9 @@
   background-color: rgba(var(--twitter-green), var(--alpha));
 }
 .like:hover,
-.like:hover svg {
+.like:hover svg,
+.colored,
+.colored svg {
   color: rgb(var(--twitter-red));
 }
 .like:hover .icon {

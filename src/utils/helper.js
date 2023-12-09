@@ -1,17 +1,17 @@
 import { BiMessageRounded, BiRepost } from "react-icons/bi";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart } from "react-icons/io";
 import { FiShare } from "react-icons/fi";
 
-export function actionCountformatter(total, isAction) {
-  const newTotal = isAction ? total + 1 : total;
+export function actionCountformatter(total) {
   function formatValue(divider, rank) {
-    return (newTotal / divider).toFixed(1).replace(".0", "") + rank;
+    return (total / divider).toFixed(1).replace(".0", "") + rank;
   }
-  if (newTotal < 1e3) {
-    return newTotal;
-  } else if (newTotal < 1e6) {
+  if (total < 1e3) {
+    return total;
+  } else if (total < 1e6) {
     return formatValue(1e3, "K");
-  } else if (newTotal < 1e9) {
+  } else if (total < 1e9) {
     return formatValue(1e6, "M");
   } else return formatValue(1e9, "B");
 }
@@ -62,14 +62,14 @@ function monthFormater(month) {
   else if (month === 11) return "Dec";
 }
 
-export function getActionIcon(name) {
+export function getActionIcon(name, actionState) {
   let icon = null;
   if (name === "message") {
     icon = BiMessageRounded;
   } else if (name === "repost") {
     icon = BiRepost;
   } else if (name === "like") {
-    icon = IoMdHeartEmpty;
+    icon = actionState ? IoMdHeart : IoMdHeartEmpty;
   } else if (name === "share") {
     icon = FiShare;
   }

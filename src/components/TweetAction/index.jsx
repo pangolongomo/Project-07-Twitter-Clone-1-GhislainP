@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./TweetAction.module.css";
 import { actionCountformatter, getActionIcon } from "../../utils/helper";
 
 function TweetActions({ action }) {
-  const Icon = getActionIcon(action.name);
+  const [actionState, setActionState] = useState(false);
+
+  const Icon = getActionIcon(action.name, actionState);
+  function handleAction() {
+    if (action.name === "like") {
+      setActionState((prevActionState) => !prevActionState);
+    }
+  }
 
   let actionStyle = [styles.tweetAction];
 
@@ -17,14 +24,19 @@ function TweetActions({ action }) {
     actionStyle.push(styles.share);
   }
 
+  if (actionState) {
+    actionStyle.push(styles.colored);
+  }
+
   return (
-    <div className={actionStyle.join(" ")}>
+    <div className={actionStyle.join(" ")} onClick={handleAction}>
       <span className={styles.icon}>
         <Icon />
       </span>
-
       {action.count && (
-        <span>{actionCountformatter(action.count, action.isAction)}</span>
+        <span>
+          {actionCountformatter(actionState ? action.count + 1 : action.count)}
+        </span>
       )}
     </div>
   );
