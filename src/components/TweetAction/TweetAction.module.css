@@ -1,20 +1,47 @@
+:root {
+  --twitter-blue: 30, 156, 241;
+  --twitter-red: 249, 47, 141;
+  --twitter-green: 20, 194, 136;
+  --alpha: 0.4;
+}
+
 .tweetAction {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 0.5rem;
 }
 
-.message:hover {
-  background-color: red;
+.tweetAction .icon {
+  padding: 0.3rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.repost:hover {
-  background-color: blue;
+.message:hover,
+.message:hover svg,
+.share:hover,
+.share:hover svg {
+  color: rgb(var(--twitter-blue));
 }
-.like:hover {
-  background-color: orange;
+.message:hover .icon,
+.share:hover .icon {
+  background-color: rgba(var(--twitter-blue), var(--alpha));
 }
-.share:hover {
-  background-color: pink;
+
+.repost:hover,
+.repost:hover svg {
+  color: rgb(var(--twitter-green));
+}
+.repost:hover .icon {
+  background-color: rgba(var(--twitter-green), var(--alpha));
+}
+.like:hover,
+.like:hover svg {
+  color: rgb(var(--twitter-red));
+}
+.like:hover .icon {
+  background-color: rgba(var(--twitter-red), var(--alpha));
 }

@@ -19,7 +19,7 @@ function TweetActions({ action }) {
 
   return (
     <div className={actionStyle.join(" ")}>
-      <span>
+      <span className={styles.icon}>
         <Icon />
       </span>
 
