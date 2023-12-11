@@ -46,5 +46,6 @@ export const users = [
     name: "Bradley Ortiz",
     userName: "bradley_",
     isCertified: true,
+    loggedIn  : true,
   },
 ];

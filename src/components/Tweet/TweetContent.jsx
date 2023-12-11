@@ -1,6 +1,6 @@
 import { dateFormatter } from "../../utils/helper";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
-import { users } from "../../model/users";
+import { users } from "../../models/users";
 import TweetActions from "../TweetActions";
 
 function TweetContent({ tweet }) {

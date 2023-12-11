@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Avatar.module.css";
-import { users } from "../../model/users";
+import { users } from "../../models/users";
 
 function Avatar({ avatarClass, userId }) {
   const user = users.filter((user) => user.userId === userId)[0];

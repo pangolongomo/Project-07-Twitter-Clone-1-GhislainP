@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./UserHighlight.module.css";
 import Avatar from "../Avatar";
-import { users } from "../../model/users";
+import { users } from "../../models/users";
 
-function index({ userId, avatarClass,IconDesc, children }) {
+function index({ userId, avatarClass, IconDesc, children }) {
   const user = users.filter((user) => user.userId === userId)[0];
- 
+
   return (
     <div className={styles.userHighlight}>
       <div className={styles.userDesc}>

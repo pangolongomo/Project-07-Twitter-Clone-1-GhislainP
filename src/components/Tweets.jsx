@@ -1,5 +1,5 @@
 import Tweet from "./Tweet";
-import { tweets } from "../model/tweets";
+import { tweets } from "../models/tweets";
 
 function Tweets() {
   const tweetList = tweets.map((tweet) => {
