@@ -6,12 +6,12 @@ import { VscSmiley } from "react-icons/vsc";
 import { TbCalendarStats } from "react-icons/tb";
 import styles from "./TweetEditor.module.css";
 import Button from "../Button";
-import { avatarImage } from "../../model/images";
+
 
 function TweetEditor() {
   return (
     <div className={[styles.tweetEditor, "tweet-editor"].join(" ")}>
-      <Avatar avatarClass="avatar" image={avatarImage} description="avatar" />
+      <Avatar avatarClass="avatar" userId={5} />
       <div className="tweet-editor-form">
         <input
           type="text"

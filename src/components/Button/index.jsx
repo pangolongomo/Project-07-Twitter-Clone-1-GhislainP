@@ -10,9 +10,9 @@ function Button({ text, type, action }) {
     buttonType = styles.type3;
   }
   return (
-    <div className={[styles.button, buttonType].join(" ")} onClick={action}>
+    <button className={[styles.button, buttonType].join(" ")} onClick={action}>
       {text}
-    </div>
+    </button>
   );
 }
 

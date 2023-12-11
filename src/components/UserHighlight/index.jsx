@@ -1,29 +1,20 @@
 import React from "react";
 import styles from "./UserHighlight.module.css";
 import Avatar from "../Avatar";
+import { users } from "../../model/users";
 
-function index(props) {
-  const {
-    avatarClass,
-    avatarImage,
-    authorName,
-    authorUsername,
-    authorDescritionIcon: IconDesc,
-    children,
-  } = props;
+function index({ userId, avatarClass,IconDesc, children }) {
+  const user = users.filter((user) => user.userId === userId)[0];
+ 
   return (
     <div className={styles.userHighlight}>
       <div className={styles.userDesc}>
-        <Avatar
-          avatarClass={avatarClass}
-          image={avatarImage}
-          description={avatarClass}
-        />
+        <Avatar userId={userId} avatarClass={avatarClass} />
         <div className={styles.aboutAuthor}>
           <div className={styles.tweetTitleAuthor}>
-            <span>{authorName}</span> {IconDesc && <IconDesc />}
+            <span>{user.name}</span> {IconDesc && <IconDesc />}
           </div>
-          <div className={styles.tweetTitleDetails}>@{authorUsername}</div>
+          <div className={styles.tweetTitleDetails}>@{user.userName}</div>
         </div>
       </div>
       {children}

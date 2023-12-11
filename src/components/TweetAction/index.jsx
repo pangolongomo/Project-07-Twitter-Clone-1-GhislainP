@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./TweetAction.module.css";
 import { actionCountformatter, getActionIcon } from "../../utils/helper";
 

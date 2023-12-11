@@ -6,8 +6,7 @@ function Tweet({ tweet }) {
     <div className="tweet">
       <Avatar
         avatarClass="tweet-avatar"
-        image={tweet.tweetAvatar}
-        description={tweet.tweetOwnerName}
+        userId={tweet.userId}
       />
       <TweetContent tweet={tweet} />
     </div>

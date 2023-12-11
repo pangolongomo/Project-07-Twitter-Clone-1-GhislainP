@@ -1,11 +1,7 @@
 export const tweets = [
   {
     tweetId: 0,
-    tweetAvatar:
-      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/tweet-profile-photo_eqebam.png",
-    tweetAuthor: "CNN",
-    tweetAuthorUsername: "CNN",
-    isCertified: true,
+    userId: 0,
     tweetText:
       'President Joe Biden touted a new agreement reached with the European Union to ease Trump-era tariffs on aluminun and steel as a "major breakthrough" that would serve to both strengthen the US steek industry and combat the global climate crisis.',
     tweetImage: null,
@@ -19,11 +15,7 @@ export const tweets = [
   },
   {
     tweetId: 1,
-    tweetAvatar:
-      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448975/Project-07-Twitter-Clone-1-GhislainP/images/new_york_times_q9kpm1.png",
-    tweetAuthor: "The New York Times",
-    tweetAuthorUsername: "nytimes",
-    isCertified: true,
+    userId: 1,
     tweetText:
       "Gardening boomed during the pandemic. Six Black writers share how has helped them re-establish, and reimaginem a connection to cultivation and the land",
     tweetImage:
@@ -38,11 +30,7 @@ export const tweets = [
   },
   {
     tweetId: 2,
-    tweetAvatar:
-      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/twitter_logo_s3lzjo.png",
-    tweetAuthor: "Twitter",
-    tweetAuthorUsername: "Twitter",
-    isCertified: true,
+    userId: 2,
     tweetText: "BIG NEWS lol jk still Twitter",
     tweetImage: null,
     tweetAction: [
@@ -55,11 +43,7 @@ export const tweets = [
   },
   {
     tweetId: 3,
-    tweetAvatar:
-      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/twitter_logo_s3lzjo.png",
-    tweetAuthor: "Twitter",
-    tweetAuthorUsername: "Twitter",
-    isCertified: true,
+    userId: 2,
     tweetText: "hello literally everyone",
     tweetImage: null,
     tweetAction: [
@@ -72,11 +56,7 @@ export const tweets = [
   },
   {
     tweetId: 4,
-    tweetAvatar:
-      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/RudByLnY_400x400_kkpfpk.jpg",
-    tweetAuthor: "MKADIMART",
-    tweetAuthorUsername: "mkadimart",
-    isCertified: true,
+    userId: 3,
     tweetText: null,
     tweetImage:
       "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/F_eVAZjW4AAPpBc_nonkfd.jpg",
@@ -90,11 +70,7 @@ export const tweets = [
   },
   {
     tweetId: 5,
-    tweetAvatar:
-      "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/RudByLnY_400x400_kkpfpk.jpg",
-    tweetAuthor: "av",
-    tweetAuthorUsername: "ffllf",
-    isCertified: true,
+    userId: 4,
     tweetText: "sdjkvnsfm dklfvofnkmvs dkl",
     tweetImage: null,
     tweetAction: [

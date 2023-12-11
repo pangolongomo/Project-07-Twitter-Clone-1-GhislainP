@@ -2,9 +2,9 @@ import React from "react";
 import SideNavigation from "../SideNavigation";
 import styles from "./Sidebar.module.css";
 import UserHighlight from "../UserHighlight";
-import { avatarImage } from "../../model/images";
 import { RiLock2Fill } from "react-icons/ri";
 import { BsThreeDots } from "react-icons/bs";
+
 
 function Sidebar() {
   return (
@@ -13,10 +13,8 @@ function Sidebar() {
         <SideNavigation />
         <UserHighlight
           avatarClass="avatar"
-          avatarImage={avatarImage}
-          authorName="Bradley Ortiz"
-          authorUsername="bradley_"
-          authorDescritionIcon={RiLock2Fill}
+          userId={5}
+          IconDesc={RiLock2Fill}
         >
           <BsThreeDots />
         </UserHighlight>

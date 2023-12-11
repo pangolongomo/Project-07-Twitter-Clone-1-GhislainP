@@ -26,13 +26,9 @@ function Trends() {
             return (
               <UserHighlight
                 key={element.tweetId}
+                userId={element.userId}
                 avatarClass="tweet-avatar"
-                avatarImage={element.tweetAvatar}
-                authorName={element.tweetAuthor}
-                authorUsername={element.tweetAuthorUsername}
-                authorDescritionIcon={
-                  element.isCertified && RiVerifiedBadgeFill
-                }
+                IconDesc={RiVerifiedBadgeFill}
               >
                 <Button text="Follow" type={3} />
               </UserHighlight>

@@ -1,20 +1,19 @@
 import { dateFormatter } from "../../utils/helper";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
-
+import { users } from "../../model/users";
 import TweetActions from "../TweetActions";
 
 function TweetContent({ tweet }) {
+  const user = users.filter((user) => user.userId === tweet.userId)[0];
   return (
     <div className="tweet-content">
       <div className="tweet-body">
         <h2 className="tweet-title">
-          <span className="tweet-title-author">{tweet.tweetAuthor}</span>
+          <span className="tweet-title-author">{user.name}</span>
           <span className="tweet-title-author">
-            {tweet.isCertified && <RiVerifiedBadgeFill />}
+            {user.isCertified && <RiVerifiedBadgeFill />}
           </span>
-          <span className="tweet-title-details">
-            @{tweet.tweetAuthorUsername}
-          </span>
+          <span className="tweet-title-details">@{user.userName}</span>
           <span className="tweet-title-details">.</span>
           <span className="tweet-title-details">
             {dateFormatter(tweet.date)}
