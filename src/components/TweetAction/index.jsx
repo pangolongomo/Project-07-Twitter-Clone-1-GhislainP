@@ -29,7 +29,7 @@ function TweetActions({ action }) {
   }
 
   return (
-    <div className={actionStyle.join(" ")} onClick={handleAction}>
+    <button className={actionStyle.join(" ")} onClick={handleAction}>
       <span className={styles.icon}>
         <Icon />
       </span>
@@ -38,7 +38,7 @@ function TweetActions({ action }) {
           {actionCountformatter(actionState ? action.count + 1 : action.count)}
         </span>
       )}
-    </div>
+    </button>
   );
 }
 

@@ -6,10 +6,10 @@ import { VscSmiley } from "react-icons/vsc";
 import { TbCalendarStats } from "react-icons/tb";
 import styles from "./TweetEditor.module.css";
 import Button from "../Button";
-import { users } from "../../models/users";
+import { isAuth } from "../../utils/userHelper";
 
 function TweetEditor() {
-  const user = users.filter((user) => user.loggedIn === true)[0];
+  const user = isAuth;
   return (
     <div className={[styles.tweetEditor, "tweet-editor"].join(" ")}>
       <Avatar avatarClass="avatar" userId={user.userId} />

@@ -4,11 +4,10 @@ import styles from "./Sidebar.module.css";
 import UserHighlight from "../UserHighlight";
 import { RiLock2Fill } from "react-icons/ri";
 import { BsThreeDots } from "react-icons/bs";
-import { users } from "../../models/users";
+import { isAuth } from "../../utils/userHelper";
 
 function Sidebar() {
-  const user = users.filter((user) => user.loggedIn === true)[0];
-  console.log(user);
+  const user = isAuth;
   return (
     <div className={styles.sidebar}>
       <div className={styles.container}>

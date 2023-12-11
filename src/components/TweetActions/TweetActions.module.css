@@ -3,6 +3,9 @@
   justify-content: center;
   align-items: center;
   gap: 5rem;
+}
+
+button {
   color: grey;
   font-size: 1rem;
 }

@@ -1,10 +1,10 @@
 import { dateFormatter } from "../../utils/helper";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
-import { users } from "../../models/users";
+import { userFromId } from "../../utils/userHelper";
 import TweetActions from "../TweetActions";
 
 function TweetContent({ tweet }) {
-  const user = users.filter((user) => user.userId === tweet.userId)[0];
+  const user = userFromId(tweet.userId);
   return (
     <div className="tweet-content">
       <div className="tweet-body">
