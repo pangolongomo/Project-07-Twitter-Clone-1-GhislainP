@@ -1,15 +1,17 @@
+import React from "react";
 import Avatar from "../Avatar";
 import TweetContent from "./TweetContent";
 
+export const TweetContext = React.createContext(null);
+
 function Tweet({ tweet }) {
   return (
-    <div className="tweet">
-      <Avatar
-        avatarClass="tweet-avatar"
-        userId={tweet.userId}
-      />
-      <TweetContent tweet={tweet} />
-    </div>
+    <TweetContext.Provider value={tweet}>
+      <div className="tweet">
+        <Avatar avatarClass="tweet-avatar" userId={tweet.userId} />
+        <TweetContent />
+      </div>
+    </TweetContext.Provider>
   );
 }
 

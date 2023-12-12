@@ -2,8 +2,11 @@ import { dateFormatter } from "../../utils/helper";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { userFromId } from "../../utils/userHelper";
 import TweetActions from "../TweetActions";
+import { TweetContext } from "../Tweet";
+import { useContext } from "react";
 
-function TweetContent({ tweet }) {
+function TweetContent() {
+  const tweet = useContext(TweetContext);
   const user = userFromId(tweet.userId);
   return (
     <div className="tweet-content">

@@ -10,16 +10,14 @@ function Sidebar() {
   const user = isAuth;
   return (
     <div className={styles.sidebar}>
-      <div className={styles.container}>
-        <SideNavigation />
-        <UserHighlight
-          avatarClass="avatar"
-          userId={user.userId}
-          IconDesc={RiLock2Fill}
-        >
-          <BsThreeDots />
-        </UserHighlight>
-      </div>
+      <SideNavigation />
+      <UserHighlight
+        avatarClass="avatar"
+        userId={user.userId}
+        IconDesc={RiLock2Fill}
+      >
+        <BsThreeDots />
+      </UserHighlight>
     </div>
   );
 }
