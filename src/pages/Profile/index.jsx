@@ -1,7 +1,7 @@
 import React from "react";
 
 function profile() {
-  return <>Je m'appelle Ghislain Pango</>;
+  return <div>mold</div>;
 }
 
 export default profile;

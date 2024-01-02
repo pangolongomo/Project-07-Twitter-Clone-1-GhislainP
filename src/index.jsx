@@ -7,7 +7,8 @@ import("./style/reset.css");
 import("./style/main.css");
 
 import Home from "./pages/Home";
-import Profile from './pages/Profile'
+import Profile from "./pages/Profile";
+import Profiles from "./components/Profiles/Index";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,14 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/profile", element: <Profile/> },
+      {
+        path: "/profile",
+        element: <Profiles />,
+        children: [
+          { path: "", element: <Profile /> },
+          { path: ":id", element: <Profile /> },
+        ],
+      },
     ],
   },
 ]);
