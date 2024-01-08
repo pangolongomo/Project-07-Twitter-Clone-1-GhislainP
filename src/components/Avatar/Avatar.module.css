@@ -2,6 +2,8 @@
   /* height: 70px;
   width: 70px; */
   flex: 0 0 70px;
+  position: relative;
+  display: flex;
 }
 
 .tweet-avatar img {
@@ -12,6 +14,8 @@
 .avatar {
   flex: 0 0 70px;
   /*padding: 0 rem;*/
+  position: relative;
+  display: flex;
 }
 
 .avatar img {

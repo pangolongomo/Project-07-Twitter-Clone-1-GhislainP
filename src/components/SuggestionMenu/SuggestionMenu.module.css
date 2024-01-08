@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: 1.5rem;
 }
-.suggestionMenu a {
+.suggestionMenu .more {
   color: #1d9bf0;
   font-weight: 700;
   text-decoration: none;

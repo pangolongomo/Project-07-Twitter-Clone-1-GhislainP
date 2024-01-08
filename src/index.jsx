@@ -7,7 +7,7 @@ import("./style/reset.css");
 import("./style/main.css");
 
 import Home from "./pages/Home";
-import Profile from "./pages/Profile";
+import Profile from "./pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {

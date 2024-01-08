@@ -12,36 +12,41 @@ import { LuCalendarDays } from "react-icons/lu";
 import { GrLocation } from "react-icons/gr";
 import { joinDateFormatter } from "../../utils/helper";
 import Tweets from "../../components/Tweets";
-import BackToPreviousRoot from "../../components/BackToPreviousRoot/BackToPreviousRoot";
+import UserNavigation from "../../components/UserNavigation/UserNavigation";
+import styles from "./Profile.module.css";
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { RiVerifiedBadgeFill } from "react-icons/ri";
+import AboutAuthor from "../../components/AboutAuthor/AboutAuthor";
 
-function profile() {
+function Profile() {
   const { username } = useParams();
   const user = userFromUsername(username);
   const userTweets = tweetsByUser(user.userId);
   const userPostsCount = singleUserPosts(user.userId).length;
+  const IconDesc = user.isCertified && RiVerifiedBadgeFill;
   return (
-    <div>
-      <div className="navig">
-        <BackToPreviousRoot/>
-        <div>
-          <div>{user.name}</div>
-          <div>
-            {userPostsCount} post{userPostsCount > 1 && "s"}
+    <div className={styles.profile}>
+      <UserNavigation user={user} postsCount={userPostsCount} />
+      <div className={styles.banner}>
+        <img src={user.banner} alt={`${user.name} banner`} />
+      </div>
+      <div className={styles.userInfoSection}>
+        <div className={styles.userAction}>
+          <div className={styles.avatarContainer}>
+            <Avatar avatarClass="avatar" userId={user.userId} />
+          </div>
+          <div className={styles.userActionButtons}>
+            <Button type={4}>
+              <HiOutlineDotsHorizontal />
+            </Button>
+            <Button type={3}>Follow</Button>
           </div>
         </div>
-      </div>
-      <div className="banner">
-        <img src={user.banner} alt={`${user.name} banner`} width="100%" />
-      </div>
-      <div className="userInfoSection">
-        <div>
-          <Avatar avatarClass="avatar" userId={user.userId} />
-          <Button type={4}>Éditer le profil</Button>
-        </div>
-        <div>
-          <h2>{user.name}</h2>
-          <p>@{user.userName}</p>
-        </div>
+        <AboutAuthor
+          userName={user.userName}
+          IconDesc={IconDesc}
+          name={user.name}
+        />
         <div>{user.description && <p>{user.description}</p>}</div>
         <div>
           {user.profession && (
@@ -77,7 +82,7 @@ function profile() {
         </div>
       </div>
       <div className="posts">
-        {userPostsCount  && (
+        {userPostsCount && (
           <div className="post">
             <Tweets tweets={userTweets} />
           </div>
@@ -87,4 +92,4 @@ function profile() {
   );
 }
 
-export default profile;
+export default Profile;

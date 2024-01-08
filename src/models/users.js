@@ -77,6 +77,7 @@ export const users = [
     website: "usanet.tv/2ViBgp4",
     created: "2015-03-16T00:00:00.000Z",
     subscription: 1000,
+    loggedIn: true,
     subscriber: 446616,
   },
   {
@@ -88,7 +89,6 @@ export const users = [
     name: "Piste Pour l'Emergence",
     userName: "Piste_rdc",
     isCertified: true,
-    loggedIn: true,
     description:
       "Compte officiel. Fondé sur les principes de l'Humanisme Libéral. Devise: Mobiliser-Organiser-Transformer. Président National:@sethkikuni. Adhésion: 0833676545",
     created: "2023-02-25T00:00:00.000Z",

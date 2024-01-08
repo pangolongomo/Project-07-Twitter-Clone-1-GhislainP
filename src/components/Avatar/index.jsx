@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 function Avatar({ avatarClass, userId }) {
   const user = userFromId(userId);
   return (
-    <Link to={`/${user.userName}`}>
-      <div className={styles[avatarClass]}>
+    <div className={styles[avatarClass]}>
+      <Link to={`/${user.userName}`}>
         <img src={user.avatar} alt={`logo ${user.userName}`} />
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
 

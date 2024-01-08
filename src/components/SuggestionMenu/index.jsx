@@ -10,7 +10,7 @@ function SuggestionMenu({ title, optionIcon: Icon, children }) {
         {Icon && <Icon />}
       </div>
       {children}
-      <Link to="/">Show more</Link>
+      <Link to="/" className={styles.more}>Show more</Link>
     </div>
   );
 }
