@@ -30,7 +30,7 @@ function Trends() {
                 avatarClass="tweet-avatar"
                 IconDesc={RiVerifiedBadgeFill}
               >
-                <Button text="Follow" type={3} />
+                <Button type={3}>Follow</Button>
               </UserHighlight>
             );
           })}

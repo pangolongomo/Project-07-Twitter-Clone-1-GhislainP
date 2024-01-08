@@ -7,8 +7,6 @@
   font-size: 1rem;
   text-align: center;
   cursor: pointer;
-}
-.button.type1 {
   padding: 0.7rem 1.5rem;
 }
 .button.type2 {
@@ -18,7 +16,12 @@
 .button.type3 {
   color: #202327;
   background-color: white;
-  padding: 0.35rem 0.75rem;
+}
+.button.type4 {
+  background-color: #000;
+  color: white;
+  border: 2px solid white;
+  font-weight: 700;
 }
 
 /* ec442c 

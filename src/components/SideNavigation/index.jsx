@@ -13,7 +13,9 @@ function SideNavigation() {
           <SideNavigationButton key={id} navigationButton={navigationButton} />
         );
       })}
-      <Button type={2} text="Tweet" action={clickOnTweet} />
+      <Button type={2} action={clickOnTweet}>
+        Tweet
+      </Button>
     </ul>
   );
 }

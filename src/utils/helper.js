@@ -35,11 +35,11 @@ export function dateFormatter(date) {
   }
 
   if (dateValue.getFullYear() === new Date().getFullYear()) {
-    return monthFormater(dateValue.getMonth()) + " " + dateValue.getDate();
+    return monthFormaterShort(dateValue.getMonth()) + " " + dateValue.getDate();
   }
 
   return (
-    monthFormater(dateValue.getMonth()) +
+    monthFormaterShort(dateValue.getMonth()) +
     " " +
     dateValue.getDate() +
     " " +
@@ -47,7 +47,16 @@ export function dateFormatter(date) {
   );
 }
 
-function monthFormater(month) {
+export function joinDateFormatter(date) {
+  const dateValue = new Date(date);
+   if (dateValue.getFullYear() === new Date().getFullYear()) {
+    return monthFormater(dateValue.getMonth());
+  }else{
+    return monthFormater(dateValue.getMonth()) + " " + dateValue.getFullYear();
+  }
+}
+
+function monthFormaterShort(month) {
   if (month === 0) return "Jan";
   else if (month === 1) return "Feb";
   else if (month === 2) return "Mar";
@@ -60,6 +69,21 @@ function monthFormater(month) {
   else if (month === 9) return "Oct";
   else if (month === 10) return "Nov";
   else if (month === 11) return "Dec";
+}
+
+function monthFormater(month) {
+  if (month === 0) return "janvier";
+  else if (month === 1) return "février";
+  else if (month === 2) return "mars";
+  else if (month === 3) return "avril";
+  else if (month === 4) return "mai";
+  else if (month === 5) return "juin";
+  else if (month === 6) return "juillet";
+  else if (month === 7) return "août";
+  else if (month === 8) return "septembre";
+  else if (month === 9) return "octobre";
+  else if (month === 10) return "novembre";
+  else if (month === 11) return "decembre";
 }
 
 export function getActionIcon(name, actionState) {

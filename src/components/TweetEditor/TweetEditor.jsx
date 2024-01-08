@@ -37,7 +37,7 @@ function TweetEditor() {
               <TbCalendarStats />
             </button>
           </div>
-          <Button text="Tweet" />
+          <Button>Tweet</Button>
         </div>
       </div>
     </div>

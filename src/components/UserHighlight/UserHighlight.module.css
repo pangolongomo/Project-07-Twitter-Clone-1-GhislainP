@@ -7,6 +7,10 @@
 .userHighlight .aboutAuthor {
   margin-right: 2rem;
 }
+.userHighlight .aboutAuthor a {
+  color: inherit;
+  text-decoration: inherit;
+}
 .userHighlight .userDesc {
   display: flex;
   gap: 1rem;
