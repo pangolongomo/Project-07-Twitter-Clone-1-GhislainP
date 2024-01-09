@@ -14,7 +14,7 @@ body {
   justify-content: center;
   font-family: "Inter", sans-serif;
 }
-
+/* 
 .top-tweets {
   width: 1.5rem;
   height: auto;
@@ -61,7 +61,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /*padding: 0.8rem 0;*/
+  /*padding: 0.8rem 0;*//*
   gap: 1rem;
 }
 .tweet-editor-actions button {
@@ -142,4 +142,4 @@ body {
   border-color: #2f3336;
   border-style: solid;
   border-width: 1px;
-}
+} */

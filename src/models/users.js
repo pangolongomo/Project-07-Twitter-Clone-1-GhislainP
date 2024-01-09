@@ -77,7 +77,7 @@ export const users = [
     website: "usanet.tv/2ViBgp4",
     created: "2015-03-16T00:00:00.000Z",
     subscription: 1000,
-    loggedIn: true,
+
     subscriber: 446616,
   },
   {
@@ -94,5 +94,6 @@ export const users = [
     created: "2023-02-25T00:00:00.000Z",
     subscription: 34,
     subscriber: 1115,
+    loggedIn: true,
   },
 ];

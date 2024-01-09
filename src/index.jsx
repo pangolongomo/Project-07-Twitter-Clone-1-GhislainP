@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 
-import("./style/reset.css");
-import("./style/main.css");
+import("./style/index.css");
 
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 
 const router = createBrowserRouter([

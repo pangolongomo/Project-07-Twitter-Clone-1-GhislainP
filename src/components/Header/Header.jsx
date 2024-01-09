@@ -1,10 +1,9 @@
 import { BsStars } from "react-icons/bs";
-import styles from "./Header.module.css";
 
 function Header() {
   return (
-    <header className={styles.header}>
-      <h1 className="page-title">Home</h1>
+    <header className="flex flex-row justify-between py-6 px-4 text-xl">
+      <h1 className="text-lg font-semibold">Home</h1>
       <BsStars />
     </header>
   );

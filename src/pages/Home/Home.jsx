@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 import TweetEditor from "../../components/TweetEditor/TweetEditor";
 import Tweets from "../../components/Tweets";
 import { tweets } from "../../models/tweets";

@@ -13,7 +13,7 @@ import { PiGear } from "react-icons/pi";
 
 function Trends() {
   return (
-    <div className={styles.trends}>
+    <div className="col-span-2">
       <div className={styles.container}>
         <SearchBar placeholder="Search Twitter" />
         <SuggestionMenu title="Trends for you" optionIcon={PiGear}>

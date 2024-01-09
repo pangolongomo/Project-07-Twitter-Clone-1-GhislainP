@@ -5,7 +5,7 @@ import {
   userFromUsername,
 } from "../../utils/userHelper";
 import { useParams } from "react-router-dom";
-import Avatar from "../../components/Avatar";
+import Avatar from "../../components/Avatar/Avatar";
 import Button from "../../components/Button";
 import { TbLink } from "react-icons/tb";
 import { LuCalendarDays } from "react-icons/lu";

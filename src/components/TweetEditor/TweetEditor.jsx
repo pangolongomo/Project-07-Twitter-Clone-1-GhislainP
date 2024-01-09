@@ -1,4 +1,4 @@
-import Avatar from "../Avatar";
+import Avatar from "../Avatar/Avatar";
 import { CiImageOn } from "react-icons/ci";
 import { MdOutlineGifBox } from "react-icons/md";
 import { PiChartBarHorizontalLight } from "react-icons/pi";
@@ -11,12 +11,12 @@ import { isAuth } from "../../utils/userHelper";
 function TweetEditor() {
   const user = isAuth;
   return (
-    <div className={[styles.tweetEditor, "tweet-editor"].join(" ")}>
-      <Avatar avatarClass="avatar" userId={user.userId} />
-      <div className="tweet-editor-form">
+    <div className="flex py-2 px-4 gap-2">
+      <Avatar userId={user.userId} />
+      <div className="flex-auto ">
         <input
           type="text"
-          className="tweet-editor-input"
+          className="h-[60px] w-full bg-black "
           placeholder="What&rsquo;s happening?"
         />
         <div className="tweet-editor-buttons">

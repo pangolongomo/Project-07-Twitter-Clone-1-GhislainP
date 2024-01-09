@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./UserHighlight.module.css";
-import Avatar from "../Avatar";
+import Avatar from "../Avatar/Avatar";
 import { users } from "../../models/users";
 import AboutAuthor from "../AboutAuthor/AboutAuthor";
 

@@ -9,7 +9,7 @@ import { isAuth } from "../../utils/userHelper";
 function Sidebar() {
   const user = isAuth;
   return (
-    <div className={styles.sidebar}>
+    <div className="col-span-2">
       <SideNavigation />
       <UserHighlight
         avatarClass="avatar"

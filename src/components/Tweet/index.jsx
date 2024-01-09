@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../Avatar";
+import Avatar from "../Avatar/Avatar";
 import TweetContent from "./TweetContent";
 
 export const TweetContext = React.createContext(null);

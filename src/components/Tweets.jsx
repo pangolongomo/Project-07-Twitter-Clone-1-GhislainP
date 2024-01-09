@@ -1,6 +1,6 @@
 import Tweet from "./Tweet";
 
-function Tweets({tweets}) {
+function Tweets({ tweets }) {
   const tweetList = tweets.map((tweet) => {
     return <Tweet key={tweet.tweetId} tweet={tweet} />;
   });
