@@ -2,12 +2,16 @@ import React from "react";
 import { userFromId } from "../../utils/userHelper";
 import { Link } from "react-router-dom";
 
-function Avatar({ userId }) {
+function Avatar({ userId, width, position }) {
   const user = userFromId(userId);
   return (
-    <div className="flex-initial w-[70px]">
+    <div className={`flex-none ${width || "w-[70px]"} ${position || ""}`}>
       <Link to={`/${user.userName}`}>
-        <img className="rounded-full" src={user.avatar} alt={`logo ${user.userName}`} />
+        <img
+          className="rounded-full w-full"
+          src={user.avatar}
+          alt={`logo ${user.userName}`}
+        />
       </Link>
     </div>
   );

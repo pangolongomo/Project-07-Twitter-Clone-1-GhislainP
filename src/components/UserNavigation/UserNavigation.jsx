@@ -1,5 +1,4 @@
 import React from "react";
-import sytles from "./UserNavigation.module.css";
 import BackToPreviousRoot from "../BackToPreviousRoot/BackToPreviousRoot";
 import AboutAuthor from "../AboutAuthor/AboutAuthor";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
@@ -8,7 +7,7 @@ function UserNavigation({ user, postsCount }) {
   const IconDesc = user.isCertified && RiVerifiedBadgeFill;
   const otherDetails = `${postsCount} post${postsCount > 1 ? "s" : ""}`;
   return (
-    <div className={sytles.navigation}>
+    <div className="flex items-center gap-4 p-2">
       <BackToPreviousRoot />
       <AboutAuthor
         userName={user.userName}

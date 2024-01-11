@@ -1,12 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./SideNavigationButton.module.css";
 
 function SideNavigationButton({ navigationButton }) {
   const { link, text, icon: Icon } = navigationButton;
   return (
-    <li className={styles.sideNavigationButton}>
-      <NavLink to={link}>
+    <li>
+      <NavLink to={link} className="flex items-center gap-4 p-1">
         <Icon />
         {text && <span>{text}</span>}
       </NavLink>

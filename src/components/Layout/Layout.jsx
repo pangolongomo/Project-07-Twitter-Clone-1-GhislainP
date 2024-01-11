@@ -7,9 +7,9 @@ import { isAuth } from "../../utils/userHelper";
 function Layout() {
   return (
     <CurrentUserContext.Provider value={isAuth}>
-      <div className="mx-auto grid grid-cols-9 p-4 bg-black text-white divide-x divide-stone-600">
+      <div className="mx-auto grid grid-cols-9 bg-black text-white divide-x divide-[#2f3336]">
         <Sidebar />
-        <main className="col-span-5 divide-y  divide-stone-600">
+        <main className="col-span-5 divide-y divide-[#2f3336]">
           <Outlet />
         </main>
         <Trends />

@@ -6,7 +6,7 @@ import {
 } from "../../utils/userHelper";
 import { useParams } from "react-router-dom";
 import Avatar from "../../components/Avatar/Avatar";
-import Button from "../../components/Button";
+import Button from "../../components/Button/Button";
 import { TbLink } from "react-icons/tb";
 import { LuCalendarDays } from "react-icons/lu";
 import { GrLocation } from "react-icons/gr";
@@ -25,21 +25,27 @@ function Profile() {
   const userPostsCount = singleUserPosts(user.userId).length;
   const IconDesc = user.isCertified && RiVerifiedBadgeFill;
   return (
-    <div className={styles.profile}>
+    <>
       <UserNavigation user={user} postsCount={userPostsCount} />
-      <div className={styles.banner}>
-        <img src={user.banner} alt={`${user.name} banner`} />
+      <div>
+        <img
+          className="w-full h-auto"
+          src={user.banner}
+          alt={`${user.name} banner`}
+        />
       </div>
-      <div className={styles.userInfoSection}>
-        <div className={styles.userAction}>
-          <div className={styles.avatarContainer}>
-            <Avatar avatarClass="avatar" userId={user.userId} />
+      <div className="flex flex-col py-2 px-4">
+        <div className="flex justify-between py-2">
+          <div className="relative">
+            <Avatar userId={user.userId} width="w-[130px]" position="absolute -top-24 " />
           </div>
-          <div className={styles.userActionButtons}>
-            <Button type={4}>
+          <div className="flex gap-3 items-center">
+            <Button bg="bg-transparent" border="border-2" padding="p-2">
               <HiOutlineDotsHorizontal />
             </Button>
-            <Button type={3}>Follow</Button>
+            <Button color="text-[#202327]" bg="bg-white">
+              Follow
+            </Button>
           </div>
         </div>
         <AboutAuthor
@@ -66,7 +72,7 @@ function Profile() {
               <TbLink />
               <a href={user.website}>{user.website}</a>
             </span>
-          )}
+          )} 
           <span>
             <LuCalendarDays /> A rejoint Twitter en{" "}
             {joinDateFormatter(user.created)}
@@ -88,7 +94,7 @@ function Profile() {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }
 

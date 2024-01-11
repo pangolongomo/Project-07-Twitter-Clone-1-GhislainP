@@ -1,19 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./AboutAuthor.module.css";
 
 function AboutAuthor({ name, otherDetails, IconDesc, userName }) {
   return (
-    <div className={styles.aboutAuthor}>
-      <Link to={`/${userName}`}>
-        <div className={styles.tweetTitleAuthor}>
-          <span>{name}</span> {IconDesc && <IconDesc />}
-        </div>
-        <div className={styles.tweetTitleDetails}>
-          {otherDetails || `@${userName}`}
-        </div>
-      </Link>
-    </div>
+    <Link to={`/${userName}`} className="flex flex-col">
+      <div className="text-nowrap">
+        <span className="text-wrap">{name}</span>{" "}
+        {IconDesc && <IconDesc className="inline" />}
+      </div>
+      <div className="text-[#6e767d]">{otherDetails || `@${userName}`}</div>
+    </Link>
   );
 }
 

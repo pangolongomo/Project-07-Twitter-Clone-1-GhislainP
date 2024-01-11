@@ -1,20 +1,19 @@
 import React from "react";
-import styles from "./Trends.module.css";
-import SearchBar from "../SearchBar";
-import SuggestionMenu from "../SuggestionMenu";
-import Button from "../Button";
-import UserHighlight from "../UserHighlight";
+import SearchBar from "../SearchBar/SearchBar";
+import SuggestionMenu from "../SuggestionMenu/SuggestionMenu";
+import Button from "../Button/Button";
+import UserHighlight from "../UserHighlight/UserHighlight";
 import { tweets } from "../../models/tweets";
 import { trendsData } from "../../models/trends";
 import TrendingTags from "../TrendingTags";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
-import Footer from "../Footer";
+import Footer from "../Footer/Footer";
 import { PiGear } from "react-icons/pi";
 
 function Trends() {
   return (
-    <div className="col-span-2">
-      <div className={styles.container}>
+    <div className="col-span-2 px-4 py-2">
+      <div className="flex flex-col gap-4 relative">
         <SearchBar placeholder="Search Twitter" />
         <SuggestionMenu title="Trends for you" optionIcon={PiGear}>
           {trendsData.slice(0, 4).map((element, i) => {
@@ -27,10 +26,11 @@ function Trends() {
               <UserHighlight
                 key={element.tweetId}
                 userId={element.userId}
-                avatarClass="tweet-avatar"
                 IconDesc={RiVerifiedBadgeFill}
               >
-                <Button type={3}>Follow</Button>
+                <Button color="text-[#202327]" bg="bg-white">
+                  Follow
+                </Button>
               </UserHighlight>
             );
           })}

@@ -11,6 +11,12 @@ export const users = [
     description:
       "It's our job to #GoThere & tell the most difficult stories. For breaking news, follow @CNNBRK and download our app http://cnn.com/apps",
     website: "cnn.com",
+    userInfo: [
+      {
+        type: "website",
+        content: "cnn.com",
+      }
+    ],
     created: "2007-02-07T23:00:00.000Z",
     subscription: 1084,
     subscriber: 62045832,
@@ -25,6 +31,16 @@ export const users = [
     userName: "nytimes",
     isCertified: true,
     description: "News tips? Share them here: http://nyti.ms/2FVHq9v",
+    userInfo: [
+      {
+        type: "website",
+        content: "nytimes.com",
+      },
+      {
+        type: "location",
+        content: "New York City",
+      },
+    ],
     website: "nytimes.com",
     created: "2007-03-18T00:00:00.000Z",
     subscription: 876,
@@ -41,6 +57,16 @@ export const users = [
     userName: "Twitter",
     isCertified: true,
     description: "what's happening?!",
+    userInfo: [
+      {
+        type: "website",
+        content: "about.x.com",
+      },
+      {
+        type: "location",
+        content: "everywhere",
+      },
+    ],
     website: "about.x.com",
     created: "2007-02-01T00:00:00.000Z",
     subscription: 0,
@@ -58,6 +84,12 @@ export const users = [
     isCertified: true,
     description:
       "ARTISTE MULTIDISCIPLINAIRE ✍🏾, contacte mon atelier au 0812392358",
+    userInfo: [
+      {
+        type: "profession",
+        content: "Architecte paysagiste",
+      },
+    ],
     created: "2022-02-07T00:00:00.000Z",
     subscription: 41,
     subscriber: 26658,
@@ -75,6 +107,12 @@ export const users = [
     description:
       "Hello, friend. Watch the Final Season of #MrRobot on @USA_Network online & On Demand. Catch up on older seasons on @PrimeVideo.",
     website: "usanet.tv/2ViBgp4",
+    userInfo: [
+      {
+        type: "website",
+        content: "usanet.tv/2ViBgp4",
+      },
+    ],
     created: "2015-03-16T00:00:00.000Z",
     subscription: 1000,
 
