@@ -10,12 +10,11 @@ export const users = [
     isCertified: true,
     description:
       "It's our job to #GoThere & tell the most difficult stories. For breaking news, follow @CNNBRK and download our app http://cnn.com/apps",
-    website: "cnn.com",
     userInfo: [
       {
         type: "website",
         content: "cnn.com",
-      }
+      },
     ],
     created: "2007-02-07T23:00:00.000Z",
     subscription: 1084,
@@ -41,11 +40,9 @@ export const users = [
         content: "New York City",
       },
     ],
-    website: "nytimes.com",
     created: "2007-03-18T00:00:00.000Z",
     subscription: 876,
     subscriber: 55190326,
-    location: "New York City",
   },
   {
     userId: 2,
@@ -67,11 +64,9 @@ export const users = [
         content: "everywhere",
       },
     ],
-    website: "about.x.com",
     created: "2007-02-01T00:00:00.000Z",
     subscription: 0,
     subscriber: 67324480,
-    location: "everywhere",
   },
   {
     userId: 3,
@@ -93,7 +88,6 @@ export const users = [
     created: "2022-02-07T00:00:00.000Z",
     subscription: 41,
     subscriber: 26658,
-    profession: "Architecte paysagiste",
   },
   {
     userId: 4,
@@ -115,7 +109,6 @@ export const users = [
     ],
     created: "2015-03-16T00:00:00.000Z",
     subscription: 1000,
-
     subscriber: 446616,
   },
   {

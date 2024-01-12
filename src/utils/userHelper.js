@@ -1,11 +1,11 @@
 import { users } from "../models/users";
 import { tweets } from "../models/tweets";
 
-export const isAuth = users.filter((user) => user.loggedIn === true)[0];
+export const isAuth = users.find((user) => user.loggedIn === true);
 export const userFromId = (userId) =>
-  users.filter((user) => user.userId === userId)[0];
+  users.find((user) => user.userId === userId);
 export const userFromUsername = (userName) =>
-  users.filter((user) => user.userName === userName)[0];
+  users.find((user) => user.userName === userName);
 export const tweetsByUser = (userId) =>
   tweets.filter((tweet) => tweet.userId === userId);
 
