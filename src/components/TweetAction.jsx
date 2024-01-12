@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { actionCountformatter, getActionIcon } from "../../utils/helper";
+import { actionCountformatter, getActionIcon } from "../utils/helper";
 
 function TweetAction({ action }) {
   const [actionState, setActionState] = useState(false);

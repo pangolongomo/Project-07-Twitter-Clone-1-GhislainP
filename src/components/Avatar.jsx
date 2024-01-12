@@ -1,5 +1,5 @@
 import React from "react";
-import { userFromId } from "../../utils/userHelper";
+import { userFromId } from "../utils/userHelper";
 import { Link } from "react-router-dom";
 
 function Avatar({ userId, width, position }) {

@@ -1,11 +1,11 @@
-import Avatar from "../Avatar/Avatar";
+import Avatar from "./Avatar";
 import { CiImageOn } from "react-icons/ci";
 import { MdOutlineGifBox } from "react-icons/md";
 import { PiChartBarHorizontalLight } from "react-icons/pi";
 import { VscSmiley } from "react-icons/vsc";
 import { TbCalendarStats } from "react-icons/tb";
-import Button from "../Button/Button";
-import { isAuth } from "../../utils/userHelper";
+import Button from "./Button";
+import { isAuth } from "../utils/userHelper";
 
 const tweetEditorActionsButtons = [
   { name: "image", icon: CiImageOn },

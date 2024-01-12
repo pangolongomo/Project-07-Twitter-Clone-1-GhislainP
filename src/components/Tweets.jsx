@@ -1,9 +1,16 @@
-import Tweet from "./Tweet/Tweet";
+import Tweet from "./Tweet";
 
 function Tweets({ tweets }) {
-  const tweetList = tweets.map((tweet) => {
-    return <Tweet key={tweet.tweetId} tweet={tweet} />;
-  });
+  const tweetList =
+    tweets.length > 0 ? (
+      tweets.map((tweet) => {
+        return <Tweet key={tweet.tweetId} tweet={tweet} />;
+      })
+    ) : (
+      <div>
+        <p className="p-4">Aucun tweet</p>
+      </div>
+    );
 
   return <div className="divide-y divide-[#2f3336]">{tweetList}</div>;
 }

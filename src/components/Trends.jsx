@@ -1,13 +1,13 @@
 import React from "react";
-import SearchBar from "../SearchBar/SearchBar";
-import SuggestionMenu from "../SuggestionMenu/SuggestionMenu";
-import Button from "../Button/Button";
-import UserHighlight from "../UserHighlight/UserHighlight";
-import { tweets } from "../../models/tweets";
-import { trendsData } from "../../models/trends";
-import TrendingTags from "../TrendingTags";
+import SearchBar from "./SearchBar";
+import SuggestionMenu from "./SuggestionMenu";
+import Button from "./Button";
+import UserHighlight from "./UserHighlight";
+import { tweets } from "../models/tweets";
+import { trendsData } from "../models/trends";
+import TrendingTags from ".";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
-import Footer from "../Footer/Footer";
+import Footer from "./Footer";
 import { PiGear } from "react-icons/pi";
 
 function Trends() {

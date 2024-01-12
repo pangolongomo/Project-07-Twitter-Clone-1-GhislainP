@@ -1,8 +1,8 @@
-import { dateFormatter } from "../../utils/helper";
+import { dateFormatter } from "../utils/helper";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
-import { userFromId } from "../../utils/userHelper";
-import TweetActions from "../TweetActions/TweetActions";
-import { TweetContext } from "../Tweet/Tweet";
+import { userFromId } from "../utils/userHelper";
+import TweetActions from "./TweetActions";
+import { TweetContext } from "./Tweet";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
@@ -25,10 +25,16 @@ function TweetContent() {
           <span className="text-[#6e767d]">.</span>
           <span className="text-[#6e767d]">{dateFormatter(tweet.date)}</span>
         </h2>
-        {tweet.tweetText && <p className="text-[#d9d9d9] text-base">{tweet.tweetText}</p>}
+        {tweet.tweetText && (
+          <p className="text-[#d9d9d9] text-base">{tweet.tweetText}</p>
+        )}
         {tweet.tweetImage && (
           <div className="w-full pt-1">
-            <img src={tweet.tweetImage} alt="{tweet.tweetImage}" className="w-full h-auto rounded-[50px] border border-[#2f3336]" />
+            <img
+              src={tweet.tweetImage}
+              alt="{tweet.tweetImage}"
+              className="w-full h-auto rounded-[50px] border border-[#2f3336]"
+            />
           </div>
         )}
       </div>

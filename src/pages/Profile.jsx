@@ -3,19 +3,17 @@ import {
   singleUserPosts,
   tweetsByUser,
   userFromUsername,
-} from "../../utils/userHelper";
+} from "../utils/userHelper";
 import { useParams } from "react-router-dom";
-import Avatar from "../../components/Avatar/Avatar";
-import Button from "../../components/Button/Button";
-import { TbLink } from "react-icons/tb";
+import Avatar from "../components/Avatar";
+import Button from "../components/Button";
 import { LuCalendarDays } from "react-icons/lu";
-import { GrLocation } from "react-icons/gr";
-import { getUserInfoIcons, joinDateFormatter } from "../../utils/helper";
-import Tweets from "../../components/Tweets";
-import UserNavigation from "../../components/UserNavigation/UserNavigation";
+import { getUserInfoIcons, joinDateFormatter } from "../utils/helper";
+import Tweets from "../components/Tweets";
+import UserNavigation from "../components/UserNavigation";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
-import AboutAuthor from "../../components/AboutAuthor/AboutAuthor";
+import AboutAuthor from "../components/AboutAuthor";
 
 function Profile() {
   const { username } = useParams();
@@ -58,15 +56,16 @@ function Profile() {
         />
         <div>{user.description && <p>{user.description}</p>}</div>
         <div className="flex gap-8 wrap leading-8">
-          {user.userInfo.map((info) => {
-            const InfoIcon = getUserInfoIcons(info.type);
-            return (
-              <span key={info.type} className="flex items-center gap-1">
-                <InfoIcon />
-                {info.content}
-              </span>
-            );
-          })}
+          {user.userInfo &&
+            user.userInfo.map((info) => {
+              const InfoIcon = getUserInfoIcons(info.type);
+              return (
+                <span key={info.type} className="flex items-center gap-1">
+                  <InfoIcon />
+                  {info.content}
+                </span>
+              );
+            })}
           <span className="flex items-center gap-1">
             <LuCalendarDays /> A rejoint Twitter en
             {joinDateFormatter(user.created)}
@@ -81,13 +80,7 @@ function Profile() {
           </p>
         </div>
       </div>
-      <div className="posts">
-        {userPostsCount && (
-          <div className="post">
-            <Tweets tweets={userTweets} />
-          </div>
-        )}
-      </div>
+      <Tweets tweets={userTweets} />
     </>
   );
 }

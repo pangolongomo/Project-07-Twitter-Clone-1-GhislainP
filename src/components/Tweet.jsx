@@ -1,6 +1,6 @@
 import React from "react";
-import Avatar from "../Avatar/Avatar";
-import TweetContent from "../TweetContent/TweetContent";
+import Avatar from "./Avatar";
+import TweetContent from "./TweetContent";
 
 export const TweetContext = React.createContext(null);
 

@@ -1,7 +1,7 @@
 import React from "react";
-import SideNavigationButton from "../SideNavigationButton/SideNavigationButton";
-import { navigationButtons } from "../../models/navigationButtons";
-import Button from "../Button/Button";
+import SideNavigationButton from "./SideNavigationButton";
+import { navigationButtons } from "../models/navigationButtons";
+import Button from "./Button";
 
 function SideNavigation() {
   function clickOnTweet() {}
@@ -13,7 +13,9 @@ function SideNavigation() {
         );
       })}
       <div className="flex justify-center">
-        <Button action={clickOnTweet} width="w-3/4">Tweet</Button>
+        <Button action={clickOnTweet} width="w-3/4">
+          Tweet
+        </Button>
       </div>
     </ul>
   );

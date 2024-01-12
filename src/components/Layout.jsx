@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "../Sidebar/Sidebar";
-import Trends from "../Trends/Trends";
-import { CurrentUserContext } from "../../utils/ContextHandler";
-import { isAuth } from "../../utils/userHelper";
+import Sidebar from "./Sidebar";
+import Trends from "./Trends";
+import { CurrentUserContext } from "../utils/ContextHandler";
+import { isAuth } from "../utils/userHelper";
 
 function Layout() {
   return (

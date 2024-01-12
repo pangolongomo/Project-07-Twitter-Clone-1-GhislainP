@@ -1,7 +1,7 @@
 import React from "react";
-import Avatar from "../Avatar/Avatar";
-import AboutAuthor from "../AboutAuthor/AboutAuthor";
-import { userFromId } from "../../utils/userHelper";
+import Avatar from "./Avatar";
+import AboutAuthor from "./AboutAuthor";
+import { userFromId } from "../utils/userHelper";
 
 function UserHighlight({ userId, IconDesc, children }) {
   const user = userFromId(userId);

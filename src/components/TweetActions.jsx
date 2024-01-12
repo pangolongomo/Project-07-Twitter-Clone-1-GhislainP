@@ -1,5 +1,5 @@
 import React from "react";
-import TweetAction from "../TweetAction/TweetAction";
+import TweetAction from "./TweetAction";
 
 function TweetActions({ tweetAction }) {
   return (

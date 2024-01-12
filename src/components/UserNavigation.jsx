@@ -1,6 +1,6 @@
 import React from "react";
-import BackToPreviousRoot from "../BackToPreviousRoot/BackToPreviousRoot";
-import AboutAuthor from "../AboutAuthor/AboutAuthor";
+import BackToPreviousRoot from "./BackToPreviousRoot";
+import AboutAuthor from "./AboutAuthor";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 
 function UserNavigation({ user, postsCount }) {
