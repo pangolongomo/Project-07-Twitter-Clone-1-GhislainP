@@ -18,8 +18,9 @@ import AboutAuthor from "../components/AboutAuthor";
 function Profile() {
   const { username } = useParams();
   const user = userFromUsername(username);
-  const userTweets = tweetsByUser(user.userId);
-  const userPostsCount = singleUserPosts(user.userId).length;
+  
+  const userTweets = tweetsByUser(user.id);
+  const userPostsCount = singleUserPosts(user.id).length;
   const IconDesc = user.isCertified && RiVerifiedBadgeFill;
   return (
     <>
@@ -35,7 +36,7 @@ function Profile() {
         <div className="flex justify-between py-2">
           <div className="relative">
             <Avatar
-              userId={user.userId}
+              userId={user.id}
               width="w-[130px]"
               position="absolute -top-24 "
             />

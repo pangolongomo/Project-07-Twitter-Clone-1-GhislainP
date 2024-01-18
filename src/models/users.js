@@ -1,6 +1,6 @@
-export const users = [
+export const usersData = [
   {
-    userId: 0,
+    id: 0,
     avatar:
       "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/tweet-profile-photo_eqebam.png",
     banner:
@@ -21,7 +21,7 @@ export const users = [
     subscriber: 62045832,
   },
   {
-    userId: 1,
+    id: 1,
     avatar:
       "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448975/Project-07-Twitter-Clone-1-GhislainP/images/new_york_times_q9kpm1.png",
     banner:
@@ -45,7 +45,7 @@ export const users = [
     subscriber: 55190326,
   },
   {
-    userId: 2,
+    id: 2,
     avatar:
       "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/twitter_logo_s3lzjo.png",
     banner:
@@ -69,7 +69,7 @@ export const users = [
     subscriber: 67324480,
   },
   {
-    userId: 3,
+    id: 3,
     avatar:
       "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/RudByLnY_400x400_kkpfpk.jpg",
     banner:
@@ -90,7 +90,7 @@ export const users = [
     subscriber: 26658,
   },
   {
-    userId: 4,
+    id: 4,
     avatar:
       "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1702303059/Project-07-Twitter-Clone-1-GhislainP/images/Mr-Robot-Season-1-Artwork_mdnbw4.jpg",
     banner:
@@ -112,7 +112,7 @@ export const users = [
     subscriber: 446616,
   },
   {
-    userId: 5,
+    id: 5,
     avatar:
       "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1702333418/Project-07-Twitter-Clone-1-GhislainP/images/6sMXgD4v_400x400_eytc4o.jpg",
     banner:

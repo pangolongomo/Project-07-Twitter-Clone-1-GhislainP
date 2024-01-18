@@ -1,4 +1,4 @@
-export const tweets = [
+export const tweetsData = [
   {
     tweetId: 0,
     userId: 0,

@@ -5,6 +5,7 @@ import { userFromId } from "../utils/userHelper";
 
 function UserHighlight({ userId, IconDesc, children }) {
   const user = userFromId(userId);
+  // const { loginedUserid } = useAuthInfos();
 
   return (
     <div className="flex items-center justify-between">

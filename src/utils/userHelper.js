@@ -1,13 +1,25 @@
-import { users } from "../models/users";
-import { tweets } from "../models/tweets";
+import { tweetsData } from "../models/tweets";
+import { useUsers } from "../context/userContext";
+import { useAuthInfos } from "../context/authInfos";
 
-export const isAuth = users.find((user) => user.loggedIn === true);
-export const userFromId = (userId) =>
-  users.find((user) => user.userId === userId);
-export const userFromUsername = (userName) =>
-  users.find((user) => user.userName === userName);
+export const isAuth = () => {
+  const { users } = useUsers();
+  const { loginedUserid } = useAuthInfos();
+  return users.find((user) => user.id === loginedUserid);
+};
+
+export const userFromId = (userId) => {
+  const { users } = useUsers();
+  return users.find((user) => user.id === userId);
+};
+
+export const userFromUsername = (userName) => {
+  const { users } = useUsers();
+  return users.find((user) => user.userName === userName);
+};
+
 export const tweetsByUser = (userId) =>
-  tweets.filter((tweet) => tweet.userId === userId);
+  tweetsData.filter((tweet) => tweet.userId === userId);
 
 export const singleUserPosts = (userId) =>
-  tweets.filter((t) => t.userId === userId);
+  tweetsData.filter((t) => t.userId === userId);

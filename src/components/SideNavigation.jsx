@@ -1,9 +1,10 @@
 import React from "react";
 import SideNavigationButton from "./SideNavigationButton";
-import { navigationButtons } from "../models/navigationButtons";
+import { navData } from "../models/navigationButtons";
 import Button from "./Button";
 
 function SideNavigation() {
+  const navigationButtons = navData()
   function clickOnTweet() {}
   return (
     <ul className="flex flex-col gap-2 text-lg">

@@ -16,10 +16,10 @@ const tweetEditorActionsButtons = [
 ];
 
 function TweetEditor() {
-  const user = isAuth;
+  const user = isAuth();
   return (
     <div className="flex py-2 px-4 gap-2">
-      <Avatar userId={user.userId} />
+      <Avatar userId={user.id} />
       <div className="flex-auto">
         <input
           type="text"

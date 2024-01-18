@@ -7,15 +7,18 @@ import { FaRegUser } from "react-icons/fa6";
 import { PiDotsThreeCircle } from "react-icons/pi";
 import { isAuth } from "../utils/userHelper";
 
-const user = isAuth;
-export const navigationButtons = [
-  { icon: FaTwitter, link: "/" },
-  { icon: BiHomeCircle, text: "Home", link: "/" },
-  { icon: CiHashtag, text: "Explore", link: "/" },
-  { icon: GoBell, text: "Notifications", link: "/" },
-  { icon: CiMail, text: "Messages", link: "/" },
-  { icon: CiBookmark, text: "Bookmarks", link: "/" },
-  { icon: BsCardText, text: "Lists", link: "/" },
-  { icon: FaRegUser, text: "Profile    ", link: `/${user.userName}` },
-  { icon: PiDotsThreeCircle, text: "More    ", link: "/" },
-];
+export const navData = () => {
+  const user = isAuth();
+
+  return [
+    { icon: FaTwitter, link: "/" },
+    { icon: BiHomeCircle, text: "Home", link: "/" },
+    { icon: CiHashtag, text: "Explore", link: "/" },
+    { icon: GoBell, text: "Notifications", link: "/" },
+    { icon: CiMail, text: "Messages", link: "/" },
+    { icon: CiBookmark, text: "Bookmarks", link: "/" },
+    { icon: BsCardText, text: "Lists", link: "/" },
+    { icon: FaRegUser, text: "Profile    ", link: `/${user.userName}` },
+    { icon: PiDotsThreeCircle, text: "More    ", link: "/" },
+  ];
+};
