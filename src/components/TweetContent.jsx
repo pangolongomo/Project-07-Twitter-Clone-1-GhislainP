@@ -38,7 +38,7 @@ function TweetContent() {
           </div>
         )}
       </div>
-      <TweetActions tweetAction={tweet.tweetAction} />
+      <TweetActions />
     </div>
   );
 }

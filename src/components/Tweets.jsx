@@ -13,11 +13,7 @@ function Tweets({ tweets }) {
       </div>
     );
 
-  return (
-    <div className="divide-y divide-[#2f3336]">
-      {tweetList}
-    </div>
-  );
+  return <div className="divide-y divide-[#2f3336]">{tweetList}</div>;
 }
 
 export default Tweets;

@@ -1,13 +1,27 @@
 import React, { useState } from "react";
 import { actionCountformatter, getActionIcon } from "../utils/helper";
+import { ACTIONS, useTweets } from "../context/tweetContext";
 
-function TweetAction({ action }) {
-  const [actionState, setActionState] = useState(false);
+export const TWEET_ACTIONS = {
+  LIKE: "like",
+  COMMENT: "message",
+  REPOST: "repost",
+  SHARE: "share",
+};
 
-  const Icon = getActionIcon(action.name, actionState);
+function TweetAction({ action, tweetId }) {
+  const { dispatch } = useTweets();
+
+  const Icon = getActionIcon(action.name, action.like);
   function handleAction() {
-    if (action.name === "like") {
-      setActionState((prevActionState) => !prevActionState);
+    switch (action.name) {
+      case TWEET_ACTIONS.LIKE:
+        dispatch({
+          type: ACTIONS.UPDATE_TWEET_ACTION,
+          payload: { name: TWEET_ACTIONS.LIKE, tweetId: tweetId },
+        });
+      default:
+        return;
     }
   }
 
@@ -15,16 +29,16 @@ function TweetAction({ action }) {
   let iconBg;
 
   if (action.name === "message") {
-    textStyle = `hover:text-[#1e9cf1] ${actionState ? `text-[#1e9cf1]` : ""}`;
+    textStyle = `hover:text-[#1e9cf1] ${action.like ? `text-[#1e9cf1]` : ""}`;
     iconBg = `group-hover:bg-[#1e9cf1]`;
   } else if (action.name === "repost") {
-    textStyle = `hover:text-[#14c288] ${actionState ? `text-[#14c288]` : ""}`;
+    textStyle = `hover:text-[#14c288] ${action.like ? `text-[#14c288]` : ""}`;
     iconBg = `group-hover:bg-[#14c288]`;
   } else if (action.name === "like") {
-    textStyle = `hover:text-[#f92f8d] ${actionState ? `text-[#f92f8d]` : ""}`;
+    textStyle = `hover:text-[#f92f8d] ${action.like ? `text-[#f92f8d]` : ""}`;
     iconBg = `group-hover:bg-[#f92f8d]`;
   } else if (action.name === "share") {
-    textStyle = `hover:text-[#1e9cf1] ${actionState ? `text-[#1e9cf1]` : ""}`;
+    textStyle = `hover:text-[#1e9cf1] ${action.like ? `text-[#1e9cf1]` : ""}`;
     iconBg = `group-hover:bg-[#1e9cf1]`;
   }
 
@@ -38,11 +52,7 @@ function TweetAction({ action }) {
       >
         <Icon />
       </span>
-      {action.count && (
-        <span>
-          {actionCountformatter(actionState ? action.count + 1 : action.count)}
-        </span>
-      )}
+      {action.count && <span>{actionCountformatter(action.count)}</span>}
     </button>
   );
 }

@@ -6,7 +6,6 @@ import { useTweets } from "../context/tweetContext";
 
 function Home() {
   const { tweets } = useTweets();
-  console.log(tweets);
   return (
     <>
       <Header />

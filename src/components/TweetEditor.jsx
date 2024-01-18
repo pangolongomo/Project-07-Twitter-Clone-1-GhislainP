@@ -34,7 +34,7 @@ function TweetEditor() {
   return (
     <div className="flex py-2 px-4 gap-2">
       <Avatar userId={user.id} />
-      <form className="flex-auto">
+      <form className="flex-auto" onSubmit={handleSubmit}>
         <input
           type="text"
           className="h-[60px] w-full bg-black text-2xl p-4"
@@ -50,7 +50,7 @@ function TweetEditor() {
               </button>
             ))}
           </div>
-          <Button action={handleSubmit}>Tweet</Button>
+          <Button actionType="submit">Tweet</Button>
         </div>
       </form>
     </div>
