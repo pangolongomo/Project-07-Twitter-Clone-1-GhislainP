@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import Trends from "./Trends";
 import { CurrentUserContext } from "../utils/ContextHandler";
 import { isAuth } from "../utils/userHelper";
-import MainContext from "../context/MainContext";
+import MainContext from "../context/mainContext";
 
 function Layout() {
   return (
