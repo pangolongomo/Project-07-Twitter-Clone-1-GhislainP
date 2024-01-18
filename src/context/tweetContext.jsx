@@ -1,12 +1,10 @@
 import React, { useContext, useReducer } from "react";
 import { tweetsData } from "../models/tweets";
-import { TWEET_ACTIONS } from "../components/TweetAction";
 
 const TweetContext = React.createContext(null);
 
 export const ACTIONS = {
   ADD_TWEET: "add-tweet",
-  ADD_TWEET_ACTION: "add-tweet-action",
   UPDATE_TWEET_ACTION: "update-tweet-action",
 };
 
@@ -18,8 +16,6 @@ function reducer(tweets, action) {
   switch (action.type) {
     case ACTIONS.ADD_TWEET:
       return [...tweets, newTweet(action.payload)];
-    case ACTIONS.ADD_TWEET_ACTION:
-      return tweets;
     case ACTIONS.UPDATE_TWEET_ACTION:
       console.log(action.payload.name, action.payload.tweetId);
       return tweets.map((tweet) => {
