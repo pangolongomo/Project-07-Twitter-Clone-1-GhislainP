@@ -3,14 +3,15 @@ import SearchBar from "./SearchBar";
 import SuggestionMenu from "./SuggestionMenu";
 import Button from "./Button";
 import UserHighlight from "./UserHighlight";
-import { tweetsData } from "../models/tweets";
 import { trendsData } from "../models/trends";
 import TrendingTags from ".";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import Footer from "./Footer";
 import { PiGear } from "react-icons/pi";
+import { useTweets } from "../context/tweetContext";
 
 function Trends() {
+  const { tweets } = useTweets();
   return (
     <div className="col-span-2 px-4 py-2">
       <div className="flex flex-col gap-4 relative">
@@ -23,10 +24,10 @@ function Trends() {
           })}
         </SuggestionMenu>
         <SuggestionMenu title="Who to follow">
-          {tweetsData.slice(0, 3).map((element) => {
+          {tweets.slice(0, 3).map((element) => {
             return (
               <UserHighlight
-                key={element.tweetId}
+                key={element.id}
                 userId={element.userId}
                 IconDesc={RiVerifiedBadgeFill}
               >

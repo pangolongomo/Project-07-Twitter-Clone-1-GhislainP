@@ -1,10 +1,11 @@
+import { sortByDate } from "../utils/userHelper";
 import Tweet from "./Tweet";
 
 function Tweets({ tweets }) {
   const tweetList =
     tweets.length > 0 ? (
-      tweets.map((tweet) => {
-        return <Tweet key={tweet.tweetId} tweet={tweet} />;
+      sortByDate(tweets).map((tweet) => {
+        return <Tweet key={tweet.id} tweet={tweet} />;
       })
     ) : (
       <div>
@@ -12,7 +13,11 @@ function Tweets({ tweets }) {
       </div>
     );
 
-  return <div className="divide-y divide-[#2f3336]">{tweetList}</div>;
+  return (
+    <div className="divide-y divide-[#2f3336]">
+      {tweetList}
+    </div>
+  );
 }
 
 export default Tweets;

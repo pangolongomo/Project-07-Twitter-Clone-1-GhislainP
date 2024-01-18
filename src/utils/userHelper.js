@@ -1,6 +1,6 @@
-import { tweetsData } from "../models/tweets";
 import { useUsers } from "../context/userContext";
 import { useAuthInfos } from "../context/authInfos";
+import { useTweets } from "../context/tweetContext";
 
 export const isAuth = () => {
   const { users } = useUsers();
@@ -18,8 +18,16 @@ export const userFromUsername = (userName) => {
   return users.find((user) => user.userName === userName);
 };
 
-export const tweetsByUser = (userId) =>
-  tweetsData.filter((tweet) => tweet.userId === userId);
+export const tweetsByUser = (userId) => {
+  const { tweets } = useTweets();
+  return tweets.filter((tweet) => tweet.userId === userId);
+};
 
-export const singleUserPosts = (userId) =>
-  tweetsData.filter((t) => t.userId === userId);
+export const singleUserPosts = (userId) => {
+  const { tweets } = useTweets();
+  return tweets.filter((t) => t.userId === userId);
+};
+
+export const sortByDate = (arr) => {
+  return arr.sort((a, b) => new Date(b.date) - new Date(a.date));
+};

@@ -1,6 +1,6 @@
 export const tweetsData = [
   {
-    tweetId: 0,
+    id: 0,
     userId: 0,
     tweetText:
       'President Joe Biden touted a new agreement reached with the European Union to ease Trump-era tariffs on aluminun and steel as a "major breakthrough" that would serve to both strengthen the US steek industry and combat the global climate crisis.',
@@ -14,7 +14,7 @@ export const tweetsData = [
     date: "2023-11-26T05:00:00.723Z",
   },
   {
-    tweetId: 1,
+    id: 1,
     userId: 1,
     tweetText:
       "Gardening boomed during the pandemic. Six Black writers share how has helped them re-establish, and reimaginem a connection to cultivation and the land",
@@ -29,7 +29,7 @@ export const tweetsData = [
     date: "2023-11-26T04:54:22.723Z",
   },
   {
-    tweetId: 2,
+    id: 2,
     userId: 2,
     tweetText: "BIG NEWS lol jk still Twitter",
     tweetImage: null,
@@ -42,7 +42,7 @@ export const tweetsData = [
     date: "2023-10-23T16:20:21.723Z",
   },
   {
-    tweetId: 3,
+    id: 3,
     userId: 2,
     tweetText: "hello literally everyone",
     tweetImage: null,
@@ -55,7 +55,7 @@ export const tweetsData = [
     date: "2023-10-04T20:18:51.723Z",
   },
   {
-    tweetId: 4,
+    id: 4,
     userId: 3,
     tweetText: null,
     tweetImage:
@@ -69,7 +69,7 @@ export const tweetsData = [
     date: "2023-11-23T18:15:22.723Z",
   },
   {
-    tweetId: 5,
+    id: 5,
     userId: 4,
     tweetText: "sdjkvnsfm dklfvofnkmvs dkl",
     tweetImage: null,

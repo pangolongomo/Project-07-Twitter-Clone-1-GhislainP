@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Avatar({ userId, width, position }) {
   const user = userFromId(userId);
-  console.log(user.userName);
+
   return (
     <div className={`flex-none ${width || "w-[70px]"} ${position || ""}`}>
       <Link to={`/${user.userName}`}>

@@ -14,10 +14,21 @@ export function useTweets() {
 function reducer(tweets, action) {
   switch (action.type) {
     case ACTIONS.ADD_TWEET:
-      return tweets.filter((tweet) => tweet.id === action.payload.userId);
+      return [...tweets, newTweet(action.payload)];
     default:
       return tweets;
   }
+}
+
+function newTweet(tweet) {
+  return {
+    id: Date.now(),
+    userId: tweet.id,
+    tweetText: tweet.tweetText,
+    tweetImage: tweet.tweetImage,
+    tweetAction: [],
+    date: new Date().toISOString(),
+  };
 }
 
 export default function TweetProvider({ children }) {
