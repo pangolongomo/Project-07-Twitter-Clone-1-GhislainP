@@ -7,7 +7,7 @@ import { TbCalendarStats } from "react-icons/tb";
 import Button from "./Button";
 import { isAuth } from "../utils/userHelper";
 import { ACTIONS, useTweets } from "../context/tweetContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const tweetEditorActionsButtons = [
   { name: "image", icon: CiImageOn },
@@ -19,11 +19,18 @@ const tweetEditorActionsButtons = [
 
 function TweetEditor() {
   const [tweetText, setTweetText] = useState("");
+  const [formValid, setFormValid] = useState(false);
   const user = isAuth();
   const { dispatch } = useTweets();
 
+  useEffect(() => {
+    if (tweetText.trim() !== "") setFormValid(true);
+    else setFormValid(false);
+  }, [tweetText]);
+
   function handleSubmit(e) {
     e.preventDefault();
+    if (tweetText.trim() === "") return;
     dispatch({
       type: ACTIONS.ADD_TWEET,
       payload: { tweetText: tweetText, id: user.id, tweetImage: null },
@@ -50,7 +57,7 @@ function TweetEditor() {
               </button>
             ))}
           </div>
-          <Button actionType="submit">Tweet</Button>
+          <Button actionType="submit" disabled={!formValid}>Tweet</Button>
         </div>
       </form>
     </div>

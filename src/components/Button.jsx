@@ -11,6 +11,7 @@ function Button({
   border,
   width,
   actionType,
+  disabled,
 }) {
   return (
     <button
@@ -23,6 +24,7 @@ function Button({
       }
       }`}
       onClick={action}
+      disabled={disabled}
     >
       {children}
     </button>
