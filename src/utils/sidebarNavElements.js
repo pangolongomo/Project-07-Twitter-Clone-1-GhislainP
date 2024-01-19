@@ -5,9 +5,9 @@ import { GoBell } from "react-icons/go";
 import { BsCardText } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa6";
 import { PiDotsThreeCircle } from "react-icons/pi";
-import { isAuth } from "../utils/userHelper";
+import { isAuth } from "./userHelper";
 
-export const navData = () => {
+export const sidebarNavElements = () => {
   const user = isAuth();
 
   return [

@@ -1,9 +1,9 @@
 import React from "react";
+import otherData from "../data/other-data.json";
 import SearchBar from "./SearchBar";
 import SuggestionMenu from "./SuggestionMenu";
 import Button from "./Button";
 import UserHighlight from "./UserHighlight";
-import { trendsData } from "../models/trends";
 import TrendingTags from ".";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import Footer from "./Footer";
@@ -19,7 +19,7 @@ function Trends() {
           <SearchBar placeholder="Search Twitter" />
         </div>
         <SuggestionMenu title="Trends for you" optionIcon={PiGear}>
-          {trendsData.slice(0, 4).map((element, i) => {
+          {otherData["trends-data"].slice(0, 4).map((element, i) => {
             return <TrendingTags key={i} trend={element} />;
           })}
         </SuggestionMenu>
