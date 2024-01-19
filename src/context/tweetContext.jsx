@@ -17,7 +17,6 @@ function reducer(tweets, action) {
     case ACTIONS.ADD_TWEET:
       return [...tweets, newTweet(action.payload)];
     case ACTIONS.UPDATE_TWEET_ACTION:
-      console.log(action.payload.name, action.payload.tweetId);
       return tweets.map((tweet) => {
         if (action.payload.tweetId === tweet.id) {
           const updatedTweetAction = handleTweetAction(

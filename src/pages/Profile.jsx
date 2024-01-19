@@ -18,70 +18,90 @@ import AboutAuthor from "../components/AboutAuthor";
 function Profile() {
   const { username } = useParams();
   const user = userFromUsername(username);
-  
-  const userTweets = tweetsByUser(user.id);
-  const userPostsCount = singleUserPosts(user.id).length;
-  const IconDesc = user.isCertified && RiVerifiedBadgeFill;
+
+  const userTweets = user ? tweetsByUser(user.id) : null;
+  const userPostsCount = user ? singleUserPosts(user.id).length : null;
+  const IconDesc = user ? user.isCertified && RiVerifiedBadgeFill : null;
   return (
     <>
       <UserNavigation user={user} postsCount={userPostsCount} />
-      <div>
-        <img
-          className="w-full h-auto"
-          src={user.banner}
-          alt={`${user.name} banner`}
-        />
+      <div className="w-full aspect-[3/1] bg-[#cfd9de]">
+        {!user || !user.banner ? null : (
+          <img
+            className="w-full h-auto"
+            src={user.banner}
+            alt={`${user.name} banner`}
+          />
+        )}
       </div>
       <div className="flex flex-col py-4 px-4 gap-4">
         <div className="flex justify-between py-2">
           <div className="relative">
-            <Avatar
-              userId={user.id}
-              width="w-[130px]"
-              position="absolute -top-24 "
-            />
+            <div className="w-[130px] aspect-[1/1] absolute -top-24 bg-[#f7f9f9] rounded-full">
+              {user && <Avatar userId={user.id} width="w-full" />}
+            </div>
           </div>
-          <div className="flex gap-3 items-center">
-            <Button bg="bg-transparent" border="border-2" padding="p-2">
-              <HiOutlineDotsHorizontal />
-            </Button>
-            <Button color="text-[#202327]" bg="bg-white">
-              Follow
-            </Button>
-          </div>
+          {user && (
+            <div className="flex gap-3 items-center">
+              <Button bg="bg-transparent" border="border-2" padding="p-2">
+                <HiOutlineDotsHorizontal />
+              </Button>
+              <Button color="text-[#202327]" bg="bg-white">
+                Follow
+              </Button>
+            </div>
+          )}
         </div>
-        <AboutAuthor
-          userName={user.userName}
-          IconDesc={IconDesc}
-          name={user.name}
-        />
-        <div>{user.description && <p>{user.description}</p>}</div>
-        <div className="flex gap-8 wrap leading-8">
-          {user.userInfo &&
-            user.userInfo.map((info) => {
-              const InfoIcon = getUserInfoIcons(info.type);
-              return (
-                <span key={info.type} className="flex items-center gap-1">
-                  <InfoIcon />
-                  {info.content}
-                </span>
-              );
-            })}
-          <span className="flex items-center gap-1">
-            <LuCalendarDays /> A rejoint Twitter en
-            {joinDateFormatter(user.created)}
-          </span>
-        </div>
-        <div className="flex gap-16">
-          <p>
-            {user.subscription} abonnement{user.subscription > 1 && "s"}
-          </p>
-          <p>
-            {user.subscriber} abonné{user.subscriber > 1 && "s"}
-          </p>
-        </div>
+        {user ? (
+          <AboutAuthor
+            userName={user.userName}
+            IconDesc={IconDesc}
+            name={user.name}
+          />
+        ) : (
+          <div className="my-4 font-medium">@{username}</div>
+        )}
+        {user && (
+          <>
+            <div>{user.description && <p>{user.description}</p>}</div>
+            <div className="flex gap-8 wrap leading-8">
+              {user.userInfo &&
+                user.userInfo.map((info) => {
+                  const InfoIcon = getUserInfoIcons(info.type);
+                  return (
+                    <span key={info.type} className="flex items-center gap-1">
+                      <InfoIcon />
+                      {info.content}
+                    </span>
+                  );
+                })}
+              <span className="flex items-center gap-1">
+                <LuCalendarDays /> A rejoint Twitter en
+                {joinDateFormatter(user.created)}
+              </span>
+            </div>
+            <div className="flex gap-16">
+              <p>
+                {user.subscription} abonnement{user.subscription > 1 && "s"}
+              </p>
+              <p>
+                {user.subscriber} abonné{user.subscriber > 1 && "s"}
+              </p>
+            </div>
+          </>
+        )}
       </div>
-      <Tweets tweets={userTweets} />
+      {!user && (
+        <div className="flex justify-center">
+          <div className="mt-12">
+            <h2 className=" text-lg font-bold">Ce compte n'existe pas.</h2>
+            <p className="text-gray-500">
+              Essayez d'effectuer une autre recherche.
+            </p>
+          </div>
+        </div>
+      )}
+      {user && <Tweets tweets={userTweets} />}
     </>
   );
 }

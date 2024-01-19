@@ -38,7 +38,7 @@ function TweetEditor() {
     setTweetText("");
   }
   return (
-    <div className="flex py-2 px-4 gap-2">
+    <div className="flex py-2 px-4 gap-2 items-start">
       <Avatar userId={user.id} />
       <form className="flex-auto" onSubmit={handleSubmit}>
         <input
