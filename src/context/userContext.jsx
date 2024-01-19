@@ -1,5 +1,5 @@
 import React, { useContext, useReducer } from "react";
-import { usersData } from "../models/users";
+import data from "../data/initial-data.json";
 
 const UserContext = React.createContext(null);
 
@@ -12,7 +12,7 @@ export function useUsers() {
 function reducer(users, action) {}
 
 export default function UserProvider({ children }) {
-  const [users, dispatch] = useReducer(reducer, usersData);
+  const [users, dispatch] = useReducer(reducer, data["current-user"]);
 
   const value = { users, dispatch };
 

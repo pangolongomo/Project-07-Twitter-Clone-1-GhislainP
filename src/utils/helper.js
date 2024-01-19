@@ -72,6 +72,7 @@ function monthFormaterShort(month) {
   else if (month === 9) return "Oct";
   else if (month === 10) return "Nov";
   else if (month === 11) return "Dec";
+  else return null;
 }
 
 function monthFormater(month) {
@@ -87,6 +88,7 @@ function monthFormater(month) {
   else if (month === 9) return "octobre";
   else if (month === 10) return "novembre";
   else if (month === 11) return "decembre";
+  else null;
 }
 
 export function getActionIcon(name, actionState) {

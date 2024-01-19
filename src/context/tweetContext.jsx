@@ -1,5 +1,5 @@
 import React, { useContext, useReducer } from "react";
-import { tweetsData } from "../models/tweets";
+import data from "../data/initial-data.json";
 
 const TweetContext = React.createContext(null);
 
@@ -61,7 +61,7 @@ function handleTweetAction(tweetActions, actionName) {
 }
 
 export default function TweetProvider({ children }) {
-  const [tweets, dispatch] = useReducer(reducer, tweetsData);
+  const [tweets, dispatch] = useReducer(reducer, data.tweets);
 
   const value = { tweets, dispatch };
 

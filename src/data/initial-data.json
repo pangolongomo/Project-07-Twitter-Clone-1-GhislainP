@@ -1,0 +1,262 @@
+{
+    "current-user": [
+        {
+            "id": 0,
+            "avatar": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/tweet-profile-photo_eqebam.png",
+            "banner": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1702333419/Project-07-Twitter-Clone-1-GhislainP/images/CNN_yfckag.jpg",
+            "name": "CNN",
+            "userName": "CNN",
+            "isCertified": true,
+            "description": "It's our job to #GoThere & tell the most difficult stories. For breaking news, follow @CNNBRK and download our app http://cnn.com/apps",
+            "userInfo": [
+                {
+                    "type": "website",
+                    "content": "cnn.com"
+                }
+            ],
+            "created": "2007-02-07T23:00:00.000Z",
+            "subscription": 1084,
+            "subscriber": 62045832
+        },
+        {
+            "id": 1,
+            "avatar": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448975/Project-07-Twitter-Clone-1-GhislainP/images/new_york_times_q9kpm1.png",
+            "banner": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1702333418/Project-07-Twitter-Clone-1-GhislainP/images/nytimes_su95rb.jpg",
+            "name": "The New York Times",
+            "userName": "nytimes",
+            "isCertified": true,
+            "description": "News tips? Share them here: http://nyti.ms/2FVHq9v",
+            "userInfo": [
+                {
+                    "type": "website",
+                    "content": "nytimes.com"
+                },
+                {
+                    "type": "location",
+                    "content": "New York City"
+                }
+            ],
+            "created": "2007-03-18T00:00:00.000Z",
+            "subscription": 876,
+            "subscriber": 55190326
+        },
+        {
+            "id": 2,
+            "avatar": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/twitter_logo_s3lzjo.png",
+            "banner": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1702333418/Project-07-Twitter-Clone-1-GhislainP/images/Twitter_m9znbf.jpg",
+            "name": "Twitter",
+            "userName": "Twitter",
+            "isCertified": true,
+            "description": "what's happening?!",
+            "userInfo": [
+                {
+                    "type": "website",
+                    "content": "about.x.com"
+                },
+                {
+                    "type": "location",
+                    "content": "everywhere"
+                }
+            ],
+            "created": "2007-02-01T00:00:00.000Z",
+            "subscription": 0,
+            "subscriber": 67324480
+        },
+        {
+            "id": 3,
+            "avatar": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/RudByLnY_400x400_kkpfpk.jpg",
+            "banner": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1702333957/Project-07-Twitter-Clone-1-GhislainP/images/mkadima_wsvxwn.jpg",
+            "name": "MKADIMART",
+            "userName": "mkadimart",
+            "isCertified": true,
+            "description": "ARTISTE MULTIDISCIPLINAIRE ✍🏾, contacte mon atelier au 0812392358",
+            "userInfo": [
+                {
+                    "type": "profession",
+                    "content": "Architecte paysagiste"
+                }
+            ],
+            "created": "2022-02-07T00:00:00.000Z",
+            "subscription": 41,
+            "subscriber": 26658
+        },
+        {
+            "id": 4,
+            "avatar": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1702303059/Project-07-Twitter-Clone-1-GhislainP/images/Mr-Robot-Season-1-Artwork_mdnbw4.jpg",
+            "banner": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1702333418/Project-07-Twitter-Clone-1-GhislainP/images/whoismrrobot_sfxber.jpg",
+            "name": "Mr. Robot",
+            "userName": "whoismrrobot",
+            "isCertified": true,
+            "description": "Hello, friend. Watch the Final Season of #MrRobot on @USA_Network online & On Demand. Catch up on older seasons on @PrimeVideo.",
+            "website": "usanet.tv/2ViBgp4",
+            "userInfo": [
+                {
+                    "type": "website",
+                    "content": "usanet.tv/2ViBgp4"
+                }
+            ],
+            "created": "2015-03-16T00:00:00.000Z",
+            "subscription": 1000,
+            "subscriber": 446616
+        },
+        {
+            "id": 5,
+            "avatar": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1702333418/Project-07-Twitter-Clone-1-GhislainP/images/6sMXgD4v_400x400_eytc4o.jpg",
+            "banner": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1702333418/Project-07-Twitter-Clone-1-GhislainP/images/Piste_rdc_hkhf9g.jpg",
+            "name": "Piste Pour l'Emergence",
+            "userName": "Piste_rdc",
+            "isCertified": true,
+            "description": "Compte officiel. Fondé sur les principes de l'Humanisme Libéral. Devise: Mobiliser-Organiser-Transformer. Président National:@sethkikuni. Adhésion: 0833676545",
+            "created": "2023-02-25T00:00:00.000Z",
+            "subscription": 34,
+            "subscriber": 1115,
+            "loggedIn": true
+        }
+    ],
+    "tweets": [
+        {
+            "id": 0,
+            "userId": 0,
+            "tweetText": "President Joe Biden touted a new agreement reached with the European Union to ease Trump-era tariffs on aluminun and steel as a \"major breakthrough\" that would serve to both strengthen the US steek industry and combat the global climate crisis.",
+            "tweetImage": null,
+            "tweetAction": [
+                {
+                    "name": "message",
+                    "count": 57
+                },
+                {
+                    "name": "repost",
+                    "count": 144
+                },
+                {
+                    "name": "like",
+                    "count": 184
+                },
+                {
+                    "name": "share"
+                }
+            ],
+            "date": "2023-11-26T05:00:00.723Z"
+        },
+        {
+            "id": 1,
+            "userId": 1,
+            "tweetText": "Gardening boomed during the pandemic. Six Black writers share how has helped them re-establish, and reimaginem a connection to cultivation and the land",
+            "tweetImage": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448977/Project-07-Twitter-Clone-1-GhislainP/images/tweet-image_du5bjz.png",
+            "tweetAction": [
+                {
+                    "name": "message",
+                    "count": 19
+                },
+                {
+                    "name": "repost",
+                    "count": 48
+                },
+                {
+                    "name": "like",
+                    "count": 482
+                },
+                {
+                    "name": "share"
+                }
+            ],
+            "date": "2023-11-26T04:54:22.723Z"
+        },
+        {
+            "id": 4,
+            "userId": 3,
+            "tweetText": null,
+            "tweetImage": "https://res.cloudinary.com/dvmqqgrx5/image/upload/v1701448976/Project-07-Twitter-Clone-1-GhislainP/images/F_eVAZjW4AAPpBc_nonkfd.jpg",
+            "tweetAction": [
+                {
+                    "name": "message",
+                    "count": 81
+                },
+                {
+                    "name": "repost",
+                    "count": 89
+                },
+                {
+                    "name": "like",
+                    "count": 383
+                },
+                {
+                    "name": "share"
+                }
+            ],
+            "date": "2023-11-23T18:15:22.723Z"
+        },
+        {
+            "id": 2,
+            "userId": 2,
+            "tweetText": "BIG NEWS lol jk still Twitter",
+            "tweetImage": null,
+            "tweetAction": [
+                {
+                    "name": "message",
+                    "count": 6800
+                },
+                {
+                    "name": "repost",
+                    "count": 36600
+                },
+                {
+                    "name": "like",
+                    "count": 267100
+                },
+                {
+                    "name": "share"
+                }
+            ],
+            "date": "2023-10-23T16:20:21.723Z"
+        },
+        {
+            "id": 3,
+            "userId": 2,
+            "tweetText": "hello literally everyone",
+            "tweetImage": null,
+            "tweetAction": [
+                {
+                    "name": "message",
+                    "count": 108700
+                },
+                {
+                    "name": "repost",
+                    "count": 785400
+                },
+                {
+                    "name": "like",
+                    "count": 3300000
+                },
+                {
+                    "name": "share"
+                }
+            ],
+            "date": "2023-10-04T20:18:51.723Z"
+        },
+        {
+            "id": 5,
+            "userId": 4,
+            "tweetText": "sdjkvnsfm dklfvofnkmvs dkl",
+            "tweetImage": null,
+            "tweetAction": [
+                {
+                    "name": "message",
+                    "count": 81
+                },
+                {
+                    "name": "repost",
+                    "count": 89
+                },
+                {
+                    "name": "like",
+                    "count": 383
+                },
+                {
+                    "name": "share"
+                }
+            ],
+            "date": "2021-03-26T04:54:22.723Z"
+        }
+    ]
+}
