@@ -1,12 +1,8 @@
 import React, { useContext, useReducer } from "react";
 import data from "../data/initial-data.json";
+import { ACTIONS, REDUCER_ACTIONS } from "../utils/actions.json";
 
 const TweetContext = React.createContext(null);
-
-export const ACTIONS = {
-  ADD_TWEET: "add-tweet",
-  UPDATE_TWEET_ACTION: "update-tweet-action",
-};
 
 export function useTweets() {
   return useContext(TweetContext);
@@ -14,18 +10,11 @@ export function useTweets() {
 
 function reducer(tweets, action) {
   switch (action.type) {
-    case ACTIONS.ADD_TWEET:
+    case REDUCER_ACTIONS.ADD_TWEET:
       return [...tweets, newTweet(action.payload)];
-    case ACTIONS.UPDATE_TWEET_ACTION:
+    case REDUCER_ACTIONS.UPDATE_LIKE:
       return tweets.map((tweet) => {
-        if (action.payload.tweetId === tweet.id) {
-          const updatedTweetAction = handleTweetAction(
-            tweet.tweetAction,
-            action.payload.name
-          );
-          return { ...tweet, tweetAction: updatedTweetAction };
-        }
-        return tweet;
+        return handleLike(tweet, action.payload.tweetId);
       });
     default:
       return tweets;
@@ -48,15 +37,20 @@ function newTweet(tweet) {
   };
 }
 
-function handleTweetAction(tweetActions, actionName) {
-  return tweetActions.map((action) => {
-    // Increment the number of likes when the user clicks the button
-    if (action.name === actionName) {
-      const newCount = action.like ? action.count - 1 : action.count + 1;
-      return { ...action, like: !action.like, count: newCount };
+function handleLike(tweet, tweetId) {
+  if (tweet.id !== tweetId) {
+    return tweet;
+  }
+
+  const newActions = tweet.tweetAction.map((action) => {
+    if (action.name !== ACTIONS.LIKE) {
+      return action;
     }
-    return action;
+    const newCount = action.like ? action.count - 1 : action.count + 1;
+    return { ...action, like: !action.like, count: newCount };
   });
+
+  return { ...tweet, tweetAction: newActions };
 }
 
 export default function TweetProvider({ children }) {

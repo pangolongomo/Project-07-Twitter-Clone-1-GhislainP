@@ -6,8 +6,9 @@ import { VscSmiley } from "react-icons/vsc";
 import { TbCalendarStats } from "react-icons/tb";
 import Button from "./Button";
 import { isAuth } from "../utils/userHelper";
-import { ACTIONS, useTweets } from "../context/tweetContext";
+import { useTweets } from "../context/tweetContext";
 import { useEffect, useState } from "react";
+import { REDUCER_ACTIONS } from "../utils/actions.json";
 
 const tweetEditorActionsButtons = [
   { name: "image", icon: CiImageOn },
@@ -24,17 +25,20 @@ function TweetEditor() {
   const { dispatch } = useTweets();
 
   useEffect(() => {
-    if (tweetText.trim() !== "") setFormValid(true);
-    else setFormValid(false);
+    if (tweetText.trim() === "") {
+      return setFormValid(false);
+    }
+    setFormValid(true);
   }, [tweetText]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (tweetText.trim() === "") return;
-    dispatch({
-      type: ACTIONS.ADD_TWEET,
-      payload: { tweetText: tweetText, id: user.id, tweetImage: null },
-    });
+    if (formValid) {
+      dispatch({
+        type: REDUCER_ACTIONS.ADD_TWEET,
+        payload: { tweetText: tweetText, id: user.id, tweetImage: null },
+      });
+    }
     setTweetText("");
   }
   return (
@@ -50,11 +54,16 @@ function TweetEditor() {
         />
         <div className="flex justify-between items-center py-2">
           <div className="flex justify-start items-center gap-2">
-            {tweetEditorActionsButtons.map((Btn) => (
-              <button className="text-2xl text-sky-500" key={Btn.name}>
-                <Btn.icon />
-              </button>
-            ))}
+            {tweetEditorActionsButtons.map((Btn) => {
+              return (
+                <button className="text-2xl text-sky-500" key={Btn.name}>
+                  <label htmlFor={Btn.name} className="cursor-pointer">
+                    <Btn.icon />
+                  </label>
+                  <input type="file" id={Btn.name} className="hidden" />
+                </button>
+              );
+            })}
           </div>
           <Button actionType="submit" disabled={!formValid}>
             Tweet

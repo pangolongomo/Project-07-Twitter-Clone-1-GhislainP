@@ -1,13 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { actionCountformatter, getActionIcon } from "../utils/helper";
-import { ACTIONS, useTweets } from "../context/tweetContext";
-
-export const TWEET_ACTIONS = {
-  LIKE: "like",
-  COMMENT: "message",
-  REPOST: "repost",
-  SHARE: "share",
-};
+import { useTweets } from "../context/tweetContext";
+import { ACTIONS, REDUCER_ACTIONS } from "../utils/actions.json";
 
 function TweetAction({ action, tweetId }) {
   const { dispatch } = useTweets();
@@ -15,10 +9,10 @@ function TweetAction({ action, tweetId }) {
   const Icon = getActionIcon(action.name, action.like);
   function handleAction() {
     switch (action.name) {
-      case TWEET_ACTIONS.LIKE:
+      case ACTIONS.LIKE:
         dispatch({
-          type: ACTIONS.UPDATE_TWEET_ACTION,
-          payload: { name: TWEET_ACTIONS.LIKE, tweetId: tweetId },
+          type: REDUCER_ACTIONS.UPDATE_LIKE,
+          payload: { tweetId: tweetId },
         });
       default:
         return;

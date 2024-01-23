@@ -3,7 +3,6 @@ import data from "../data/initial-data.json";
 
 const UserContext = React.createContext(null);
 
-export const ACTIONS = {};
 
 export function useUsers() {
   return useContext(UserContext);
