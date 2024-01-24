@@ -1,0 +1,80 @@
+[1mdiff --git a/src/components/TweetEditor.jsx b/src/components/TweetEditor.jsx[m
+[1mindex 219f657..cda51bb 100644[m
+[1m--- a/src/components/TweetEditor.jsx[m
+[1m+++ b/src/components/TweetEditor.jsx[m
+[36m@@ -20,23 +20,37 @@[m [mconst tweetEditorActionsButtons = [[m
+ [m
+ function TweetEditor() {[m
+   const [tweetText, setTweetText] = useState("");[m
+[32m+[m[32m  const [tweetImage, setTweetImage] = useState(null);[m
+   const [formValid, setFormValid] = useState(false);[m
+   const user = isAuth();[m
+   const { dispatch } = useTweets();[m
+ [m
+   useEffect(() => {[m
+[31m-    if (tweetText.trim() === "") {[m
+[32m+[m[32m    if (!tweetText.trim() && !tweetImage) {[m
+       return setFormValid(false);[m
+     }[m
+     setFormValid(true);[m
+[31m-  }, [tweetText]);[m
+[32m+[m[32m  }, [tweetText, tweetImage]);[m
+[32m+[m
+[32m+[m[32m  function handleFileChange(e) {[m
+[32m+[m[32m    const file = e.target.files[0];[m
+[32m+[m[32m    if (file && e.target.id === "image") {[m
+[32m+[m[32m      const reader = new FileReader();[m
+[32m+[m[32m      reader.onloadend = () => setTweetImage(reader.result);[m
+[32m+[m[32m      reader.readAsDataURL(file);[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+ [m
+   function handleSubmit(e) {[m
+     e.preventDefault();[m
+     if (formValid) {[m
+       dispatch({[m
+         type: REDUCER_ACTIONS.ADD_TWEET,[m
+[31m-        payload: { tweetText: tweetText, id: user.id, tweetImage: null },[m
+[32m+[m[32m        payload: {[m
+[32m+[m[32m          tweetText: tweetText.trim(),[m
+[32m+[m[32m          id: user.id,[m
+[32m+[m[32m          tweetImage: tweetImage,[m
+[32m+[m[32m        },[m
+       });[m
+     }[m
+     setTweetText("");[m
+[36m@@ -56,12 +70,18 @@[m [mfunction TweetEditor() {[m
+           <div className="flex justify-start items-center gap-2">[m
+             {tweetEditorActionsButtons.map((Btn) => {[m
+               return ([m
+[31m-                <button className="text-2xl text-sky-500" key={Btn.name}>[m
+[32m+[m[32m                <div className="text-2xl text-sky-500" key={Btn.name}>[m
+                   <label htmlFor={Btn.name} className="cursor-pointer">[m
+                     <Btn.icon />[m
+                   </label>[m
+[31m-                  <input type="file" id={Btn.name} className="hidden" />[m
+[31m-                </button>[m
+[32m+[m[32m                  <input[m
+[32m+[m[32m                    type="file"[m
+[32m+[m[32m                    id={Btn.name}[m
+[32m+[m[32m                    name={Btn.name}[m
+[32m+[m[32m                    className="hidden"[m
+[32m+[m[32m                    onChange={handleFileChange}[m
+[32m+[m[32m                  />[m
+[32m+[m[32m                </div>[m
+               );[m
+             })}[m
+           </div>[m
+[36m@@ -69,6 +89,12 @@[m [mfunction TweetEditor() {[m
+             Tweet[m
+           </Button>[m
+         </div>[m
+[32m+[m
+[32m+[m[32m        {tweetImage && ([m
+[32m+[m[32m          <div className="h-10">[m
+[32m+[m[32m            <img src={tweetImage} alt="" className="h-full" />[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        )}[m
+       </form>[m
+     </div>[m
+   );[m

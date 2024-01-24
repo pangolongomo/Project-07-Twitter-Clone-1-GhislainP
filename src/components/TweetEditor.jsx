@@ -11,32 +11,46 @@ import { useEffect, useState } from "react";
 import { REDUCER_ACTIONS } from "../utils/actions.json";
 
 const tweetEditorActionsButtons = [
-  { name: "image", icon: CiImageOn },
-  { name: "gif", icon: MdOutlineGifBox },
-  { name: "piChart", icon: PiChartBarHorizontalLight },
-  { name: "emoji", icon: VscSmiley },
-  { name: "calendar", icon: TbCalendarStats },
+  { name: "image", activated: true, icon: CiImageOn },
+  { name: "gif", activated: false, icon: MdOutlineGifBox },
+  { name: "piChart", activated: false, icon: PiChartBarHorizontalLight },
+  { name: "emoji", activated: false, icon: VscSmiley },
+  { name: "calendar", activated: false, icon: TbCalendarStats },
 ];
 
 function TweetEditor() {
   const [tweetText, setTweetText] = useState("");
+  const [tweetImage, setTweetImage] = useState(null);
   const [formValid, setFormValid] = useState(false);
   const user = isAuth();
   const { dispatch } = useTweets();
 
   useEffect(() => {
-    if (tweetText.trim() === "") {
+    if (!tweetText.trim() && !tweetImage) {
       return setFormValid(false);
     }
     setFormValid(true);
-  }, [tweetText]);
+  }, [tweetText, tweetImage]);
+
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (file && e.target.id === "image") {
+      const reader = new FileReader();
+      reader.onloadend = () => setTweetImage(reader.result);
+      reader.readAsDataURL(file);
+    }
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
     if (formValid) {
       dispatch({
         type: REDUCER_ACTIONS.ADD_TWEET,
-        payload: { tweetText: tweetText, id: user.id, tweetImage: null },
+        payload: {
+          tweetText: tweetText.trim(),
+          id: user.id,
+          tweetImage: tweetImage,
+        },
       });
     }
     setTweetText("");
@@ -56,12 +70,20 @@ function TweetEditor() {
           <div className="flex justify-start items-center gap-2">
             {tweetEditorActionsButtons.map((Btn) => {
               return (
-                <button className="text-2xl text-sky-500" key={Btn.name}>
+                <div className="text-2xl text-sky-500" key={Btn.name}>
                   <label htmlFor={Btn.name} className="cursor-pointer">
                     <Btn.icon />
                   </label>
-                  <input type="file" id={Btn.name} className="hidden" />
-                </button>
+                  {Btn.activated && (
+                    <input
+                      type="file"
+                      id={Btn.name}
+                      name={Btn.name}
+                      className="hidden"
+                      onChange={handleFileChange}
+                    />
+                  )}
+                </div>
               );
             })}
           </div>
@@ -69,6 +91,12 @@ function TweetEditor() {
             Tweet
           </Button>
         </div>
+
+        {tweetImage && (
+          <div className="h-10">
+            <img src={tweetImage} alt="" className="h-full" />
+          </div>
+        )}
       </form>
     </div>
   );

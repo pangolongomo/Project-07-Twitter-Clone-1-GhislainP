@@ -33,7 +33,7 @@ function TweetContent() {
             <img
               src={tweet.tweetImage}
               alt="{tweet.tweetImage}"
-              className="w-full h-auto rounded-[50px] border border-[#2f3336]"
+              className="w-full h-auto rounded-[50px] border border-[#2f3336] aspect-video"
             />
           </div>
         )}
