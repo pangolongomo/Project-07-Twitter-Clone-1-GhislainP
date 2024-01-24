@@ -54,6 +54,7 @@ function TweetEditor() {
       });
     }
     setTweetText("");
+    setTweetImage(null);
   }
   return (
     <div className="flex py-2 px-4 gap-2 items-start">
