@@ -76,7 +76,7 @@ function Profile() {
                   );
                 })}
               <span className="flex items-center gap-1">
-                <LuCalendarDays /> A rejoint Twitter en
+                <LuCalendarDays /> A rejoint Twitter en{" "}
                 {joinDateFormatter(user.created)}
               </span>
             </div>

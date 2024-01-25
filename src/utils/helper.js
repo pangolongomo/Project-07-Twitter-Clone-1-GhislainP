@@ -32,63 +32,34 @@ export function dateFormatter(date) {
     return new Date(differenceFromNow).getUTCHours() + "h";
   }
 
-  const daysDifference = new Date().getDate() - dateValue.getDate();
+  const dateValueMonth = dateValue.toLocaleString("en-US", {
+    month: "short",
+  });
+  const dateValueDay = dateValue.toLocaleString("en-US", { day: "numeric" });
+  const dateValueYear = dateValue.toLocaleString("en-US", {
+    year: "numeric",
+  });
+
+  const daysDifference = new Date().getDate() - dateValueDay;
   if (dateValue.getMonth() === new Date().getMonth() && daysDifference < 32) {
     return daysDifference + "d";
   }
 
   if (dateValue.getFullYear() === new Date().getFullYear()) {
-    return monthFormaterShort(dateValue.getMonth()) + " " + dateValue.getDate();
+    return dateValueMonth + " " + dateValueDay;
   }
 
-  return (
-    monthFormaterShort(dateValue.getMonth()) +
-    " " +
-    dateValue.getDate() +
-    " " +
-    dateValue.getFullYear()
-  );
+  return dateValueMonth + " " + dateValueDay + " " + dateValueYear;
 }
 
 export function joinDateFormatter(date) {
   const dateValue = new Date(date);
+  const month = dateValue.toLocaleString("fr-FR", { month: "long" });
   if (dateValue.getFullYear() === new Date().getFullYear()) {
-    return monthFormater(dateValue.getMonth());
+    return month;
   } else {
-    return monthFormater(dateValue.getMonth()) + " " + dateValue.getFullYear();
+    return month + " " + dateValue.getFullYear();
   }
-}
-
-function monthFormaterShort(month) {
-  if (month === 0) return "Jan";
-  else if (month === 1) return "Feb";
-  else if (month === 2) return "Mar";
-  else if (month === 3) return "Apr";
-  else if (month === 4) return "May";
-  else if (month === 5) return "Jun";
-  else if (month === 6) return "Jul";
-  else if (month === 7) return "Aug";
-  else if (month === 8) return "Sep";
-  else if (month === 9) return "Oct";
-  else if (month === 10) return "Nov";
-  else if (month === 11) return "Dec";
-  else return null;
-}
-
-function monthFormater(month) {
-  if (month === 0) return "janvier";
-  else if (month === 1) return "février";
-  else if (month === 2) return "mars";
-  else if (month === 3) return "avril";
-  else if (month === 4) return "mai";
-  else if (month === 5) return "juin";
-  else if (month === 6) return "juillet";
-  else if (month === 7) return "août";
-  else if (month === 8) return "septembre";
-  else if (month === 9) return "octobre";
-  else if (month === 10) return "novembre";
-  else if (month === 11) return "decembre";
-  else null;
 }
 
 export function getActionIcon(name, actionState) {
