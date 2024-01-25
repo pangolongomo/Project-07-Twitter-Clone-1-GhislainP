@@ -39,6 +39,7 @@ function TweetEditor() {
       reader.onloadend = () => setTweetImage(reader.result);
       reader.readAsDataURL(file);
     }
+    e.target.value = null;
   }
 
   function handleSubmit(e) {
