@@ -7,8 +7,10 @@ import { TbCalendarStats } from "react-icons/tb";
 import Button from "./Button";
 import { isAuth } from "../utils/userHelper";
 import { useTweets } from "../context/tweetContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { REDUCER_ACTIONS } from "../utils/actions.json";
+import { useForm } from "react-hook-form";
+import useFilePreview from "../hooks/useFilePreview";
 
 const tweetEditorActionsButtons = [
   { name: "image", activated: true, icon: CiImageOn },
@@ -19,54 +21,43 @@ const tweetEditorActionsButtons = [
 ];
 
 function TweetEditor() {
-  const [tweetText, setTweetText] = useState("");
-  const [tweetImage, setTweetImage] = useState(null);
-  const [formValid, setFormValid] = useState(false);
   const user = isAuth();
   const { dispatch } = useTweets();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
-  useEffect(() => {
-    if (!tweetText.trim() && !tweetImage) {
-      return setFormValid(false);
-    }
-    setFormValid(true);
-  }, [tweetText, tweetImage]);
+  const image = watch("image");
+  console.log(image);
+  const [filePreview] = useFilePreview(image);
 
-  function handleFileChange(e) {
-    const file = e.target.files[0];
-    if (file && e.target.id === "image") {
-      const reader = new FileReader();
-      reader.onloadend = () => setTweetImage(reader.result);
-      reader.readAsDataURL(file);
-    }
-    e.target.value = null;
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (formValid) {
+  function handleAddTweet(data) {
+    if (data.tweetText || data.tweetImage) {
       dispatch({
         type: REDUCER_ACTIONS.ADD_TWEET,
         payload: {
-          tweetText: tweetText.trim(),
+          tweetText: data.tweetText,
           id: user.id,
-          tweetImage: tweetImage,
+          tweetImage: filePreview,
         },
       });
     }
-    setTweetText("");
-    setTweetImage(null);
   }
   return (
     <div className="flex py-2 px-4 gap-2 items-start">
       <Avatar userId={user.id} />
-      <form className="flex-auto" onSubmit={handleSubmit}>
+      <form
+        className="flex-auto"
+        onSubmit={handleSubmit((data) => handleAddTweet(data))}
+      >
         <input
           type="text"
           className="h-[60px] w-full bg-black text-2xl p-4"
           placeholder="What&rsquo;s happening?"
-          value={tweetText}
-          onChange={(e) => setTweetText(e.target.value)}
+          {...register("tweetText")}
         />
         <div className="flex justify-between items-center py-2">
           <div className="flex justify-start items-center gap-2">
@@ -80,23 +71,20 @@ function TweetEditor() {
                     <input
                       type="file"
                       id={Btn.name}
-                      name={Btn.name}
                       className="hidden"
-                      onChange={handleFileChange}
+                      {...register(Btn.name)}
                     />
                   )}
                 </div>
               );
             })}
           </div>
-          <Button actionType="submit" disabled={!formValid}>
-            Tweet
-          </Button>
+          <Button actionType="submit">Tweet</Button>
         </div>
 
-        {tweetImage && (
+        {filePreview && (
           <div className="h-10">
-            <img src={tweetImage} alt="" className="h-full" />
+            <img src={filePreview} alt="" className="h-full" />
           </div>
         )}
       </form>

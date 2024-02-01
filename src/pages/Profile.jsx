@@ -18,6 +18,7 @@ import AboutAuthor from "../components/AboutAuthor";
 function Profile() {
   const { username } = useParams();
   const user = userFromUsername(username);
+  console.log(user);
 
   const userTweets = user ? tweetsByUser(user.id) : null;
   const userPostsCount = user ? singleUserPosts(user.id).length : null;
