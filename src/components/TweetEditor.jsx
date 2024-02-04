@@ -27,25 +27,25 @@ function TweetEditor() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
   const image = watch("image");
-  console.log(image);
   const [filePreview] = useFilePreview(image);
 
   function handleAddTweet(data) {
-    if (data.tweetText || data.tweetImage) {
-      dispatch({
-        type: REDUCER_ACTIONS.ADD_TWEET,
-        payload: {
-          tweetText: data.tweetText,
-          id: user.id,
-          tweetImage: filePreview,
-        },
-      });
-    }
+    dispatch({
+      type: REDUCER_ACTIONS.ADD_TWEET,
+      payload: {
+        tweetText: data.tweetText,
+        id: user.id,
+        tweetImage: filePreview,
+      },
+    });
+    reset();
   }
+
   return (
     <div className="flex py-2 px-4 gap-2 items-start">
       <Avatar userId={user.id} />
@@ -53,12 +53,21 @@ function TweetEditor() {
         className="flex-auto"
         onSubmit={handleSubmit((data) => handleAddTweet(data))}
       >
-        <input
-          type="text"
-          className="h-[60px] w-full bg-black text-2xl p-4"
-          placeholder="What&rsquo;s happening?"
-          {...register("tweetText")}
-        />
+        <div className="w-full">
+          <input
+            type="text"
+            className="h-[60px] w-full bg-black text-2xl p-4"
+            placeholder="What&rsquo;s happening?"
+            {...register("tweetText", {
+              required: { value: true, message: "Ce champ est requis" },
+              maxLength: { value: 128, message: "Ce tweet est trop long" },
+              minLength: { value: 3, message: "Ce tweet est trop court" },
+            })}
+          />
+          <p className="h-[24px] text-rose-600">
+            {errors.tweetText && errors.tweetText.message}
+          </p>
+        </div>
         <div className="flex justify-between items-center py-2">
           <div className="flex justify-start items-center gap-2">
             {tweetEditorActionsButtons.map((Btn) => {
