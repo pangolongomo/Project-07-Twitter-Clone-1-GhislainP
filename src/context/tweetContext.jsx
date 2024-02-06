@@ -1,6 +1,7 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
 import data from "../data/initial-data.json";
 import { ACTIONS, REDUCER_ACTIONS } from "../utils/actions.json";
+import useFetch from "../hooks/useFetch";
 
 const TweetContext = React.createContext(null);
 
@@ -55,6 +56,9 @@ function handleLike(tweet, tweetId) {
 
 export default function TweetProvider({ children }) {
   const [tweets, dispatch] = useReducer(reducer, data.tweets);
+
+  // const { data, isPending, error } = useFetch("tweets");
+  // console.log(data);
 
   const value = { tweets, dispatch };
 
