@@ -1,4 +1,4 @@
-import { sortByDate } from "../utils/userHelper";
+import { sortByDate } from "../utils/helper";
 import Tweet from "./Tweet";
 
 function Tweets({ tweets }) {
