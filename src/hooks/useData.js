@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function useFetch(endpoint, params = {}) {
+function useData(endpoint, params = {}) {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
@@ -11,7 +11,7 @@ function useFetch(endpoint, params = {}) {
 
     axios({
       url: url,
-      method: "GET",
+      method: 'GET',
       params: params,
     })
       .then((res) => {
@@ -35,4 +35,4 @@ function useFetch(endpoint, params = {}) {
   return { data, isPending, error };
 }
 
-export default useFetch;
+export default useData;

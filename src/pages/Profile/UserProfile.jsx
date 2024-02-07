@@ -1,5 +1,5 @@
 import React from "react";
-import useFetch from "../../hooks/useFetch";
+import useData from "../../hooks/useData";
 import UserNavigation from "../../components/UserNavigation";
 import Avatar from "../../components/Avatar";
 import Button from "../../components/Button";
@@ -15,7 +15,7 @@ function UserProfile({ user }) {
     data: userTweets,
     error,
     isPending,
-  } = useFetch("tweets", { userId: user.id });
+  } = useData("tweets", { userId: user.id });
 
   return (
     <>
@@ -82,9 +82,13 @@ function UserProfile({ user }) {
           </p>
         </div>
       </div>
-      {userTweets && <Tweets tweets={userTweets} />}
-      {isPending && <div>Loading...</div>}
-      {error && <div>{error}</div>}
+      {isPending ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>{error}</div>
+      ) : (
+        <Tweets tweets={userTweets} />
+      )}
     </>
   );
 }

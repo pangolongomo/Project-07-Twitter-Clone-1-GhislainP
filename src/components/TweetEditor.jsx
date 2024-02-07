@@ -5,12 +5,10 @@ import { PiChartBarHorizontalLight } from "react-icons/pi";
 import { VscSmiley } from "react-icons/vsc";
 import { TbCalendarStats } from "react-icons/tb";
 import Button from "./Button";
-import { isAuth } from "../utils/userHelper";
-import { useTweets } from "../context/tweetContext";
-import { useState } from "react";
-import { REDUCER_ACTIONS } from "../utils/actions.json";
 import { useForm } from "react-hook-form";
 import useFilePreview from "../hooks/useFilePreview";
+import axios from "axios";
+import { useAuthInfos } from "../context/authInfos";
 
 const tweetEditorActionsButtons = [
   { name: "image", activated: true, icon: CiImageOn },
@@ -21,8 +19,7 @@ const tweetEditorActionsButtons = [
 ];
 
 function TweetEditor() {
-  const user = isAuth();
-  const { dispatch } = useTweets();
+  const { user } = useAuthInfos();
   const {
     register,
     handleSubmit,
@@ -35,14 +32,23 @@ function TweetEditor() {
   const [filePreview] = useFilePreview(image);
 
   function handleAddTweet(data) {
-    dispatch({
-      type: REDUCER_ACTIONS.ADD_TWEET,
-      payload: {
-        tweetText: data.tweetText,
-        id: user.id,
-        tweetImage: filePreview,
-      },
+    const tweet = {
+      id: Date.now(),
+      userId: user.id,
+      tweetText: data.tweetText,
+      tweetImage: filePreview || null,
+      tweetAction: [
+        { name: "message", count: 0 },
+        { name: "repost", count: 0 },
+        { name: "like", count: 0 },
+        { name: "share" },
+      ],
+      date: new Date().toISOString(),
+    };
+    axios.post("http://localhost:8000/tweets", tweet).then((res) => {
+      console.log(res);
     });
+
     reset();
   }
 

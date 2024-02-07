@@ -5,10 +5,10 @@ import { GoBell } from "react-icons/go";
 import { BsCardText } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa6";
 import { PiDotsThreeCircle } from "react-icons/pi";
-import { isAuth } from "./userHelper";
+import { useAuthInfos } from "../context/authInfos";
 
 export const sidebarNavElements = () => {
-  const user = isAuth();
+  const { user } = useAuthInfos();
 
   return [
     { icon: FaTwitter, link: "/" },

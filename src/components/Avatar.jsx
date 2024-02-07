@@ -1,9 +1,9 @@
 import React from "react";
-import { userFromId } from "../utils/userHelper";
 import { Link } from "react-router-dom";
+import useData from "../hooks/useData";
 
 function Avatar({ userId, width }) {
-  const user = userFromId(userId);
+  const { data: user, error, isPending } = useData(`current-user/${userId}`);
 
   return (
     <div
@@ -11,15 +11,17 @@ function Avatar({ userId, width }) {
         width || "w-[70px]"
       } aspect-[1/1] rounded-full bg-[#f7f9f9]`}
     >
-      <Link to={`/${user.userName}`}>
-        {user.avatar && (
-          <img
-            className="rounded-full w-full"
-            src={user.avatar}
-            alt={`logo ${user.userName}`}
-          />
-        )}
-      </Link>
+      {!isPending && !error && user && (
+        <Link to={`/${user.userName}`}>
+          {user.avatar && (
+            <img
+              className="rounded-full w-full"
+              src={user.avatar}
+              alt={`logo ${user.userName}`}
+            />
+          )}
+        </Link>
+      )}
     </div>
   );
 }

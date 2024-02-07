@@ -8,10 +8,11 @@ import TrendingTags from ".";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import Footer from "./Footer";
 import { PiGear } from "react-icons/pi";
-import { useTweets } from "../context/tweetContext";
+import useData from "../hooks/useData";
 
 function Trends() {
-  const { tweets } = useTweets();
+  const { data: tweets, error, isPending } = useData("tweets", { _limit: 3 });
+
   return (
     <div className="col-span-2 px-4 py-2">
       <div className="flex flex-col gap-4 relative">
@@ -24,19 +25,25 @@ function Trends() {
           })}
         </SuggestionMenu>
         <SuggestionMenu title="Who to follow">
-          {tweets.slice(0, 3).map((element) => {
-            return (
-              <UserHighlight
-                key={element.id}
-                userId={element.userId}
-                IconDesc={RiVerifiedBadgeFill}
-              >
-                <Button color="text-[#202327]" bg="bg-white">
-                  Follow
-                </Button>
-              </UserHighlight>
-            );
-          })}
+          {isPending ? (
+            <div>Loading...</div>
+          ) : error ? (
+            <div>{error}</div>
+          ) : (
+            tweets.map((element) => {
+              return (
+                <UserHighlight
+                  key={element.id}
+                  userId={element.userId}
+                  IconDesc={RiVerifiedBadgeFill}
+                >
+                  <Button color="text-[#202327]" bg="bg-white">
+                    Follow
+                  </Button>
+                </UserHighlight>
+              );
+            })
+          )}
         </SuggestionMenu>
         <Footer />
       </div>

@@ -1,30 +1,43 @@
 import { dateFormatter } from "../utils/helper";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
-import { userFromId } from "../utils/userHelper";
 import TweetActions from "./TweetActions";
 import { TweetContext } from "./Tweet";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import useData from "../hooks/useData";
 
 function TweetContent() {
   const tweet = useContext(TweetContext);
-  const user = userFromId(tweet.userId);
+  const {
+    data: user,
+    error,
+    isPending,
+  } = useData(`current-user/${tweet.userId}`);
   return (
     <div className="flex-auto flex flex-col gap-4">
       <div className="flex flex-col gap-2">
         <h2 className="flex items-center justify-start gap-1 text-base">
-          <span>
-            <Link to={`/${user.userName}`}>{user.name}</Link>
-          </span>
-          <span>
-            <Link>{user.isCertified && <RiVerifiedBadgeFill />}</Link>
-          </span>
-          <span className="text-[#6e767d]">
-            <Link to={`/${user.userName}`}>@{user.userName}</Link>
-          </span>
+          {isPending ? (
+            <span>Loading...</span>
+          ) : error ? (
+            <span>{error}</span>
+          ) : (
+            <>
+              <span>
+                <Link to={`/${user.userName}`}>{user.name}</Link>
+              </span>
+              <span>
+                <Link>{user.isCertified && <RiVerifiedBadgeFill />}</Link>
+              </span>
+              <span className="text-[#6e767d]">
+                <Link to={`/${user.userName}`}>@{user.userName}</Link>
+              </span>
+            </>
+          )}
           <span className="text-[#6e767d]">.</span>
           <span className="text-[#6e767d]">{dateFormatter(tweet.date)}</span>
         </h2>
+
         {tweet.tweetText && (
           <p className="text-[#d9d9d9] text-base">{tweet.tweetText}</p>
         )}
