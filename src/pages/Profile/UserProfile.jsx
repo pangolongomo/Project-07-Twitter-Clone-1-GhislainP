@@ -17,18 +17,12 @@ function UserProfile({ user }) {
     isPending,
   } = useFetch("tweets", { userId: user.id });
 
-  // const IconDesc = user ? user.isCertified && RiVerifiedBadgeFill : null;
-
-  const userNavigation = () => {
-    if (userTweets) {
-      return <UserNavigation user={user} postsCount={userTweets.length} />;
-    }
-    return <UserNavigation user={user} />;
-  };
-
   return (
     <>
-      {userNavigation}
+      <UserNavigation
+        user={user}
+        postsCount={userTweets && userTweets.length}
+      />
       <div className="w-full aspect-[3/1] bg-[#cfd9de]">
         {user.banner && (
           <img

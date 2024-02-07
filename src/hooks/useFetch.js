@@ -7,8 +7,8 @@ function useFetch(endpoint, params = {}) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const url = "http://localhost:7000/" + endpoint;
-console.log();
+    const url = "http://localhost:8000/" + endpoint;
+
     axios({
       url: url,
       method: "GET",
@@ -30,7 +30,7 @@ console.log();
           setError(err.message);
         }
       });
-  }, [endpoint, params.id, params.username]);
+  }, [endpoint, params.id, params.userName, params.userId]);
 
   return { data, isPending, error };
 }

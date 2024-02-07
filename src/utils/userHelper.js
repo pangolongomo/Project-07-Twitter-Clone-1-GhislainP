@@ -10,7 +10,7 @@ export const isAuth = () => {
 
 export const userFromId = (userId) => {
   const { users } = useUsers();
-  return users.find((user) => user.id === userId);
+  return users.find((user) => user.id == userId);
 };
 
 export const userFromUsername = (userName) => {

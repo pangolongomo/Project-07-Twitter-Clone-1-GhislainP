@@ -9,7 +9,7 @@ function UserHighlight({ userId, IconDesc, children }) {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <Avatar userId={userId} />
+        <Avatar userId={user.id} />
         <AboutAuthor
           userName={user.userName}
           IconDesc={IconDesc}
