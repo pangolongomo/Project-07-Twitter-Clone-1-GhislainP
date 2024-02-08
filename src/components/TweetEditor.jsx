@@ -33,7 +33,7 @@ function TweetEditor() {
 
   function handleAddTweet(data) {
     const tweet = {
-      id: Date.now(),
+      id: Date.now().toString(),
       userId: user.id,
       tweetText: data.tweetText,
       tweetImage: filePreview || null,

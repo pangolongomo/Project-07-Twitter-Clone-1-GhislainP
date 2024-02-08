@@ -1,39 +1,50 @@
-import React from "react";
-import { actionCountformatter, getActionIcon } from "../utils/helper";
-import { useTweets } from "../context/tweetContext";
-import { ACTIONS, REDUCER_ACTIONS } from "../utils/actions.json";
+import React, { useContext } from "react";
+import {
+  actionCountformatter,
+  getActionIcon,
+  handleActionStyle,
+} from "../utils/helper";
+import { ACTIONS } from "../utils/actions.json";
+import axios from "axios";
+import { TweetContext } from "./Tweet";
 
 function TweetAction({ action, tweetId }) {
-  const { dispatch } = useTweets();
+  const tweet = useContext(TweetContext);
 
+  const { textStyle, iconBg } = handleActionStyle(action);
   const Icon = getActionIcon(action.name, action.like);
   function handleAction() {
     switch (action.name) {
       case ACTIONS.LIKE:
-        dispatch({
-          type: REDUCER_ACTIONS.UPDATE_LIKE,
-          payload: { tweetId: tweetId },
-        });
+        handleLike();
+
       default:
         return;
     }
   }
 
-  let textStyle;
-  let iconBg;
-
-  if (action.name === "message") {
-    textStyle = `hover:text-[#1e9cf1] ${action.like ? `text-[#1e9cf1]` : ""}`;
-    iconBg = `group-hover:bg-[#1e9cf1]`;
-  } else if (action.name === "repost") {
-    textStyle = `hover:text-[#14c288] ${action.like ? `text-[#14c288]` : ""}`;
-    iconBg = `group-hover:bg-[#14c288]`;
-  } else if (action.name === "like") {
-    textStyle = `hover:text-[#f92f8d] ${action.like ? `text-[#f92f8d]` : ""}`;
-    iconBg = `group-hover:bg-[#f92f8d]`;
-  } else if (action.name === "share") {
-    textStyle = `hover:text-[#1e9cf1] ${action.like ? `text-[#1e9cf1]` : ""}`;
-    iconBg = `group-hover:bg-[#1e9cf1]`;
+  function handleLike() {
+    const newActions = tweet.tweetAction.map((mappedAction) => {
+      if (mappedAction.name !== ACTIONS.LIKE) {
+        return mappedAction;
+      }
+      const newCount = mappedAction.like
+        ? mappedAction.count - 1
+        : mappedAction.count + 1;
+      return { ...mappedAction, like: !mappedAction.like, count: newCount };
+    });
+    console.log(action);
+    axios
+      .patch(`http://localhost:8000/tweets/${tweetId}`, {
+        tweetAction: newActions,
+      })
+      .then((res) => {
+        res && console.log("Liked");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+    console.log(action);
   }
 
   return (
