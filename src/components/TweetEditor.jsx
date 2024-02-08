@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import useFilePreview from "../hooks/useFilePreview";
 import axios from "axios";
 import { useAuthInfos } from "../context/authInfos";
+import { useTweets } from "../context/tweetContext";
 
 const tweetEditorActionsButtons = [
   { name: "image", activated: true, icon: CiImageOn },
@@ -20,6 +21,7 @@ const tweetEditorActionsButtons = [
 
 function TweetEditor() {
   const { user } = useAuthInfos();
+  const { setTweets } = useTweets();
   const {
     register,
     handleSubmit,
@@ -46,7 +48,7 @@ function TweetEditor() {
       date: new Date().toISOString(),
     };
     axios.post("http://localhost:8000/tweets", tweet).then((res) => {
-      console.log(res);
+      setTweets((prevTweet) => [...prevTweet, res.data]);
     });
 
     reset();

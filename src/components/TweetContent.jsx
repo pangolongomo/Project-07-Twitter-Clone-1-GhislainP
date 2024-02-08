@@ -4,15 +4,14 @@ import TweetActions from "./TweetActions";
 import { TweetContext } from "./Tweet";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import useData from "../hooks/useData";
+import { useUsers } from "../context/userContext";
 
 function TweetContent() {
   const tweet = useContext(TweetContext);
-  const {
-    data: user,
-    error,
-    isPending,
-  } = useData(`current-user/${tweet.userId}`);
+
+  const { getUserById } = useUsers();
+  const { user, isPending, error } = getUserById(tweet.userId);
+
   return (
     <div className="flex-auto flex flex-col gap-4">
       <div className="flex flex-col gap-2">
@@ -45,7 +44,9 @@ function TweetContent() {
           <div className="w-full pt-1">
             <img
               src={tweet.tweetImage}
-              alt="{tweet.tweetImage}"
+              alt={
+                tweet.tweetText ? tweet.tweetText.substr(10) : "no description"
+              }
               className="w-full h-auto rounded-[50px] border border-[#2f3336]"
             />
           </div>

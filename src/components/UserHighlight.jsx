@@ -1,10 +1,11 @@
 import React from "react";
 import Avatar from "./Avatar";
 import AboutAuthor from "./AboutAuthor";
-import useData from "../hooks/useData";
+import { useUsers } from "../context/userContext";
 
 function UserHighlight({ userId, IconDesc, children }) {
-  const { data: user, error, isPending } = useData(`current-user/${userId}`);
+  const { getUserById } = useUsers();
+  const { user, isPending, error } = getUserById(userId);
 
   return (
     <div className="flex items-center justify-between">

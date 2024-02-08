@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useData from "../hooks/useData";
+import { useUsers } from "../context/userContext";
 
 function Avatar({ userId, width }) {
-  const { data: user, error, isPending } = useData(`current-user/${userId}`);
+  const { getUserById } = useUsers();
+  const { user, isPending, error } = getUserById(userId);
 
   return (
     <div

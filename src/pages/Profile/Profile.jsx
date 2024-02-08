@@ -2,22 +2,22 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
-import useData from "../../hooks/useData";
 import UserProfile from "./UserProfile";
 import NullUser from "./NullUser";
+import { useUsers } from "../../context/userContext";
 
 function Profile() {
   const { username } = useParams();
-  const { data, isPending, error } = useData("current-user", {
-    userName: username,
-  });
+
+  const { getUserByUsername } = useUsers();
+  const { users, isPending, error } = getUserByUsername(username);
 
   if (isPending) {
     return <p>Loading...</p>;
   } else if (error) {
     return <p>{error}</p>;
-  } else if (data) {
-    const user = data[0];
+  } else if (users.length) {
+    const user = users[0];
     return <UserProfile user={user} />;
   } else {
     return <NullUser />;

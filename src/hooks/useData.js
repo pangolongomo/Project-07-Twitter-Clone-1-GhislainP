@@ -11,7 +11,7 @@ function useData(endpoint, params = {}) {
 
     axios({
       url: url,
-      method: 'GET',
+      method: "GET",
       params: params,
     })
       .then((res) => {
@@ -32,7 +32,7 @@ function useData(endpoint, params = {}) {
       });
   }, [endpoint, params.id, params.userName, params.userId]);
 
-  return { data, isPending, error };
+  return { data, setData, isPending, error };
 }
 
 export default useData;

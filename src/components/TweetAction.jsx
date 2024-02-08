@@ -12,12 +12,12 @@ function TweetAction({ action, tweetId }) {
   const tweet = useContext(TweetContext);
 
   const { textStyle, iconBg } = handleActionStyle(action);
+
   const Icon = getActionIcon(action.name, action.like);
   function handleAction() {
     switch (action.name) {
       case ACTIONS.LIKE:
         handleLike();
-
       default:
         return;
     }
@@ -39,7 +39,7 @@ function TweetAction({ action, tweetId }) {
         tweetAction: newActions,
       })
       .then((res) => {
-        res && console.log("Liked");
+        console.log(res.data);
       })
       .catch((error) => {
         console.log(error.message);
