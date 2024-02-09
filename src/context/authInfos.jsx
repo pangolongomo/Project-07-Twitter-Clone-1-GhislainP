@@ -20,10 +20,9 @@ function AuthProvider({ children }) {
   } else if (error) {
     return <div>{error}</div>;
   } else {
+    const value = { user, loggedInUserid };
     return (
-      <AuthContext.Provider value={{ user, loggedInUserid }}>
-        {children}
-      </AuthContext.Provider>
+      <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
     );
   }
 }

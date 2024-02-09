@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 import useData from "../hooks/useData";
 
 const UserContext = React.createContext(null);

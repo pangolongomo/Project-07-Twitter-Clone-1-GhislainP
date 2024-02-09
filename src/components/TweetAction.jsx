@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   actionCountformatter,
   getActionIcon,
@@ -6,10 +6,10 @@ import {
 } from "../utils/helper";
 import { ACTIONS } from "../utils/actions.json";
 import axios from "axios";
-import { TweetContext } from "./Tweet";
+import { useTweets } from "../context/tweetContext";
 
 function TweetAction({ action, tweetId }) {
-  const tweet = useContext(TweetContext);
+  const { tweets, setTweets } = useTweets();
 
   const { textStyle, iconBg } = handleActionStyle(action);
 
@@ -24,6 +24,8 @@ function TweetAction({ action, tweetId }) {
   }
 
   function handleLike() {
+    const tweet = tweets.find((tweet) => tweet.id === tweetId);
+
     const newActions = tweet.tweetAction.map((mappedAction) => {
       if (mappedAction.name !== ACTIONS.LIKE) {
         return mappedAction;
@@ -33,18 +35,20 @@ function TweetAction({ action, tweetId }) {
         : mappedAction.count + 1;
       return { ...mappedAction, like: !mappedAction.like, count: newCount };
     });
-    console.log(action);
+
     axios
       .patch(`http://localhost:8000/tweets/${tweetId}`, {
         tweetAction: newActions,
       })
       .then((res) => {
-        console.log(res.data);
+        setTweets((prevTweets) => {
+          const oldTweets = prevTweets.filter((tweet) => tweet.id !== tweetId);
+          return [...oldTweets, res.data];
+        });
       })
       .catch((error) => {
         console.log(error.message);
       });
-    console.log(action);
   }
 
   return (

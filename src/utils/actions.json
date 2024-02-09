@@ -1,8 +1,4 @@
 {
-  "REDUCER_ACTIONS": {
-    "ADD_TWEET": "add-tweet",
-    "UPDATE_LIKE": "update-Like"
-  },
   "ACTIONS": {
     "LIKE": "like",
     "COMMENT": "message",

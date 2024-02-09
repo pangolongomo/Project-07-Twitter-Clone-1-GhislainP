@@ -9,20 +9,17 @@ import { LuCalendarDays } from "react-icons/lu";
 import { getUserInfoIcons, joinDateFormatter } from "../../utils/helper";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import Tweets from "../../components/Tweets";
+import { useTweets } from "../../context/tweetContext";
 
 function UserProfile({ user }) {
-  const {
-    data: userTweets,
-    error,
-    isPending,
-  } = useData("tweets", { userId: user.id });
+  const { tweets } = useTweets();
+  const userTweets = tweets.filter(
+    (tweet) => tweet.userId.toString() === user.id
+  );
 
   return (
     <>
-      <UserNavigation
-        user={user}
-        postsCount={userTweets && userTweets.length}
-      />
+      <UserNavigation user={user} postsCount={userTweets.length} />
       <div className="w-full aspect-[3/1] bg-[#cfd9de]">
         {user.banner && (
           <img
@@ -82,13 +79,7 @@ function UserProfile({ user }) {
           </p>
         </div>
       </div>
-      {isPending ? (
-        <div>Loading...</div>
-      ) : error ? (
-        <div>{error}</div>
-      ) : (
-        <Tweets tweets={userTweets} />
-      )}
+      <Tweets tweets={userTweets} />
     </>
   );
 }
