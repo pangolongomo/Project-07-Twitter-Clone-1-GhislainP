@@ -280,7 +280,8 @@
         },
         {
           "name": "like",
-          "count": 0
+          "count": 1,
+          "like": true
         },
         {
           "name": "share"

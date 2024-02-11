@@ -87,6 +87,7 @@ function TweetEditor() {
                   {Btn.activated && (
                     <input
                       type="file"
+                      accept="image/*"
                       id={Btn.name}
                       className="hidden"
                       {...register(Btn.name)}
