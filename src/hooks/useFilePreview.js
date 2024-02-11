@@ -5,13 +5,13 @@ export default function useFilePreview(file) {
 
   useEffect(() => {
     if (file && file[0]) {
-      const newUrl = URL.createObjectURL(file[0]);
-
-      if (newUrl !== imgSrc) {
-        setImgSrc(newUrl);
-      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImgSrc(reader.result);
+      };
+      reader.readAsDataURL(file[0]);
     }
-  }, [file, setImgSrc]);
+  }, [file]);
 
   return [imgSrc, setImgSrc];
 }
