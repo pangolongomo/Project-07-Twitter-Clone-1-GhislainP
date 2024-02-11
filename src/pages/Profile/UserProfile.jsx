@@ -1,5 +1,4 @@
 import React from "react";
-import useData from "../../hooks/useData";
 import UserNavigation from "../../components/UserNavigation";
 import Avatar from "../../components/Avatar";
 import Button from "../../components/Button";

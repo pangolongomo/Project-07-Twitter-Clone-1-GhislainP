@@ -31,7 +31,7 @@ function TweetEditor() {
   } = useForm();
 
   const image = watch("image");
-  const [filePreview] = useFilePreview(image);
+  const [filePreview, setFilePreview] = useFilePreview(image);
 
   function handleAddTweet(data) {
     const tweet = {
@@ -50,7 +50,7 @@ function TweetEditor() {
     axios.post("http://localhost:8000/tweets", tweet).then((res) => {
       setTweets((prevTweet) => [...prevTweet, res.data]);
     });
-
+    setFilePreview(null);
     reset();
   }
 

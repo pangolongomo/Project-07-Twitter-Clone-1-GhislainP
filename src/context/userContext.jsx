@@ -26,9 +26,18 @@ export default function UserProvider({ children }) {
     } = useData("current-user", { userName: username });
     return { users, setUsers, isPending, error };
   }
+  function getUsers(limit) {
+    const {
+      data: users,
+      isPending,
+      error,
+      setData: setUsers,
+    } = useData("current-user", { _LIMIT: limit });
+    return { users, setUsers, isPending, error };
+  }
 
   return (
-    <UserContext.Provider value={{ getUserById, getUserByUsername }}>
+    <UserContext.Provider value={{ getUserById, getUserByUsername, getUsers }}>
       {children}
     </UserContext.Provider>
   );

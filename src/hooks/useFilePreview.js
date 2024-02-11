@@ -11,7 +11,7 @@ export default function useFilePreview(file) {
         setImgSrc(newUrl);
       }
     }
-  }, [file]);
+  }, [file, setImgSrc]);
 
   return [imgSrc, setImgSrc];
 }
