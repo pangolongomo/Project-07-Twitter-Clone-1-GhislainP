@@ -5,10 +5,10 @@ import { GoBell } from "react-icons/go";
 import { BsCardText } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa6";
 import { PiDotsThreeCircle } from "react-icons/pi";
-import { useAuthInfos } from "../context/authInfos";
+import { useUsers } from "../context/userContext";
 
 export const sidebarNavElements = () => {
-  const { user } = useAuthInfos();
+  const loggedInUser = useUsers();
 
   return [
     { icon: FaTwitter, link: "/" },
@@ -18,7 +18,7 @@ export const sidebarNavElements = () => {
     { icon: CiMail, text: "Messages", link: "/" },
     { icon: CiBookmark, text: "Bookmarks", link: "/" },
     { icon: BsCardText, text: "Lists", link: "/" },
-    { icon: FaRegUser, text: "Profile    ", link: `/${user.userName}` },
+    { icon: FaRegUser, text: "Profile    ", link: `/${loggedInUser.handle}` },
     { icon: PiDotsThreeCircle, text: "More    ", link: "/" },
   ];
 };

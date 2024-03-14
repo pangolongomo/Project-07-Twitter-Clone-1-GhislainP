@@ -3,14 +3,14 @@ import SideNavigation from "./SideNavigation";
 import UserHighlight from "./UserHighlight";
 import { RiLock2Fill } from "react-icons/ri";
 import { BsThreeDots } from "react-icons/bs";
-import { useAuthInfos } from "../context/authInfos";
+import { useUsers } from "../context/userContext";
 
 function Sidebar() {
-  const { loggedInUserid } = useAuthInfos();
+  const loggedInUser = useUsers();
   return (
     <div className="col-span-2 flex flex-col justify-between h-screen p-4 sticky top-0">
       <SideNavigation />
-      <UserHighlight userId={loggedInUserid} IconDesc={RiLock2Fill}>
+      <UserHighlight user={loggedInUser} IconDesc={RiLock2Fill}>
         <BsThreeDots />
       </UserHighlight>
     </div>

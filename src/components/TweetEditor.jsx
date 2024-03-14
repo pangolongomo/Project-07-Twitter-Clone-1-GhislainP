@@ -7,9 +7,8 @@ import { TbCalendarStats } from "react-icons/tb";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
 import useFilePreview from "../hooks/useFilePreview";
-import axios from "axios";
-import { useAuthInfos } from "../context/authInfos";
-import { useTweets } from "../context/tweetContext";
+
+import { useUsers } from "../context/userContext";
 
 const tweetEditorActionsButtons = [
   { name: "image", activated: true, icon: CiImageOn },
@@ -20,8 +19,7 @@ const tweetEditorActionsButtons = [
 ];
 
 function TweetEditor() {
-  const { user } = useAuthInfos();
-  const { setTweets } = useTweets();
+  const loggedInUser = useUsers();
   const {
     register,
     handleSubmit,
@@ -56,7 +54,10 @@ function TweetEditor() {
 
   return (
     <div className="flex py-2 px-4 gap-2 items-start">
-      <Avatar userId={user.id} />
+      <Avatar
+        handle={loggedInUser.handle}
+        profilePicture={loggedInUser.profilePicture}
+      />
       <form
         className="flex-auto"
         onSubmit={handleSubmit((data) => handleAddTweet(data))}
