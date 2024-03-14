@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
-// import Trends from "./Trends";
+import Trends from "./Trends";
 import UserProvider from "../context/userContext";
 
 function Layout() {
@@ -11,7 +11,7 @@ function Layout() {
         <main className="col-span-5 divide-y divide-[#2f3336]">
           <Outlet />
         </main>
-        {/* <Trends /> */}
+        <Trends />
       </div>
     </UserProvider>
   );

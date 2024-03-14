@@ -12,9 +12,7 @@ export default function UserProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);
 
   async function getLoggedInUser() {
-    const loggedInUser = await axios.get(
-      "http://localhost:4000/users/loggedIn"
-    );
+    const loggedInUser = await axios.get("http://localhost:4000/users/auth");
     setUser(loggedInUser.data);
     setIsLoading(false);
   }

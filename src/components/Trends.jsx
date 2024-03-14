@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import otherData from "../data/other-data.json";
 import SearchBar from "./SearchBar";
 import SuggestionMenu from "./SuggestionMenu";
 import Button from "./Button";
 import UserHighlight from "./UserHighlight";
-import TrendingTags from ".";
+import TrendingTags from "./TrendingTags";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import Footer from "./Footer";
 import { PiGear } from "react-icons/pi";
-import { useUsers } from "../context/userContext";
+import axios from "axios";
 
 function Trends() {
-  const { getUsers } = useUsers();
-  const { users, isPending, error } = getUsers();
+  const [someUsers, setSomeUsers] = useState(null);
 
+  async function getSomeUsers(amount) {
+    try {
+      const response = await axios.get(
+        `http://localhost:4000/users/s/${amount}`
+      );
+      setSomeUsers(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getSomeUsers(3);
+  }, []);
+  console.log(someUsers);
   return (
     <div className="col-span-2 px-4 py-2">
       <div className="flex flex-col gap-4 relative">
@@ -26,13 +40,12 @@ function Trends() {
           })}
         </SuggestionMenu>
         <SuggestionMenu title="Who to follow">
-          {!isPending &&
-            !error &&
-            users.slice(0, 3).map((user) => {
+          {someUsers &&
+            someUsers.map((user) => {
               return (
                 <UserHighlight
-                  key={user.id}
-                  userId={user.id}
+                  key={user.handle}
+                  user={user}
                   IconDesc={RiVerifiedBadgeFill}
                 >
                   <Button color="text-[#202327]" bg="bg-white">

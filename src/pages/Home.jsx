@@ -9,7 +9,6 @@ function Home() {
 
   async function getTweets() {
     const response = await axios.get("http://localhost:4000/tweets");
-
     setTweet(response.data);
   }
 
