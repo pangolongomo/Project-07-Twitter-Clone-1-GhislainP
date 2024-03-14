@@ -8,7 +8,7 @@ function Tweet({ tweet }) {
   return (
     <TweetContext.Provider value={tweet}>
       <div className="flex py-2 px-4 gap-2 items-start">
-        <Avatar userId={tweet.userId} />
+        <Avatar handle={tweet.handle} profilePicture={tweet.profilePicture} />
         <TweetContent />
       </div>
     </TweetContext.Provider>

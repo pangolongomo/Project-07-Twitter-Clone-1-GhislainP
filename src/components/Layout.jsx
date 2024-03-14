@@ -7,11 +7,11 @@ function Layout() {
   return (
     <MainContext>
       <div className="mx-auto grid grid-cols-9 bg-black text-white divide-x divide-[#2f3336]">
-        <Sidebar />
+        {/* <Sidebar /> */}
         <main className="col-span-5 divide-y divide-[#2f3336]">
           <Outlet />
         </main>
-        <Trends />
+        {/* <Trends /> */}
       </div>
     </MainContext>
   );

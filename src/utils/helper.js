@@ -92,21 +92,21 @@ export const sortByDate = (arr) => {
   return arr.sort((a, b) => new Date(b.date) - new Date(a.date));
 };
 
-export function handleActionStyle(action) {
+export function handleActionStyle(name, actionActive) {
   let textStyle;
   let iconBg;
 
-  if (action.name === "message") {
-    textStyle = `hover:text-[#1e9cf1] ${action.like ? `text-[#1e9cf1]` : ""}`;
+  if (name === "message") {
+    textStyle = `hover:text-[#1e9cf1] ${actionActive ? `text-[#1e9cf1]` : ""}`;
     iconBg = `group-hover:bg-[#1e9cf1]`;
-  } else if (action.name === "repost") {
-    textStyle = `hover:text-[#14c288] ${action.like ? `text-[#14c288]` : ""}`;
+  } else if (name === "repost") {
+    textStyle = `hover:text-[#14c288] ${actionActive ? `text-[#14c288]` : ""}`;
     iconBg = `group-hover:bg-[#14c288]`;
-  } else if (action.name === "like") {
-    textStyle = `hover:text-[#f92f8d] ${action.like ? `text-[#f92f8d]` : ""}`;
+  } else if (name === "like") {
+    textStyle = `hover:text-[#f92f8d] ${actionActive ? `text-[#f92f8d]` : ""}`;
     iconBg = `group-hover:bg-[#f92f8d]`;
-  } else if (action.name === "share") {
-    textStyle = `hover:text-[#1e9cf1] ${action.like ? `text-[#1e9cf1]` : ""}`;
+  } else if (name === "share") {
+    textStyle = `hover:text-[#1e9cf1] ${actionActive ? `text-[#1e9cf1]` : ""}`;
     iconBg = `group-hover:bg-[#1e9cf1]`;
   }
 
