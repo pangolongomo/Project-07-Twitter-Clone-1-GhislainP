@@ -1,27 +1,20 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React from "react";
 import Header from "../components/Header";
 import TweetEditor from "../components/TweetEditor";
 import Tweets from "../components/Tweets";
-import axios from "axios";
+import useFetch from "../hooks/useFetch";
 
 function Home() {
-  const [tweets, setTweet] = useState([]);
+  const endpoint = `/tweets`;
+  const { data: tweets, error, loading } = useFetch(endpoint);
 
-  async function getTweets() {
-    const response = await axios.get("http://localhost:4000/tweets");
-    setTweet(response.data);
-  }
-
-  useEffect(() => {
-    getTweets();
-  }, []);
   return (
     <>
       <Header />
       <TweetEditor />
-      <Suspense fallback="<p>waiting</p>">
-        <Tweets tweets={tweets} />
-      </Suspense>
+      {loading && <div>loading...</div>}
+      {error && <div>something went wrong</div>}
+      {tweets && <Tweets tweets={tweets} />}
     </>
   );
 }

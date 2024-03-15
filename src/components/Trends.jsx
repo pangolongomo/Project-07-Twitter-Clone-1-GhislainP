@@ -8,26 +8,13 @@ import TrendingTags from "./TrendingTags";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import Footer from "./Footer";
 import { PiGear } from "react-icons/pi";
-import axios from "axios";
+import useFetch from "../hooks/useFetch";
 
 function Trends() {
-  const [someUsers, setSomeUsers] = useState(null);
+  const numberOfSuggestion = 3;
+  const endpoint = `/users/s/${numberOfSuggestion}`;
+  const { data: someUsers, error, loading } = useFetch(endpoint);
 
-  async function getSomeUsers(amount) {
-    try {
-      const response = await axios.get(
-        `http://localhost:4000/users/s/${amount}`
-      );
-      setSomeUsers(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    getSomeUsers(3);
-  }, []);
-  console.log(someUsers);
   return (
     <div className="col-span-2 px-4 py-2">
       <div className="flex flex-col gap-4 relative">
@@ -39,9 +26,11 @@ function Trends() {
             return <TrendingTags key={i} trend={element} />;
           })}
         </SuggestionMenu>
-        <SuggestionMenu title="Who to follow">
-          {someUsers &&
-            someUsers.map((user) => {
+        {loading && <div>loading</div>}
+        {error && <div>something went wrong</div>}
+        {someUsers && (
+          <SuggestionMenu title="Who to follow">
+            {someUsers.map((user) => {
               return (
                 <UserHighlight
                   key={user.handle}
@@ -54,7 +43,8 @@ function Trends() {
                 </UserHighlight>
               );
             })}
-        </SuggestionMenu>
+          </SuggestionMenu>
+        )}
         <Footer />
       </div>
     </div>

@@ -2,28 +2,32 @@ import React from "react";
 import UserNavigation from "../../components/UserNavigation";
 import Avatar from "../../components/Avatar";
 import Button from "../../components/Button";
-import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import AboutAuthor from "../../components/AboutAuthor";
+
+import { joinDateFormatter } from "../../utils/helper";
+
 import { LuCalendarDays } from "react-icons/lu";
-import { getUserInfoIcons, joinDateFormatter } from "../../utils/helper";
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
+import { GrLocation } from "react-icons/gr";
+import { TbLink } from "react-icons/tb";
+import useFetch from "../../hooks/useFetch";
 import Tweets from "../../components/Tweets";
-import { useTweets } from "../../context/tweetContext";
 
 function UserProfile({ user }) {
-  const { tweets } = useTweets();
-  const userTweets = tweets.filter(
-    (tweet) => tweet.userId.toString() === user.id
-  );
+  const endpoint = `/user/t/${user.id}`;
+  const { data: userTweets, error, loading } = useFetch(endpoint);
 
   return (
     <>
-      <UserNavigation user={user} postsCount={userTweets.length} />
+      {userTweets && (
+        <UserNavigation user={user} postsCount={userTweets.length} />
+      )}
       <div className="w-full aspect-[3/1] bg-[#cfd9de]">
-        {user.banner && (
+        {user.profileBackground && (
           <img
             className="w-full h-auto"
-            src={user.banner}
+            src={user.profileBackground}
             alt={`${user.name} banner`}
           />
         )}
@@ -32,7 +36,11 @@ function UserProfile({ user }) {
         <div className="flex justify-between py-2">
           <div className="relative">
             <div className="w-[130px] aspect-[1/1] absolute -top-24 bg-[#f7f9f9] rounded-full">
-              <Avatar userId={user.id} width="w-full" />
+              <Avatar
+                handle={user.handle}
+                profilePicture={user.profilePicture}
+                width="w-full"
+              />
             </div>
           </div>
 
@@ -47,37 +55,38 @@ function UserProfile({ user }) {
         </div>
 
         <AboutAuthor
-          userName={user.userName}
-          IconDesc={user.isCertified && RiVerifiedBadgeFill}
+          handle={user.handle}
+          IconDesc={RiVerifiedBadgeFill}
           name={user.name}
         />
-
-        <div>{user.description && <p>{user.description}</p>}</div>
+        <div>{user.bio && <p>{user.bio}</p>}</div>
         <div className="flex gap-8 wrap leading-8">
-          {user.userInfo &&
-            user.userInfo.map((info) => {
-              const InfoIcon = getUserInfoIcons(info.type);
-              return (
-                <span key={info.type} className="flex items-center gap-1">
-                  <InfoIcon />
-                  {info.content}
-                </span>
-              );
-            })}
+          <span className="flex items-center gap-1">
+            <GrLocation />
+            {user.location}
+          </span>
+          <span className="flex items-center gap-1">
+            <TbLink />
+            {user.website}
+          </span>
           <span className="flex items-center gap-1">
             <LuCalendarDays /> A rejoint Twitter en{" "}
-            {joinDateFormatter(user.created)}
+            {joinDateFormatter(user.createdAt)}
           </span>
         </div>
+
         <div className="flex gap-16">
           <p>
-            {user.subscription} abonnement{user.subscription > 1 && "s"}
+            {user.followingCount} abonnement{user.followingCount > 1 && "s"}
           </p>
           <p>
-            {user.subscriber} abonné{user.subscriber > 1 && "s"}
+            {user.followersCount} abonné{user.followersCount > 1 && "s"}
           </p>
         </div>
       </div>
+      {loading && <div>loading...</div>}
+      {error && <div>something went wrong.</div>}
+      userTweets &&
       <Tweets tweets={userTweets} />
     </>
   );

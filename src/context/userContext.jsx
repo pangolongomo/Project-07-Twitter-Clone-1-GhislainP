@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
+import useFetch from "../hooks/useFetch";
 
 export const UserContext = React.createContext(null);
 
@@ -8,21 +8,15 @@ export function useUsers() {
 }
 
 export default function UserProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const endpoint = `/users/auth`;
+  const { data: user, error, loading } = useFetch(endpoint);
 
-  async function getLoggedInUser() {
-    const loggedInUser = await axios.get("http://localhost:4000/users/auth");
-    setUser(loggedInUser.data);
-    setIsLoading(false);
+  if (loading) {
+    return <div>loading...</div>;
+  }
+  if (error) {
+    return <div>something went wrong</div>;
   }
 
-  useEffect(() => {
-    getLoggedInUser();
-  }, []);
-  if (isLoading) {
-    return <div>is loading</div>;
-  } else {
-    return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
-  }
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 }

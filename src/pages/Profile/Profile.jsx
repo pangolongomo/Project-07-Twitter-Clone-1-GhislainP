@@ -2,26 +2,24 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
-// import UserProfile from "./UserProfile";
+import UserProfile from "./UserProfile";
 import NullUser from "./NullUser";
-// import { useUsers } from "../../context/userContext";
+import useFetch from "../../hooks/useFetch";
 
 function Profile() {
-  // const { username } = useParams();
+  const { handle } = useParams();
+  const { data: user, loading, error } = useFetch(`/user/h/${handle}`);
 
-  // const { getUserByUsername } = useUsers();
-  // const { users, isPending, error } = getUserByUsername(username);
-
-  // if (isPending) {
-  //   return <p>Loading...</p>;
-  // } else if (error) {
-  //   return <p>{error}</p>;
-  // } else if (users.length) {
-  //   const user = users[0];
-  //   return <UserProfile user={user} />;
-  // } else {
-  return <NullUser />;
-  // }
+  if (loading) {
+    return <p>loading...</p>;
+  }
+  if (error) {
+    return <div>something went wrong.</div>;
+  }
+  if (!user) {
+    return <NullUser />;
+  }
+  return <UserProfile user={user} />;
 }
 
 export default Profile;

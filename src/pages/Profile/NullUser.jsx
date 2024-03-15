@@ -3,7 +3,7 @@ import UserNavigation from "../../components/UserNavigation";
 import { useParams } from "react-router-dom";
 
 function NullUser() {
-  const { username } = useParams();
+  const { handle } = useParams();
   return (
     <>
       <UserNavigation />
@@ -15,7 +15,7 @@ function NullUser() {
           </div>
         </div>
 
-        <div className="my-4 font-medium">@{username}</div>
+        <div className="my-4 font-medium">{handle}</div>
       </div>
 
       <div className="flex justify-center">

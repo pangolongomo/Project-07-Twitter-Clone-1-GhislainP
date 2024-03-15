@@ -4,7 +4,6 @@ import {
   getActionIcon,
   handleActionStyle,
 } from "../utils/helper";
-// import { ACTIONS } from "../utils/actions.json";
 // import axios from "axios";
 // import { useTweets } from "../context/tweetContext";
 import { TweetContext } from "./Tweet";

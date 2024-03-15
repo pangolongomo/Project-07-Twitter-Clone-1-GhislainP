@@ -3,7 +3,7 @@ import Tweet from "./Tweet";
 
 function Tweets({ tweets }) {
   const tweetList =
-    tweets.length > 0 ? (
+    tweets?.length > 0 ? (
       sortByDate(tweets).map((tweet) => {
         return <Tweet key={tweet.id} tweet={tweet} />;
       })

@@ -2,9 +2,6 @@ import { BiMessageRounded, BiRepost } from "react-icons/bi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
 import { FiShare } from "react-icons/fi";
-import { TbLink } from "react-icons/tb";
-import { GrLocation } from "react-icons/gr";
-import { MdBusinessCenter } from "react-icons/md";
 
 export function actionCountformatter(total) {
   function formatValue(divider, rank) {
@@ -72,18 +69,6 @@ export function getActionIcon(name, actionState) {
     icon = actionState ? IoMdHeart : IoMdHeartEmpty;
   } else if (name === "share") {
     icon = FiShare;
-  }
-  return icon;
-}
-
-export function getUserInfoIcons(type) {
-  let icon = null;
-  if (type === "website") {
-    icon = TbLink;
-  } else if (type === "location") {
-    icon = GrLocation;
-  } else if (type === "profession") {
-    icon = MdBusinessCenter;
   }
   return icon;
 }

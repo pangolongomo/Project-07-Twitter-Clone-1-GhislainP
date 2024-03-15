@@ -1,8 +1,0 @@
-{
-  "ACTIONS": {
-    "LIKE": "like",
-    "COMMENT": "message",
-    "REPOST": "repost",
-    "SHARE": "share"
-  }
-}
