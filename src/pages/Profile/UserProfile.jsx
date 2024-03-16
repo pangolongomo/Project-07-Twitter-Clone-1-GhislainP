@@ -23,7 +23,7 @@ function UserProfile({ user }) {
       {userTweets && (
         <UserNavigation user={user} postsCount={userTweets.length} />
       )}
-      <div className="w-full aspect-[3/1] bg-[#cfd9de]">
+      <div className="w-full aspect-[3/1] overflow-hidden bg-[#cfd9de]">
         {user.profileBackground && (
           <img
             className="w-full h-auto"

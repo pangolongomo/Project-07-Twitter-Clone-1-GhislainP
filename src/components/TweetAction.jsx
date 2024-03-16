@@ -1,34 +1,58 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   actionCountformatter,
   getActionIcon,
   handleActionStyle,
 } from "../utils/helper";
-// import axios from "axios";
-// import { useTweets } from "../context/tweetContext";
+
 import { TweetContext } from "./Tweet";
+import axios from "axios";
 
 function TweetAction({ name }) {
-  let count = 0;
-  let actionActive = false;
+  const API_URL = "http://localhost:4000";
+  let [count, setCount] = useState(-1);
+  let [actionActive, setActionActive] = useState(false);
+
   const tweet = useContext(TweetContext);
 
-  if (name === "message") {
-    count = tweet.repliesCount;
-  } else if (name === "repost") {
-    count = tweet.retweetCount;
-  } else if (name === "like") {
-    count = tweet.favoriteCount;
-    actionActive = tweet.liked;
-  } else if (name === "share") {
-    count = -1;
-    actionActive = tweet.shared;
-  }
+  useEffect(() => {
+    if (name === "message") {
+      setCount(tweet.repliesCount);
+    } else if (name === "repost") {
+      setCount(tweet.retweetCount);
+    } else if (name === "like") {
+      setCount(tweet.favoriteCount);
+      setActionActive(tweet.liked);
+    } else if (name === "share") {
+      setActionActive(tweet.shared);
+    }
+  }, []);
 
   const { textStyle, iconBg } = handleActionStyle(name, actionActive);
 
   const Icon = getActionIcon(name, actionActive);
-  function handleAction() {}
+  function handleAction() {
+    if (name === "like") {
+      likeTweet();
+    }
+  }
+
+  async function likeTweet() {
+    if (actionActive) setCount((prevCount) => prevCount - 1);
+    else setCount((prevCount) => prevCount + 1);
+    setActionActive((prevActionActive) => !prevActionActive);
+
+    try {
+      const response = await axios.put(API_URL + `/tweets/${tweet.id}/like`);
+      if (response.status !== 200) {
+        if (actionActive) setCount((prevCount) => prevCount - 1);
+        else setCount((prevCount) => prevCount + 1);
+        setActionActive((prevActionActive) => !prevActionActive);
+      }
+    } catch (e) {
+      console.log("something went wrong");
+    }
+  }
 
   return (
     <button

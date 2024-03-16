@@ -34,11 +34,11 @@ function TweetContent() {
         <p className="text-[#d9d9d9] text-base">{tweet.text}</p>
 
         {tweet.media.length > 0 && (
-          <div className="w-full pt-1">
+          <div className="w-full aspect-[16/9] overflow-hidden rounded-[50px] bg-[#cfd9de]">
             <img
               src={tweet.media[0]}
               alt={tweet.text ? tweet.text.substr(10) : "no description"}
-              className="w-full h-auto rounded-[50px] border border-[#2f3336]"
+              className="w-full border border-[#2f3336] my-auto"
             />
           </div>
         )}
