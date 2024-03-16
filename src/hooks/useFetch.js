@@ -13,7 +13,8 @@ const useFetch = (endpoint) => {
       setLoading(() => true);
       try {
         const response = await axios.get(API_URL + endpoint);
-        setData(response.data);
+        const jsonData = JSON.parse(response.data);
+        setData(jsonData);
       } catch (e) {
         setError(e);
       } finally {

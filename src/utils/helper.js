@@ -73,10 +73,6 @@ export function getActionIcon(name, actionState) {
   return icon;
 }
 
-export const sortByDate = (arr) => {
-  return arr.sort((a, b) => new Date(b.date) - new Date(a.date));
-};
-
 export function handleActionStyle(name, actionActive) {
   let textStyle;
   let iconBg;

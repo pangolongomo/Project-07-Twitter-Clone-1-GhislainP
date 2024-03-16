@@ -1,10 +1,9 @@
-import { sortByDate } from "../utils/helper";
 import Tweet from "./Tweet";
 
 function Tweets({ tweets }) {
   const tweetList =
     tweets?.length > 0 ? (
-      sortByDate(tweets).map((tweet) => {
+      tweets.map((tweet) => {
         return <Tweet key={tweet.id} tweet={tweet} />;
       })
     ) : (
