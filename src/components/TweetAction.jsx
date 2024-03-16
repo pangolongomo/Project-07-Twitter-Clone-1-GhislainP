@@ -35,6 +35,9 @@ function TweetAction({ name }) {
     if (name === "like") {
       likeTweet();
     }
+    if (name === "share") {
+      shareTweet();
+    }
   }
 
   async function likeTweet() {
@@ -50,7 +53,19 @@ function TweetAction({ name }) {
         setActionActive((prevActionActive) => !prevActionActive);
       }
     } catch (e) {
-      console.log("something went wrong");
+      console.error("something went wrong");
+    }
+  }
+
+  async function shareTweet() {
+    setActionActive((prevActionActive) => !prevActionActive);
+    try {
+      const response = await axios.put(API_URL + `/tweets/${tweet.id}/share`);
+      if (response.status !== 200) {
+        setActionActive((prevActionActive) => !prevActionActive);
+      }
+    } catch (e) {
+      console.error("something went wrong");
     }
   }
 
